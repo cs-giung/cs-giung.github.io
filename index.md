@@ -8,7 +8,7 @@ permalink: /
 
 ## About
 
-I am an M.S. student in [the Graduate School of AI at KAIST](http://gsai.kaist.ac.kr){:target="_blank"}. I finished my B.S. in [computer science and engineering at Korea University](http://cs.korea.ac.kr){:target="_blank"}.
+I am a M.S. student in [the Graduate School of AI at KAIST](http://gsai.kaist.ac.kr){:target="_blank"}. I finished my B.S. in [computer science and engineering at Korea University](http://cs.korea.ac.kr){:target="_blank"}.
 
 ## Education
 
