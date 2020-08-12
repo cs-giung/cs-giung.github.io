@@ -14,7 +14,7 @@ I am a M.S. student in [the Graduate School of AI at KAIST](http://gsai.kaist.ac
 
 * 2020.09 - present. [Graduate School of Artificial Intelligence](http://gsai.kaist.ac.kr){:target="_blank"}, [KAIST](http://kaist.ac.kr){:target="_blank"}
 * 2017.03 - 2020.08. [Department of Computer Science and Engineering](http://cs.korea.ac.kr){:target="_blank"}, [Korea University](http://korea.ac.kr){:target="_blank"}
-* 2014.03 - 2017.02. [Daejeon Donsing Science High School](http://ddsciencehs.djsch.kr){:target="_blank"}
+* 2014.03 - 2017.02. [Daejeon Dongsin Science High School](http://ddsciencehs.djsch.kr){:target="_blank"}
 
 ## Experience
 
