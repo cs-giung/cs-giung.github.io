@@ -1,0 +1,17 @@
+# Example Site settings
+
+#google_analytics: UA-NNNNNNNN-N
+
+title: "cs-giung"
+url: "https://cs-giung.github.io"
+
+header_pages:
+  - index.md
+  - publications.md
+  - logs.md
+
+style: dark
+listen_for_clients_preferred_style: false
+
+plugins:
+  - jekyll-seo-tag
