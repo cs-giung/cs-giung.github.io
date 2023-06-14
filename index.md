@@ -16,15 +16,22 @@ I am a Ph.D. student in the [Kim Jaechul Graduate School of AI at Korea Advanced
 * 2017.03 - 2020.08. [Department of Computer Science and Engineering](http://cs.korea.ac.kr){:target="_blank"}, [Korea University](http://korea.ac.kr){:target="_blank"}.
 * 2014.03 - 2017.02. [Daejeon Dongsin Science High School](http://ddsciencehs.djsch.kr){:target="_blank"}.
 
-## Experience
+## Experiences
 
 * 2020.07 - 2020.08. ETRI Internship Program ([@ETRI](https://etri.re.kr){:target="_blank"}).
 * 2020.01 - 2020.02. ETRI Internship Program ([@ETRI](https://etri.re.kr){:target="_blank"}).
 * 2019.07 - 2019.08. ETRI Internship Program ([@ETRI](https://etri.re.kr){:target="_blank"}).
 * 2019.03 - 2019.06. University-Industry Collaboration Proejct ([@VisualCamp](https://www.visual.camp){:target="_blank"}).
 
-## Academic Service
+## Academic Services
 
 * Reviewer for [ICML 2023](https://icml.cc/Conferences/2023/Reviewers){:target="_blank"}.
 * Reviewer for [NeurIPS 2022](https://neurips.cc/Conferences/2022/ProgramCommittee){:target="_blank"} (Top 8%).
 * Reviewer for [ICML 2022](https://icml.cc/Conferences/2022/Reviewers){:target="_blank"}.
+
+## Links
+
+* [Github](https://github.com/cs-giung){:target="_blank"}
+* [DBLP](https://dblp.org/pid/304/9008){:target="_blank"}
+* [Google Scholar](https://scholar.google.com/citations?user=HO-fMd8AAAAJ){:target="_blank"}
+* [Semantic Scholar](https://www.semanticscholar.org/author/2065197138){:target="_blank"}
