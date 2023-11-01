@@ -15,6 +15,7 @@ permalink: /logs/
   * [Discussion of Software 2.0 (Andrej Karpathy and Dogan Ulus, 2017)](./karpathy-2017)
   * [The limitations of deep learning, and its future (Francois Chollet, 2017)](./chollet-2017)
   * [The bitter lesson (Rich Sutton, 2019)](./sutton-2019)
+  * [Executive order on safe, secure, and trustworthy artificial intelligence (The White House, 2023)](./whitehouse-2023)
 
 * Advices, Guidelines \.\.\.
   * [The illustrated guide to a Ph.D. (Matt Might)](http://matt.might.net/articles/phd-school-in-pictures/){:target="_blank"}
