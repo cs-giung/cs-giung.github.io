@@ -4,7 +4,7 @@ layout: page
 permalink: /logs/
 ---
 
-## Readings
+Readings
 
 * Science, Mathemtatics, CS \.\.\.
   * [The function of the machine (George Orwell, 1937)](./orwell-1937)
