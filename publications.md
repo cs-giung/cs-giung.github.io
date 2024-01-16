@@ -6,6 +6,18 @@ permalink: /publications/
 
 More information can be found on [[DBLP](https://dblp.org/pid/304/9008){:target="_blank"}, [Google Scholar](https://scholar.google.com/citations?user=HO-fMd8AAAAJ){:target="_blank"}, [Semantic Scholar](https://www.semanticscholar.org/author/2065197138){:target="_blank"}].
 
+[__Sparse Weight Averaging with Multiple Particles for Iterative Magnitude Pruning__](){:target="_blank"}
+Moonseok Choi\*, Hyungi Lee\*, Giung Nam\*, Juho Lee
+_International Conference on Learning Representations (ICLR)_, 2024 (To appear)
+
+[__Enhancing Transfer Learning with Flexible Nonparametric Posterior Sampling__](){:target="_blank"}
+Hyungi Lee\*, Giung Nam\*, Edwin Fong, Juho Lee
+_International Conference on Learning Representations (ICLR)_, 2024 (To appear)
+
+[__Lipsum-FT: Robust Fine-Tuning of Zero-Shot Models Using Random Text Guidance__](){:target="_blank"}
+Giung Nam, Byeongho Heo, Juho Lee
+_International Conference on Learning Representations (ICLR)_, 2024 (To appear)
+
 [__Traversing Between Modes in Function Space for Fast Ensembling__](https://openreview.net/forum?id=Kw7g8iUNAw){:target="_blank"}
 Eunggu Yun\*, Hyungi Lee\*, Giung Nam\*, Juho Lee
 _International Conference on Machine Learning (ICML)_, 2023
