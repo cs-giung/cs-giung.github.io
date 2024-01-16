@@ -21,7 +21,7 @@ Giung Nam, Byeongho Heo, Juho Lee
 _International Conference on Learning Representations (ICLR)_, 2024
 (To appear)
 
-[__Traversing Between Modes in Function Space for Fast Ensembling__](https://openreview.net/forum?id=Kw7g8iUNAw){:target="_blank"}
+[__Traversing between modes in function space for fast ensembling__](https://openreview.net/forum?id=Kw7g8iUNAw){:target="_blank"}
 Eunggu Yun\*, Hyungi Lee\*, Giung Nam\*, Juho Lee
 _International Conference on Machine Learning (ICML)_, 2023
 [[pdf](https://openreview.net/pdf?id=Kw7g8iUNAw){:target="_blank"}, [arXiv](https://arxiv.org/abs/2306.11304){:target="_blank"}]
