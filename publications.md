@@ -9,17 +9,17 @@ More information can be found on [[DBLP](https://dblp.org/pid/304/9008){:target=
 [__Sparse weight averaging with multiple particles for iterative magnitude pruning__](https://openreview.net/forum?id=Y9t7MqZtCR){:target="_blank"}
 Moonseok Choi\*, Hyungi Lee\*, Giung Nam\*, Juho Lee
 _International Conference on Learning Representations (ICLR)_, 2024
-[[pdf](https://openreview.net/pdf?id=Y9t7MqZtCR){:target="_blank"}, [[arXiv](https://arxiv.org/abs/2305.14852){:target="_blank"}]
+[[pdf](https://openreview.net/pdf?id=Y9t7MqZtCR){:target="_blank"}, [arXiv](https://arxiv.org/abs/2305.14852){:target="_blank"}]
 
 [__Enhancing transfer learning with flexible nonparametric posterior sampling__](https://openreview.net/forum?id=vSwu81S33z){:target="_blank"}
 Hyungi Lee\*, Giung Nam\*, Edwin Fong, Juho Lee
 _International Conference on Learning Representations (ICLR)_, 2024
-[[pdf](https://openreview.net/pdf?id=vSwu81S33z){:target="_blank"}, [[arXiv](https://arxiv.org/abs/2403.07282){:target="_blank"}]
+[[pdf](https://openreview.net/pdf?id=vSwu81S33z){:target="_blank"}, [arXiv](https://arxiv.org/abs/2403.07282){:target="_blank"}]
 
 [__Lipsum-FT: Robust fine-tuning of zero-shot models using random text guidance__](https://openreview.net/forum?id=2JF8mJRJ7M){:target="_blank"}
 Giung Nam, Byeongho Heo, Juho Lee
 _International Conference on Learning Representations (ICLR)_, 2024
-[[pdf](https://openreview.net/pdf?id=2JF8mJRJ7M){:target="_blank"}, [[arXiv](https://arxiv.org/abs/2404.00860){:target="_blank"}]
+[[pdf](https://openreview.net/pdf?id=2JF8mJRJ7M){:target="_blank"}, [arXiv](https://arxiv.org/abs/2404.00860){:target="_blank"}]
 
 [__Traversing between modes in function space for fast ensembling__](https://openreview.net/forum?id=Kw7g8iUNAw){:target="_blank"}
 Eunggu Yun\*, Hyungi Lee\*, Giung Nam\*, Juho Lee
