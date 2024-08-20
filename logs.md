@@ -7,6 +7,7 @@ permalink: /logs/
 Readings
 
 * Science, Mathemtatics, CS \.\.\.
+  * [The machine of speculative knowledge (Jonathan Swift, 1726)](./swift-1726)
   * [Vox populi and vox expertorum (Francis Galton and F. H. Perry-Coste, 1907)](./galton-1907)
   * [The function of the machine (George Orwell, 1937)](./orwell-1937)
   * [Bayesian inference for the applied statistician (Donald Rubin, 1984)](./rubin-1984)
