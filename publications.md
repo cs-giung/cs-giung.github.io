@@ -6,6 +6,10 @@ permalink: /publications/
 
 More information can be found on [[DBLP](https://dblp.org/pid/304/9008){:target="_blank"}, [Google Scholar](https://scholar.google.com/citations?user=HO-fMd8AAAAJ){:target="_blank"}, [Semantic Scholar](https://www.semanticscholar.org/author/2065197138){:target="_blank"}].
 
+[__Ex Uno Pluria: Insights on Ensembling in Low Precision Number Systems__]()
+Giung Nam, Juho Lee
+_Neural Information Processing Systems (NeurIPS)_, 2024 (To appear)
+
 [__Sparse weight averaging with multiple particles for iterative magnitude pruning__](https://openreview.net/forum?id=Y9t7MqZtCR){:target="_blank"}
 Moonseok Choi\*, Hyungi Lee\*, Giung Nam\*, Juho Lee
 _International Conference on Learning Representations (ICLR)_, 2024
