@@ -8,7 +8,8 @@ More information can be found on [[DBLP](https://dblp.org/pid/304/9008){:target=
 
 [__Ex Uno Pluria: Insights on Ensembling in Low Precision Number Systems__]()
 Giung Nam, Juho Lee
-_Neural Information Processing Systems (NeurIPS)_, 2024 (To appear)
+_Neural Information Processing Systems (NeurIPS)_, 2024
+(To appear)
 
 [__Sparse weight averaging with multiple particles for iterative magnitude pruning__](https://openreview.net/forum?id=Y9t7MqZtCR){:target="_blank"}
 Moonseok Choi\*, Hyungi Lee\*, Giung Nam\*, Juho Lee
