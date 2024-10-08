@@ -6,7 +6,7 @@ permalink: /publications/
 
 More information can be found on [[DBLP](https://dblp.org/pid/304/9008){:target="_blank"}, [Google Scholar](https://scholar.google.com/citations?user=HO-fMd8AAAAJ){:target="_blank"}, [Semantic Scholar](https://www.semanticscholar.org/author/2065197138){:target="_blank"}].
 
-[__Ex Uno Pluria: Insights on Ensembling in Low Precision Number Systems__]()
+[__Ex uno pluria: Insights on ensembling in low precision number systems__]()
 Giung Nam, Juho Lee
 _Neural Information Processing Systems (NeurIPS)_, 2024
 (To appear)
