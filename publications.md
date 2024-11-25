@@ -6,9 +6,10 @@ permalink: /publications/
 
 More information can be found on [[DBLP](https://dblp.org/pid/304/9008){:target="_blank"}, [Google Scholar](https://scholar.google.com/citations?user=HO-fMd8AAAAJ){:target="_blank"}, [Semantic Scholar](https://www.semanticscholar.org/author/2065197138){:target="_blank"}].
 
-[__Ex uno pluria: insights on ensembling in low precision number systems__]()
+[__Ex uno pluria: insights on ensembling in low precision number systems__](https://openreview.net/forum?id=CbtkDWZzDq){:target="_blank"}
 Giung Nam, Juho Lee
 _Neural Information Processing Systems (NeurIPS)_, 2024
+[[pdf](https://openreview.net/pdf?id=CbtkDWZzDq){:target="_blank"} [arXiv](https://arxiv.org/abs/2411.14860){:target="_blank"}]
 (To appear)
 
 [__Sparse weight averaging with multiple particles for iterative magnitude pruning__](https://openreview.net/forum?id=Y9t7MqZtCR){:target="_blank"}
