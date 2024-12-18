@@ -4,9 +4,7 @@ layout: page
 permalink: /
 ---
 
-[Curriculum Vitae (Last updated on Nov 22, 2024)](./CV.pdf){:target="_blank"}
-
-I am Giung Nam, a Ph.D. student in the [Kim Jaechul Graduate School of AI at Korea Advanced Institute of Science and Technology (KAIST AI)](http://gsai.kaist.ac.kr){:target="_blank"}, advised by Professor [Juho Lee](http://juho-lee.github.io){:target="_blank"}. I earned an M.S. degree in the [KAIST AI](http://gsai.kaist.ac.kr){:target="_blank"} and a B.S. degree in the [Department of Computer Science and Engineering at Korea University](http://cs.korea.ac.kr){:target="_blank"}.
+I am Giung Nam (남기웅), a Ph.D. student in the [Kim Jaechul Graduate School of AI at Korea Advanced Institute of Science and Technology (KAIST AI)](http://gsai.kaist.ac.kr){:target="_blank"}, advised by Professor [Juho Lee](http://juho-lee.github.io){:target="_blank"}. I earned an M.S. degree in the [KAIST AI](http://gsai.kaist.ac.kr){:target="_blank"} and a B.S. degree in the [Department of Computer Science and Engineering at Korea University](http://cs.korea.ac.kr){:target="_blank"}. Here are my [CV (Last updated on Dec 18, 2024)](./CV.pdf){:target="_blank"} and [LinkedIn](https://www.linkedin.com/in/giung-nam-3443562ab/){:target="_blank"}.
 
 ---
 
