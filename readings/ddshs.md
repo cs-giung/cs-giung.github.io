@@ -1,7 +1,7 @@
 ---
-title: /logs/ddshs
+title: /readings/ddshs
 layout: page
-permalink: /logs/ddshs
+permalink: /readings/ddshs
 ---
 
 ## [Daejeon Dongsing Science High School](http://ddsciencehs.djsch.kr){:target="_blank"}

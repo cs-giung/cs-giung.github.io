@@ -1,10 +1,13 @@
 ---
-title: /logs/atiyah-2010
+title: /readings/atiyah-2008
 layout: page
-permalink: /logs/atiyah-2010
+permalink: /readings/atiyah-2008
 ---
 
-## Advice to a Young Mathematician \#1 (Michael Atiyah, 2010)
+## Advice to a Young Mathematician \#1 (Michael Atiyah)
+> from [The Princeton Companion to Mathematics (Timothy Gowers, June Barrow-Green, and Imre Leader, 2008)](http://press.princeton.edu/titles/8350.html){:target="_blank"}; the chapter is freely available [here](https://assets.press.princeton.edu/releases/gowers/gowers_VIII_6.pdf){:target="_blank"}.
+
+---
 
 ## Warning
 
@@ -101,7 +104,3 @@ In writing up your thesis your supervisor will normally assist you in the manner
 7. Try out your first draft on a colleague and take heed of any suggestions or criticisms. If even your close friend or collaborator has difficulty understanding it, then you have failed and need to try harder.
 8. If you are not in a desperate hurry to publish, put your paper aside for a few weeks and work on something else. Then return to your paper and read it with a fresh mind. It will read differently and you may see how to improve it.
 9. Do not hesitate to rewrite the paper, perhaps from a totally new angle, if you become convinced that this will make it clearer and easier to read. Well-written papers become “classics” and are widely read by future mathematicians. Badly written papers are ignored or, if they are sufficiently important, they get rewritten by others.
-
-## Reference
-
-* Gowers, T., Barrow-Green, J., and Leader, I. (2010). Advice to a Young Mathematician. _The Princeton Companion to Mathematics_.

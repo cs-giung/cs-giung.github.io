@@ -1,10 +1,35 @@
 ---
-title: /logs/whitehouse-2023
+title: /readings/whitehouse-2023
 layout: page
-permalink: /logs/whitehouse-2023
+permalink: /readings/whitehouse-2023
 ---
 
-## [FACT SHEET: President Biden Issues Executive Order on Safe, Secure, and Trustworthy Artificial Intelligence (The White House, 2023)](https://www.whitehouse.gov/briefing-room/statements-releases/2023/10/30/fact-sheet-president-biden-issues-executive-order-on-safe-secure-and-trustworthy-artificial-intelligence/){:target="_blank"}
+## Executive order on artificial intelligence
+> from [Executive Order 14110 on October 30, 2023 (Safe, Secure, and Trustworthy Development and Use of Artificial Intelligence)](https://www.federalregister.gov/documents/2023/11/01/2023-24283/safe-secure-and-trustworthy-development-and-use-of-artificial-intelligence){:target="_blank"} and [Executive Order 14148 on January 20, 2025 (Initial Rescissions of Harmful Executive Orders and Actions)](https://www.federalregister.gov/documents/2025/01/28/2025-01901/initial-rescissions-of-harmful-executive-orders-and-actions){:target="_blank"}.
+
+---
+
+## [Initial Rescissions Of Harmful Executive Orders And Actions](https://www.whitehouse.gov/presidential-actions/2025/01/initial-rescissions-of-harmful-executive-orders-and-actions/){:target="_blank"} (2025-01-20)
+
+By the authority vested in me as President by the Constitution and the laws of the United States of America, it is hereby ordered as follows:
+
+__Section 1. Purpose and Policy.__
+
+The previous administration has embedded deeply unpopular, inflationary, illegal, and radical practices within every agency and office of the Federal Government.  The injection of "diversity, equity, and inclusion" (DEI) into our institutions has corrupted them by replacing hard work, merit, and equality with a divisive and dangerous preferential hierarchy.  Orders to open the borders have endangered the American people and dissolved Federal, State, and local resources that should be used to benefit the American people.  Climate extremism has exploded inflation and overburdened businesses with regulation.
+
+To commence the policies that will make our Nation united, fair, safe, and prosperous again, it is the policy of the United States to restore common sense to the Federal Government and unleash the potential of the American citizen.  The revocations within this order will be the first of many steps the United States Federal Government will take to repair our institutions and our economy.
+
+__Section 2. Revocation of Orders and Actions.__
+
+The following executive actions are hereby revoked:
+
+- (\.\.\.)
+- Executive Order 14110 of October 30, 2023 (Safe, Secure, and Trustworthy Development and Use of Artificial Intelligence).
+- (\.\.\.)
+
+---
+
+## [FACT SHEET: President Biden Issues Executive Order on Safe, Secure, and Trustworthy Artificial Intelligence](https://www.whitehouse.gov/briefing-room/statements-releases/2023/10/30/fact-sheet-president-biden-issues-executive-order-on-safe-secure-and-trustworthy-artificial-intelligence/){:target="_blank"} (2023-10-30)
 
 Today, President Biden is issuing a landmark Executive Order to ensure that America leads the way in seizing the promise and managing the risks of artificial intelligence (AI). The Executive Order establishes new standards for AI safety and security, protects Americans’ privacy, advances equity and civil rights, stands up for consumers and workers, promotes innovation and competition, advances American leadership around the world, and more.
 

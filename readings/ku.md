@@ -1,7 +1,7 @@
 ---
-title: /logs/ku
+title: /readings/ku
 layout: page
-permalink: /logs/ku
+permalink: /readings/ku
 ---
 
 ## Undergraduate Courses ([@Korea University](http://korea.ac.kr){:target="_blank"})

@@ -7,8 +7,7 @@ url: "https://cs-giung.github.io"
 
 header_pages:
   - index.md
-  - publications.md
-  - logs.md
+  - readings.md
 
 style: dark
 listen_for_clients_preferred_style: false
