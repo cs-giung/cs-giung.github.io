@@ -20,7 +20,7 @@ permalink: /readings/
 ## Advices & Guidelines
 - [You and your research (Richard Hamming, 1986)](./hamming-1986)
 - [The illustrated guide to a Ph.D. (Matt Might)](http://matt.might.net/articles/phd-school-in-pictures/){:target="_blank"}
-- [The grammar according to West (Douglas West)](https://faculty.math.illinois.edu/~west/grammar.html){:target="_blank"}
+- [The grammar according to West (Douglas West)](https://dwest.web.illinois.edu/grammar.html){:target="_blank"}
 - [Advice to a young mathematician \#1 (Michael Atiyah, 2008)](./atiyah-2008)
 - [Advice to a young mathematician \#5 (Peter Sarnak, 2008)](./sarnak-2008)
 - [Should I do a PhD? (Rishabh Jain, 2015)](./jain-2015)
