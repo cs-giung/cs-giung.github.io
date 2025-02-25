@@ -18,6 +18,7 @@ permalink: /readings/
 - [Executive order on artificial intelligence (Joe Biden, 2023)](./whitehouse-2023)
 
 ## Advices & Guidelines
+- [You and your research (Richard Hamming, 1986)](./hamming-1986)
 - [The illustrated guide to a Ph.D. (Matt Might)](http://matt.might.net/articles/phd-school-in-pictures/){:target="_blank"}
 - [The grammar according to West (Douglas West)](https://faculty.math.illinois.edu/~west/grammar.html){:target="_blank"}
 - [Advice to a young mathematician \#1 (Michael Atiyah, 2008)](./atiyah-2008)
