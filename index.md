@@ -60,9 +60,9 @@ _Journal of Advances in Modeling Earth Systems (JAMES)_, October 2022
 [__Improving ensemble distillation with weight averaging and diversifying perturbation__](https://proceedings.mlr.press/v162/nam22a.html){:target="_blank"}
 Giung Nam, Hyungi Lee, Byeongho Heo, Juho Lee
 _International Conference on Machine Learning (ICML)_, 2022
-[[pdf](https://proceedings.mlr.press/v162/nam22a/nam22a.pdf){:target="_blank"}, [arXiv](https://arxiv.org/abs/2206.15047){:target="_blank"}, [code](https://github.com/cs-giung/distill-latentbe){:target="_blank"}]
+[[pdf](https://proceedings.mlr.press/v162/nam22a/nam22a.pdf){:target="_blank"}, [arXiv](https://arxiv.org/abs/2206.15047){:target="_blank"}]
 
 [__Diversity matters when learning from ensembles__](https://papers.nips.cc/paper/2021/hash/466473650870501e3600d9a1b4ee5d44-Abstract.html){:target="_blank"}
 Giung Nam\*, Jongmin Yoon\*, Yoonho Lee, Juho Lee
 _Neural Information Processing Systems (NeurIPS)_, 2021
-[[pdf](https://papers.nips.cc/paper/2021/file/466473650870501e3600d9a1b4ee5d44-Paper.pdf){:target="_blank"}, [arXiv](https://arxiv.org/abs/2110.14149){:target="_blank"}, [code](https://github.com/cs-giung/giung2/tree/main/projects/Diversity-Matters){:target="_blank"}]
+[[pdf](https://papers.nips.cc/paper/2021/file/466473650870501e3600d9a1b4ee5d44-Paper.pdf){:target="_blank"}, [arXiv](https://arxiv.org/abs/2110.14149){:target="_blank"}]
