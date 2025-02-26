@@ -5,7 +5,7 @@ permalink: /readings/hamming-1986
 ---
 
 ## You and your research
-> from [Transcription of the Bell Communications Research Colloquium Seminar, "You and Yours Research" by Rechard Hamming, March 7, 1986 (James Kaiser)](https://www.cs.virginia.edu/~robins/YouAndYourResearch.html){:target="_blank"}.
+> from [Transcription of the Bell Communications Research Colloquium Seminar, "You and Yours Research" by Richard Hamming, March 7, 1986 (James Kaiser)](https://www.cs.virginia.edu/~robins/YouAndYourResearch.html){:target="_blank"}.
 
 ---
 
