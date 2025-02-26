@@ -8,6 +8,13 @@ permalink: /
 
 I am Giung Nam, a Ph.D. student at the [Kim Jaechul Graduate School of AI, Korea Advanced Institute of Science and Technology (KAIST AI)](http://gsai.kaist.ac.kr){:target="_blank"}, advised by Professor [Juho Lee](http://juho-lee.github.io){:target="_blank"}. I received my M.S. from [KAIST AI](http://gsai.kaist.ac.kr){:target="_blank"} and my B.S. from the [Department of Computer Science and Engineering, Korea University](http://cs.korea.ac.kr){:target="_blank"}.
 
+Since March 2024, I have been working as a [Technical Research Personnel](https://elaw.klri.re.kr/eng_service/lawView.do?lang=ENG&hseq=25744){:target="_blank"}, and I expect to complete my doctoral degree by February 2026.
+
+For more details and ways to connect:
+- [GitHub](https://github.com/cs-giung){:target="_blank"}, [Hugging Face](https://huggingface.co/cs-giung){:target="_blank"}, [LinkedIn](https://www.linkedin.com/in/giung-nam-3443562ab/){:target="_blank"}
+- [DBLP](https://dblp.org/pid/304/9008){:target="_blank"}, [Google Scholar](https://scholar.google.com/citations?user=HO-fMd8AAAAJ){:target="_blank"}, [Semantic Scholar](https://www.semanticscholar.org/author/2065197138){:target="_blank"}
+- ![email](/assets/email-.png)
+
 ---
 
 ## Publication
