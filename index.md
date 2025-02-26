@@ -6,7 +6,7 @@ permalink: /
 
 ## About
 
-I am Giung Nam, a Ph.D. student at the [Kim Jaechul Graduate School of AI, Korea Advanced Institute of Science and Technology (KAIST AI)](http://gsai.kaist.ac.kr){:target="_blank"}, advised by Professor [Juho Lee](http://juho-lee.github.io){:target="_blank"}. I received my M.S. from [KAIST AI](http://gsai.kaist.ac.kr){:target="_blank"} and my B.S. from the [Department of Computer Science and Engineering, Korea University](http://cs.korea.ac.kr){:target="_blank"}.
+I am Giung Nam, a Ph.D. student at the [Kim Jaechul Graduate School of AI, Korea Advanced Institute of Science and Technology (KAIST AI)](http://gsai.kaist.ac.kr){:target="_blank"}, advised by Professor [Juho Lee](http://juho-lee.github.io){:target="_blank"}. I received my M.S. from [KAIST AI](http://gsai.kaist.ac.kr){:target="_blank"} and my B.S. from the [Department of Computer Science and Engineering, Korea University](https://cs.korea.edu){:target="_blank"}.
 
 Since March 2024, I have been working as a [Technical Research Personnel](https://elaw.klri.re.kr/eng_service/lawView.do?lang=ENG&hseq=25744){:target="_blank"}, and I expect to complete my doctoral degree by February 2026.
 
