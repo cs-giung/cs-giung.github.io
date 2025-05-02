@@ -19,6 +19,11 @@ For more details and ways to connect:
 
 ## Publication
 
+[__Ensemble Distribution Distillation via Flow Matching__](){:target="_blank"}
+Jonggeon Park\*, Giung Nam\*, Hyunsu Kim, Jongmin Yoon, Juho Lee
+_International Conference on Machine Learning (ICML)_, 2025
+[To appear]
+
 [__Parameter expanded stochastic gradient Markov chain Monte Carlo__](https://openreview.net/forum?id=exgLs4snap){:target="_blank"}
 Hyunsu Kim, Giung Nam, Chulhee Yun, Hongseok Yang, Juho Lee
 _International Conference on Learning Representations (ICLR)_, 2025
