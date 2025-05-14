@@ -19,7 +19,7 @@ For more details and ways to connect:
 
 ## Publication
 
-[__Ensemble Distribution Distillation via Flow Matching__](){:target="_blank"}
+[__Ensemble distribution distillation via flow matching__](){:target="_blank"}
 Jonggeon Park\*, Giung Nam\*, Hyunsu Kim, Jongmin Yoon, Juho Lee
 _International Conference on Machine Learning (ICML)_, 2025
 [To appear]
