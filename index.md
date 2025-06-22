@@ -19,15 +19,15 @@ For more details and ways to connect:
 
 ## Publication
 
-[__Ensemble distribution distillation via flow matching__](){:target="_blank"}
+[__Ensemble distribution distillation via flow matching__](https://openreview.net/forum?id=waeJHU2oeI){:target="_blank"}
 Jonggeon Park\*, Giung Nam\*, Hyunsu Kim, Jongmin Yoon, Juho Lee
 _International Conference on Machine Learning (ICML)_, 2025
-[To appear]
+[[pdf](https://openreview.net/pdf?id=waeJHU2oeI){:target="_blank"}]
 
 [__Parameter expanded stochastic gradient Markov chain Monte Carlo__](https://openreview.net/forum?id=exgLs4snap){:target="_blank"}
 Hyunsu Kim, Giung Nam, Chulhee Yun, Hongseok Yang, Juho Lee
 _International Conference on Learning Representations (ICLR)_, 2025
-[[pdf](https://openreview.net/pdf?id=exgLs4snap){:target="_blank"}]
+[[pdf](https://openreview.net/pdf?id=exgLs4snap){:target="_blank"}, [arXiv](https://arxiv.org/abs/2503.00699){:target="_blank"}]
 
 [__Ex uno pluria: insights on ensembling in low precision number systems__](https://openreview.net/forum?id=CbtkDWZzDq){:target="_blank"}
 Giung Nam, Juho Lee
