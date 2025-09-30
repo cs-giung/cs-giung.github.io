@@ -19,6 +19,16 @@ For more details and ways to connect:
 
 ## Publication
 
+[__Improving Constrained Language Generation via Self-Distilled Twisted Sequential Monte Carlo__](){:target="_blank"}
+Sooyeon Kim, Giung Nam, Byoungwoo Park, Juho Lee
+_Frontiers in Probabilistic Inference: Learning Meets Sampling (FPI Workshop at NeurIPS)_, 2025
+(To appear)
+
+[__PANGEA: projection-based augmentation with non-relevant general data for enhanced domain adaptation in LLMs__](){:target="_blank"}
+Seungyoo Lee, Giung Nam, Hyungi Lee, Moonseok Choi, Juho Lee
+_Neural Information Processing Systems (NeurIPS)_, 2025
+(To appear)
+
 [__Ensemble distribution distillation via flow matching__](https://openreview.net/forum?id=waeJHU2oeI){:target="_blank"}
 Jonggeon Park\*, Giung Nam\*, Hyunsu Kim, Jongmin Yoon, Juho Lee
 _International Conference on Machine Learning (ICML)_, 2025
