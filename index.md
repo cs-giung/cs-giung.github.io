@@ -19,7 +19,7 @@ For more details and ways to connect:
 
 ## Publication
 
-[__Improving Constrained Language Generation via Self-Distilled Twisted Sequential Monte Carlo__](){:target="_blank"}
+[__Improving constrained language generation via self-distilled twisted sequential Monte Carlo__](){:target="_blank"}
 Sooyeon Kim, Giung Nam, Byoungwoo Park, Juho Lee
 _Frontiers in Probabilistic Inference: Learning Meets Sampling (FPI Workshop at NeurIPS)_, 2025
 (To appear)
