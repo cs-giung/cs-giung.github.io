@@ -8,6 +8,7 @@ permalink: /readings/
 - [The machine of speculative knowledge (Jonathan Swift, 1726)](./swift-1726)
 - [Vox populi and vox expertorum (Francis Galton & F. H. Perry-Coste, 1907)](./galton-1907)
 - [The function of the machine (George Orwell, 1937)](./orwell-1937)
+- [Aspects of scientific method (George E. P. Box)](./box-1976)
 - [Bayesian inference for the applied statistician (Donald Rubin, 1984)](./rubin-1984)
 - [What a scientific theory is (Stephen Hawking, 1988)](./hawking-1988)
 - [A brief history of statistical learning (Gareth James et al., 2013)](./james-2013)
