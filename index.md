@@ -24,7 +24,7 @@ Sooyeon Kim, Giung Nam, Byoungwoo Park, Juho Lee
 _Frontiers in Probabilistic Inference: Learning Meets Sampling (FPI Workshop at NeurIPS)_, 2025
 (To appear)
 
-[__PANGEA: projection-based augmentation with non-relevant general data for enhanced domain adaptation in LLMs__](){:target="_blank"}
+[__PANGEA: projection-based augmentation with non-relevant general data for enhanced domain adaptation in LLMs__](https://openreview.net/forum?id=7EjdHkOwc4){:target="_blank"}
 Seungyoo Lee, Giung Nam, Hyungi Lee, Moonseok Choi, Juho Lee
 _Neural Information Processing Systems (NeurIPS)_, 2025
 (To appear)
