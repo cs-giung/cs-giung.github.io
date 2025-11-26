@@ -12,6 +12,7 @@ permalink: /readings/
 - [Bayesian inference for the applied statistician (Donald Rubin, 1984)](./rubin-1984)
 - [What a scientific theory is (Stephen Hawking, 1988)](./hawking-1988)
 - [A brief history of statistical learning (Gareth James et al., 2013)](./james-2013)
+- [When people feared computers (Adrienne LaFrance, 2015)](./lafrance-2015)
 - [Why MIT stopped teaching SICP (Yarden Katz et al., 2016)](./katz-2016)
 - [Discussion of Software 2.0 (Andrej Karpathy & Dogan Ulus, 2017)](./karpathy-2017)
 - [The limitations of deep learning, and its future (Francois Chollet, 2017)](./chollet-2017)
