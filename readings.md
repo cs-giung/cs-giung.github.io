@@ -11,6 +11,7 @@ permalink: /readings/
 - [Aspects of scientific method (George E. P. Box, 1976)](./box-1976)
 - [Bayesian inference for the applied statistician (Donald Rubin, 1984)](./rubin-1984)
 - [What a scientific theory is (Stephen Hawking, 1988)](./hawking-1988)
+- [Don't let architecture astronauts scare you (Joel Spolsky, 2001)](./spolsky-2001)
 - [A brief history of statistical learning (Gareth James et al., 2013)](./james-2013)
 - [When people feared computers (Adrienne LaFrance, 2015)](./lafrance-2015)
 - [Why MIT stopped teaching SICP (Yarden Katz et al., 2016)](./katz-2016)
