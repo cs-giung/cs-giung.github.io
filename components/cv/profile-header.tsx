@@ -1,6 +1,6 @@
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar'
 import { Card, CardContent } from '@/components/ui/card'
-import { MapPin, Mail, Github, Building, GraduationCap, Linkedin } from 'lucide-react'
+import { MapPin, Mail, User, GraduationCap } from 'lucide-react'
 import { PersonalInfo } from '@/lib/cv-data'
 
 interface ProfileHeaderProps {
@@ -28,74 +28,71 @@ export function ProfileHeader({ personal }: ProfileHeaderProps) {
             <p className="text-xl text-muted-foreground mb-4">{personal.title}</p>
 
             {/* Contact Information */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 text-sm">
-              <div className="flex items-center gap-2">
-                <Building className="w-4 h-4 text-muted-foreground" />
-                <a
-                  href={personal.company_url}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="hover:underline"
-                >
-                  {personal.company}
-                </a>
-              </div>
+            <div className="grid grid-cols-1 gap-2 text-sm">
 
               <div className="flex items-center gap-2">
                 <MapPin className="w-4 h-4 text-muted-foreground" />
-                <a
-                  href={personal.location_url}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="hover:underline"
-                >
-                  {personal.location}
-                </a>
+                {personal.location}
               </div>
 
               <div className="flex items-center gap-2">
                 <Mail className="w-4 h-4 text-muted-foreground" />
-                <a
-                  href={`mailto:${personal.email}`}
-                  className="hover:underline"
-                >
-                  {personal.email}
-                </a>
+                {personal.email}
               </div>
 
               <div className="flex items-center gap-2">
-                <Github className="w-4 h-4 text-muted-foreground" />
+                <User className="w-4 h-4 text-muted-foreground" />
                 <a
                   href={`https://github.com/${personal.github}`}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="hover:underline"
+                  className="text-blue-600 hover:underline"
                 >
-                  {personal.github}
+                  GitHub
+                </a>|
+                <a
+                  href={`https://huggingface.co/${personal.huggingface}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-blue-600 hover:underline"
+                >
+                  HuggingFace
+                </a>|
+                <a
+                  href={`https://www.linkedin.com/in/${personal.linkedin}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-blue-600 hover:underline"
+                >
+                  LinkedIn
                 </a>
               </div>
 
               <div className="flex items-center gap-2">
                 <GraduationCap className="w-4 h-4 text-muted-foreground" />
                 <a
-                  href={personal.google_scholar}
+                  href={`https://scholar.google.com/citations?user=${personal.google_scholar}`}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="hover:underline"
+                  className="text-blue-600 hover:underline"
                 >
                   Google Scholar
-                </a>
-              </div>
-
-              <div className="flex items-center gap-2">
-                <Linkedin className="w-4 h-4 text-muted-foreground" />
+                </a>|
                 <a
-                  href={personal.linkedin}
+                  href={`https://www.semanticscholar.org/author/${personal.semantic_scholar}`}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="hover:underline"
+                  className="text-blue-600 hover:underline"
                 >
-                  LinkedIn
+                  Semantic Scholar
+                </a>|
+                <a
+                  href={`https://dblp.org/pid/${personal.dblp}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-blue-600 hover:underline"
+                >
+                  DBLP
                 </a>
               </div>
             </div>

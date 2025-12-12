@@ -1,8 +1,23 @@
+import { Card, CardContent } from '@/components/ui/card'
 import { getCVData } from '@/lib/cv-data'
 import { ProfileHeader } from '@/components/cv/profile-header'
-import { Section, SectionItem } from '@/components/cv/section'
-import { Publications } from '@/components/cv/publications'
+import { Section, SectionItem, PublicationItem } from '@/components/cv/section'
 import { Separator } from '@/components/ui/separator'
+import ReactMarkdown, { Components } from 'react-markdown'
+import remarkBreaks from 'remark-breaks'
+
+const inlineMarkdownComponents: Components = {
+  p: ({ children }) => <span>{children}</span>,
+  strong: ({ children }) => <strong className="font-semibold">{children}</strong>,
+  em: ({ children }) => <em className="italic">{children}</em>,
+  a: ({ children, href }) => (
+    <a href={href} className="text-blue-600 hover:underline" target="_blank" rel="noopener noreferrer">
+      {children}
+    </a>
+  )
+}
+
+import { NavTabs } from '@/components/ui/nav-tabs'
 
 export default function Home() {
   const cvData = getCVData()
@@ -10,36 +25,38 @@ export default function Home() {
   return (
     <main className="min-h-screen bg-background">
       <div className="container mx-auto px-4 py-8 max-w-4xl">
+        <NavTabs />
         <div className="space-y-8">
+
           {/* Profile Header */}
           <ProfileHeader personal={cvData.personal} />
 
-          {/* Experience Section */}
-          <Section title="Experience">
-            {cvData.experience.map((exp, index) => (
-              <div key={index}>
-                <SectionItem
-                  title={exp.company}
-                  subtitle={`${exp.department} • ${exp.title}`}
-                  period={exp.period}
-                  location={exp.location}
-                  details={exp.details}
-                />
-                {index < cvData.experience.length - 1 && <Separator className="mt-6" />}
-              </div>
-            ))}
-          </Section>
-
-          {/* Publications Section */}
-          <Publications publications={cvData.publications} />
+          {/* About Section */}
+          <Card className="w-full">
+            <CardContent className="space-y-4">
+              {cvData.personal.about.map((item, index) => {
+                const shouldRenderSeparator = index > 0 && (
+                  <Separator className="bg-background" />
+                );
+                return (
+                  <div key={index}>
+                    {shouldRenderSeparator}
+                    <ReactMarkdown components={inlineMarkdownComponents} remarkPlugins={[remarkBreaks]} key={index}>
+                      {item}
+                    </ReactMarkdown>
+                  </div>
+                );
+              })}
+            </CardContent>
+          </Card>
 
           {/* Education Section */}
           <Section title="Education">
             {cvData.education.map((edu, index) => (
               <div key={index}>
                 <SectionItem
-                  title={edu.institution}
-                  subtitle={`${edu.school} • ${edu.degree}`}
+                  title={edu.title}
+                  subtitle={edu.subtitle}
                   period={edu.period}
                   location={edu.location}
                   details={edu.details}
@@ -49,35 +66,50 @@ export default function Home() {
             ))}
           </Section>
 
-          {/* Projects Section */}
-          <Section title="Projects">
-            {cvData.projects.map((project, index) => (
+          {/* Position Section */}
+          <Section title="Position">
+            {cvData.position.map((pos, index) => (
               <div key={index}>
                 <SectionItem
-                  title={project.title}
-                  subtitle={project.organization}
-                  period={project.period}
-                  details={project.details}
+                  title={pos.title}
+                  subtitle={pos.subtitle}
+                  period={pos.period}
+                  location={pos.location}
+                  details={pos.details}
                 />
-                {index < cvData.projects.length - 1 && <Separator className="mt-6" />}
+                {index < cvData.position.length - 1 && <Separator className="mt-6" />}
               </div>
             ))}
           </Section>
 
-          {/* Awards Section */}
-          <Section title="Awards and Honors">
-            {cvData.awards.map((award, index) => (
-              <div key={index}>
-                <SectionItem
-                  title={award.title}
-                  subtitle={award.organization}
-                  period={award.period}
-                  details={award.details}
-                />
-                {index < cvData.awards.length - 1 && <Separator className="mt-6" />}
-              </div>
-            ))}
+          {/* Publication Section */}
+          <Section title="Publication">
+            {cvData.publication.map((pub, index) => {
+              const previousPub = cvData.publication[index - 1];
+              const isYearDifferent = previousPub && (previousPub.year !== pub.year);
+              const shouldRenderSeparator = index > 0 && isYearDifferent;
+
+              return (
+                <div key={index}>
+                  {shouldRenderSeparator && (
+                    <div className="flex items-center my-4"> {/* Flexbox 컨테이너 */}
+                      <div className="flex-grow border-t text-muted-foreground mr-4"></div>
+                      <span className="text-sm text-muted-foreground">{pub.year}</span>
+                      <div className="flex-grow border-t text-muted-foreground ml-4"></div>
+                    </div>
+                  )}
+                  <PublicationItem
+                    title={pub.title}
+                    authors={pub.authors}
+                    venue={pub.venue}
+                    url={pub.url}
+                    note={pub.note}
+                  />
+                </div>
+              );
+            })}
           </Section>
+
         </div>
       </div>
     </main>

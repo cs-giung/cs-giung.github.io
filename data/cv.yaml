@@ -1,183 +1,165 @@
 personal:
-  name: "EungGu Yun"
-  title: "AI Researcher & Engineer"
-  email: "yuneg11@gmail.com"
-  github: "yuneg11"
-  google_scholar: "https://scholar.google.com/citations?user=r7-847MAAAAJ"
-  linkedin: "https://www.linkedin.com/in/yuneg"
+  profile_image: "/avatar_scholar_256.png"
+  name: "Giung Nam"
+  title: "Ph.D. Student @ KAIST AI"
   location: "Seoul, South Korea"
-  company: "SAIGE"
-  company_url: "https://saige.ai/"
-  location_url: "https://goo.gl/maps/EWp8CgorJpX85RPX8"
-  profile_image: "/profile-image.jpeg"
+  email: "{first_name} [at] kaist [dot] ac [dot] kr"
+  github: "cs-giung"
+  huggingface: "cs-giung"
+  linkedin: "giung-nam-3443562ab"
+  google_scholar: "HO-fMd8AAAAJ"
+  semantic_scholar: "G.-Nam/2065197138"
+  dblp: "304/9008"
+  about:
+    - "I'm a Ph.D. candidate at the [Statistical Inference and Machine Learning (SIML)](https://siml.kaist.ac.kr/) laboratory in KAIST AI, advised by [Juho Lee](https://scholar.google.com/citations?user=Py4URJUAAAAJ). My research is grounded in the philosophy that [_today's posterior is tomorrow's prior_](https://doi.org/10.1137/1.9781611970654), where __*the current model serves as the foundational prior for the next generation of models.*__"
+    - "The rapid evolution of deep learning has established pre-trained [foundation models](https://en.wikipedia.org/wiki/Foundation_model) as the bedrock of modern AI systems. As this landscape continues to evolve, I focus on investigating how to effectively transfer, adapt, and compress their knowledge to catalyze the development of future models that are stronger in capability and lighter in cost. My research covers [transfer learning](https://en.wikipedia.org/wiki/Transfer_learning), [knowledge distillation](https://en.wikipedia.org/wiki/Knowledge_distillation), and [model compression](https://en.wikipedia.org/wiki/Model_compression)."
+    - "Beyond my own research, I am deeply committed to contributing to the academic community through rigorous peer review. Since 2022, I have regularly reviewed for major AI venues such as ICML, NeurIPS, and ICLR. I was honored to be recognized as a Top Reviewer at NeurIPS for three consecutive years (2022-2024)."
 
 education:
-  - institution: "Korea Advanced Institute of Science and Technology (KAIST)"
-    school: "Graduate School of AI"
-    degree: "M.S. in Artificial Intelligence"
-    period: "2021. 03 - 2023. 02"
+  - title: "KAIST"
+    subtitle: "Ph.D., Kim Jaechul Graduate School of AI"
+    period: "Sep 2022 - Feb 2026 (Expected)"
     location: "Daejeon, South Korea"
     details:
-      - "Supervisor: Prof. **Juho Lee**"
-      - "Lab: Statistical Inference and Machine Learning Lab (SIML)"
-      - "Thesis: *Traversing Between Modes in Function Space for Fast Ensembling*"
-      - "Research interests: Loss landscape, Neural processes"
-      - "GPA: 4.08 / 4.3"
+      - "Thesis: Exploiting prior knowledge in pre-trained models"
+      - "Committee: [Juho Lee](https://scholar.google.com/citations?user=Py4URJUAAAAJ) (Advisor), [Eunho Yang](https://scholar.google.com/citations?user=UWO1mloAAAAJ), [Jong Chul Ye](https://scholar.google.com/citations?hl=ko&user=HNMjoNEAAAAJ), [Sehoon Kim](https://scholar.google.com/citations?hl=ko&user=zQABr7QAAAAJ), [Se-Young Yun](https://scholar.google.com/citations?hl=ko&user=X_IAjb8AAAAJ)"
+      - "GPA: 4.24/4.30"
 
-  - institution: "SungKyunKwan University (SKKU)"
-    school: "Department of Computer Science and Engineering"
-    degree: "B.S. in Computer Science and Engineering"
-    period: "2017. 03 - 2020. 08"
-    location: "Seoul, South Korea"
-    details:
-      - "Total GPA: 4.33 / 4.5"
-      - "Major GPA: 4.47 / 4.5"
-
-experience:
-  - title: "AI Researcher"
-    company: "[SAIGE](https://saige.ai/)"
-    department: "AI Lab"
-    period: "2023. 03 - Present"
-    location: "Seoul, South Korea"
-    details:
-      - "Research on Image Anomaly Detection for industrial inspection."
-
-  - title: "Research Intern"
-    company: "Artificial Intelligence Institute of Seoul National University (AIIS)"
-    department: "Deep Representation Learning Research Group (DRL)"
-    period: "2020. 07 - 2020. 09"
-    location: "Seoul, South Korea"
-    details:
-      - "Supervisor: Prof. **Wonjong Rhee**"
-      - "Research on model interpretability and activation on-off patterns."
-      - "Reproduce CNN visualization methods, including Grad-CAM, (C)LRP, etc."
-
-  - title: "Research Intern"
-    company: "Electronics and Telecommunications Research Institute (ETRI)"
-    department: "Artificial Intelligence Research Laboratory"
-    period: "2020. 01 - 2020. 02"
+  - title: "KAIST"
+    subtitle: "M.S., Kim Jaechul Graduate School of AI"
+    period: "Sep 2020 - Aug 2022"
     location: "Daejeon, South Korea"
     details:
-      - "Supervisor: **Yoo-mi Park**"
-      - "Test and debug ETRI Deep Learning HPC Platform Dashboard."
-      - "Implement AlexNet and ResNet models with DL-MDL to serve as example deep learning models."
+      - "Thesis: [Diversity matters when learning from ensembles](http://hdl.handle.net/10203/308199)"
+      - "Committee: [Juho Lee](https://scholar.google.com/citations?user=Py4URJUAAAAJ) (Advisor), [Eunho Yang](https://scholar.google.com/citations?user=UWO1mloAAAAJ), [Sung Ju Hwang](https://scholar.google.com/citations?user=RP4Qx3QAAAAJ)"
+      - "GPA: 4.20/4.30"
 
-awards:
-  - title: "The National Scholarship for Science and Engineering"
-    organization: "Korea Student Aid Foundation (KOSAF)"
-    period: "2019 Spring - 2020 Spring"
+  - title: "Korea University"
+    subtitle: "B.S., Department of Computer Science and Engineering"
+    period: "Mar 2017 - Aug 2020"
+    location: "Seoul, South Korea"
     details:
-      - "Supports undergraduates with strong academic performance in science and engineering."
+      - "GPA: 4.32/4.50"
 
-  - title: "SungKyun Software Scholarship"
-    organization: "SungKyunKwan University (SKKU)"
-    period: "2017 Spring - 2018 Fall"
+position:
+  - title: "KAIST"
+    subtitle: "Technical Research Personnel, Kim Jaechul Graduate School of AI"
+    period: "Mar 2024 - Feb 2027 (Expected)"
+    location: "Daejeon, South Korea"
     details:
-      - "Supports students with an outstanding GPA."
+      - "Fulfilling mandatory military service through a specialized research position."
 
-  - title: "Dean's List Award"
-    organization: "College of Computing, SungKyunKwan University (SKKU)"
-    period: "2017 Spring - 2019 Fall"
+  - title: "ETRI"
+    subtitle: "Research Intern, Visual Intelligence Laboratory"
+    period: "Jul - Aug 2019; Jan - Feb, Jul - Aug 2020 (Intermittent)"
+    location: "Daejeon, South Korea"
     details:
-      - "In recognition of high scholastic achievement. (6 times)"
+      - "Developed AI-based software for detection, segmentation, and face recognition."
+      - "Advisor: [Hyung-Il Kim](https://scholar.google.com/citations?user=3belJDEAAAAJ), [Youngwan Lee](https://scholar.google.com/citations?user=EqemKYsAAAAJ)"
 
-publications:
-  conference:
-    - title: "Language-Assisted Feature Transformation for Anomaly Detection"
-      authors: "**EungGu Yun**, Heonjin Ha, Yeongwoo Nam, Bryan Dongik Lee"
-      venue: "ICLR"
-      year: 2025
-      url: "https://arxiv.org/abs/2503.01184"
-
-    - title: "A simple early exiting framework for accelerated sampling in diffusion models"
-      authors: "Taehong Moon, Moonseok Choi, **EungGu Yun**, Jongmin Yoon, Gayoung Lee, Jaewoong Cho, Juho Lee"
-      venue: "ICML"
-      year: 2024
-      url: "https://arxiv.org/abs/2408.05927"
-
-    - title: "Learning Dynamic Brain Connectome with Graph Transformers for Psychiatric Diagnosis Classification"
-      authors: "Byung-Hoon Kim, Jungwon Choi, **EungGu Yun**, Kyungsang Kim, Xiang Li, Juho Lee"
-      venue: "IEEE ISBI"
-      year: 2024
-      url: "https://ieeexplore.ieee.org/abstract/document/10635508/"
-
-    - title: "Probabilistic Imputation for Time-series Classification with Missing Data"
-      authors: "SeungHyun Kim*, Hyunsu Kim*, **EungGu Yun***, Hwangrae Lee, Jaehun Lee, Juho Lee"
-      venue: "ICML"
-      year: 2023
-      url: "https://arxiv.org/abs/2308.06738"
-      note: "*: Equal contribution"
-
-    - title: "Traversing Between Modes in Function Space for Fast Ensembling"
-      authors: "**EungGu Yun***, Hyungi Lee*, Giung Nam*, Juho Lee"
-      venue: "ICML"
-      year: 2023
-      url: "https://arxiv.org/abs/2306.11304"
-      note: "*: Equal contribution"
-
-    - title: "Martingale Posterior Neural Processes"
-      authors: "Hyungi Lee, **EungGu Yun**, Giung Nam, Edwin Fong, Juho Lee"
-      venue: "ICLR"
-      year: 2023
-      note: "Spotlight"
-      url: "https://arxiv.org/abs/2304.09431"
-
-    - title: "Scale Mixtures of Neural Network Gaussian Processes"
-      authors: "Hyungi Lee, **EungGu Yun**, Hongseok Yang, Juho Lee"
-      venue: "ICLR"
-      year: 2022
-      url: "https://arxiv.org/abs/2107.01408"
-
-  workshop:
-    - title: "A generative self-supervised framework using functional connectivity in fmri data"
-      authors: "Jungwon Choi, Seongho Keum, **EungGu Yun**, Byung-Hoon Kim, Juho Lee"
-      venue: "NeurIPS Workshop on TGL"
-      year: 2023
-      url: "https://arxiv.org/abs/2312.01994"
-
-    - title: "Large-scale graph representation learning of dynamic brain connectome with transformers"
-      authors: "Byung-Hoon Kim, Jungwon Choi, **EungGu Yun**, Kyungsang Kim, Xiang Li, Juho Lee"
-      venue: "NeurIPS Workshop on TGL"
-      year: 2023
-      url: "https://arxiv.org/abs/2312.14939"
-
-    - title: "Early exiting for accelerated inference in diffusion models"
-      authors: "Taehong Moon, Moonseok Choi, **EungGu Yun**, Jongmin Yoon, Gayoung Lee, Juho Lee"
-      venue: "ICML Workshop on SPIGM"
-      year: 2023
-      url: "https://openreview.net/forum?id=nhGdjo9Xed"
-
-  journal:
-    - title: "Recent advances of radiative transfer emulator in WRF model"
-      authors: "Hwan-Jin Song, Soonyoung Roh, Park Sa Kim, Juho Lee, Giung Nam, **EungGu Yun**, Jongmin Yoon"
-      venue: "KOMES"
-      year: 2022
-      url: "https://www.dbpia.co.kr/Journal/articleDetail?nodeId=NODE11162111"
-
-    - title: "Benefits of stochastic weight averaging in developing neural network radiation scheme for numerical weather prediction"
-      authors: "Hwan-Jin Song, Soonyoung Roh, Juho Lee, Giung Nam, **EungGu Yun**, Jongmin Yoon, Park Sa Kim"
-      venue: "JAMES"
-      year: 2022
-      url: "https://doi.org/10.1029/2021MS002921"
-
-  preprint:
-    - title: "On-Off Pattern Encoding and Path-Count Encoding as Deep Neural Network Representations"
-      authors: "Euna Jung, Jaekeol Choi, **EungGu Yun**, Wonjong Rhee"
-      venue: "arXiv"
-      year: 2020
-      url: "https://arxiv.org/abs/2401.09518"
-
-projects:
-  - title: "Bayesian inference for time-series data with missing values"
-    organization: "Samsung Research"
-    period: "2022. 08 - 2023. 02"
+  - title: "VisualCamp"
+    subtitle: "Research Intern, Research and Engineering Team"
+    period: "Mar 2019 - Jun 2019"
+    location: "Seongnam, South Korea"
     details:
-      - "Developing a Bayesian deep learning method that can quantify uncertainty within missing values."
-      - "Propose multivariate time-series classification model using a regularization method called ObsDropout."
-      - "Validate proposed method on PhysioNet 2012, MIMIC-III, and UCI human activity datasets."
+      - "Developed AI-based software for eye tracking."
 
-  - title: "Developing artificial intelligence based emulator for physics processes in numerical models"
-    organization: "National Institute of Meteorological Sciences (NIMS)"
-    period: "2021. 05 - 2022. 07"
-    details:
-      - "Research on the developing alternative techniques of physical processes in the numerical weather prediction (NWP) model based on AI to reduce computational costs and to improve the accuracy of NWP."
+publication:
+
+  - title: "Improving constrained language generation via self-distilled twisted sequential Monte Carlo"
+    authors: "Sooyeon Kim, **Giung Nam**, Byoungwoo Park, Juho Lee"
+    venue: "FPI@NeurIPS"
+    year: 2025
+    url: "https://openreview.net/forum?id=00CWDFhpWQ"
+    note: "In the Second Edition of Frontiers in Probabilistic Inference: Learning meets Sampling, Dec 2025."
+
+  - title: "PANGEA: projection-based augmentation with non-relevant general data for enhanced domain adaptation in LLMs"
+    authors: "Seungyoo Lee, **Giung Nam**, Moonseok Choi, Hyungi Lee†, Juho Lee† (†: Equal corresponding)"
+    venue: "NeurIPS"
+    year: 2025
+    url: "https://openreview.net/forum?id=7EjdHkOwc4"
+    note: "In the Thirty-Ninth Annual Conference on Neural Information Processing Systems, Dec 2025."
+
+  - title: "Ensemble distribution distillation via flow matching"
+    authors: "Jonggeon Park*, **Giung Nam***, Hyunsu Kim, Jongmin Yoon, Juho Lee (*: Equal contribution)"
+    venue: "ICML"
+    year: 2025
+    url: "https://openreview.net/forum?id=waeJHU2oeI"
+    note: "In the Forty-Second International Conference on Machine Learning, Dec 2021."
+
+  - title: "Parameter expanded stochastic gradient Markov chain Monte Carlo"
+    authors: "Hyunsu Kim, **Giung Nam**, Chulhee Yun, Hongseok Yang, Juho Lee"
+    venue: "ICLR"
+    year: 2025
+    url: "https://openreview.net/forum?id=exgLs4snap"
+    note: "In the Thirteenth International Conference on Learning Representations, Apr 2025."
+
+  - title: "Ex uno pluria: insights on ensembling in low precision number systems"
+    authors: "**Giung Nam**, Juho Lee"
+    venue: "NeurIPS"
+    year: 2024
+    url: "https://openreview.net/forum?id=CbtkDWZzDq"
+    note: "In the Thirty-Eighth Conference on Neural Information Processing Systems, Dec 2024."
+
+  - title: "Sparse weight averaging with multiple particles for iterative magnitude pruning"
+    authors: "Moonseok Choi*, Hyungi Lee*, **Giung Nam***, Juho Lee (*: Equal contribution)"
+    venue: "ICLR"
+    year: 2024
+    url: "https://openreview.net/forum?id=Y9t7MqZtCR"
+    note: "In the Twelfth International Conference on Learning Representations, May 2024."
+
+  - title: "Enhancing transfer learning with flexible nonparametric posterior sampling"
+    authors: "Hyungi Lee*, **Giung Nam***, Edwin Fong, Juho Lee (*: Equal contribution)"
+    venue: "ICLR"
+    year: 2024
+    url: "https://openreview.net/forum?id=vSwu81S33z"
+    note: "In the Twelfth International Conference on Learning Representations, May 2024."
+
+  - title: "Lipsum-FT: robust fine-tuning of zero-shot models using random text guidance"
+    authors: "**Giung Nam**, Byeongho Heo, Juho Lee"
+    venue: "ICLR"
+    year: 2024
+    url: "https://openreview.net/forum?id=2JF8mJRJ7M"
+    note: "In the Twelfth International Conference on Learning Representations, May 2024."
+
+  - title: "Traversing between modes in function space for fast ensembling"
+    authors: "Eunggu Yun*, Hyungi Lee*, **Giung Nam***, Juho Lee (*: Equal contribution)"
+    venue: "ICML"
+    year: 2023
+    url: "https://openreview.net/forum?id=Kw7g8iUNAw"
+    note: "In the Fortieth International Conference on Machine Learning, Jul 2023."
+
+  - title: "Martingale posterior neural processes"
+    authors: "Hyungi Lee, Eunggu Yun, **Giung Nam**, Edwin Fong, Juho Lee"
+    venue: "ICLR"
+    year: 2023
+    url: "https://openreview.net/forum?id=-9PVqZ-IR_"
+    note: "In the Eleventh International Conference on Learning Representations, May 2023."
+
+  - title: "Decoupled training for long-tailed classification with stochastic representations"
+    authors: "**Giung Nam***, Sunguk Jang*, Juho Lee (*: Equal contribution)"
+    venue: "ICLR"
+    year: 2023
+    url: "https://openreview.net/forum?id=bcYZwYo-0t"
+    note: "In the Eleventh International Conference on Learning Representations, May 2023."
+
+  - title: "Benefits of stochastic weight averaging in developing neural network radiation scheme for numerical weather prediction"
+    authors: "Hwan-Jin Song, Soonyoung Roh, Juho Lee, **Giung Nam**, Eunggu Yun, Jongmin Yoon, Park Sa Kim"
+    venue: "JAMES"
+    year: 2022
+    url: "https://doi.org/10.1029/2021MS002921"
+    note: "In the Journal of Advances in Modeling Earth Systems, Oct 2022."
+
+  - title: "Improving ensemble distillation with weight averaging and diversifying perturbation"
+    authors: "**Giung Nam**, Hyungi Lee, Byeongho Heo, Juho Lee"
+    venue: "ICML"
+    year: 2022
+    url: "https://proceedings.mlr.press/v162/nam22a.html"
+    note: "In the Thirty-ninth International Conference on Machine Learning, Jul 2022."
+
+  - title: "Diversity matters when learning from ensembles"
+    authors: "**Giung Nam***, Jongmin Yoon*, Yoonho Lee, Juho Lee (*: Equal contribution)"
+    venue: "NeurIPS"
+    year: 2021
+    url: "https://openreview.net/forum?id=f_eOQN87eXc"
+    note: "In the Thirty-Fifth Conference on Neural Information Processing Systems, Dec 2021."

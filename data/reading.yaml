@@ -1,0 +1,86 @@
+scrapbook:
+  - title: "The machine of speculative knowledge"
+    authors: "Jonathan Swift, 1726"
+    url: "/reading/Swift1726"
+    note: "The most ignorant person, at a reasonable charge, and with a little bodily labour, might write books in philosophy, poetry, politics, laws, mathematics, and theology, without the least assistance from genius or study."
+
+  - title: "Not a vox populi, but a vox expertorum"
+    authors: "Francis Galton & F. H. Perry-Coste, 1907"
+    url: "/reading/Galton1907"
+    note: "I heartily wish that the case were otherwise."
+
+  - title: "The function of the machine"
+    authors: "George Orwell, 1937"
+    url: "/reading/Orwell1937"
+    note: "The machine would even encroach upon the activities we now class as 'art';"
+
+  - title: "Aspects of scientific method"
+    authors: "George Box, 1976"
+    url: "/reading/Box1976"
+    note: "Since all models are wrong the scientist cannot obtain a \"correct\" one by excessive elaboration."
+
+  - title: "Bayesian inference for the applied statistician"
+    authors: "Donald Rubin, 1984"
+    url: "/reading/Rubin1984"
+    note: "Consequently \"known\" refers to values that are both available and considered worthwhile to include in model specifications."
+
+  - title: "What a scientific theory is"
+    authors: "Stephen Hawking, 1988"
+    url: "/reading/Hawking1988"
+    note: "Any physical theory is always provisional, in the sense that it is only a hypothesis: you can never prove it."
+
+  - title: "Architecture astronauts"
+    authors: "Joel Spolsky, 2001"
+    url: "/reading/Spolsky2001"
+    note: "When you go too far up, abstraction-wise, you run out of oxygen."
+
+  - title: "A brief history of statistical learning"
+    authors: "Gareth James et al., 2013"
+    url: "/reading/James2013"
+    note: "Though the term statistical learning is fairly new, many of the concepts that underline the field were developed long ago."
+
+  - title: "When people feared computers"
+    authors: "Adrienne LaFrance, 2015"
+    url: "/reading/LaFrance2015"
+    note: "Don't forget that you're in charge, not the computer."
+
+  - title: "Why MIT stopped teaching SICP"
+    authors: "Yarden Katz & Ron Garret, 2016"
+    url: "/reading/Katz2016"
+    note: "The \"analysis-by-synthesis\" view of SICP became irrelevant. Nowadays, we do programming by poking."
+
+  - title: "Discussion of Software 2.0"
+    authors: "Andrej Karpathy & Dogan Ulus, 2017"
+    url: "/reading/Karpathy2017"
+    note: "So we need to design neural networks to work with other solutions, not to eradicate."
+
+  - title: "The limitations of deep learning, and its future"
+    authors: "François Chollet, 2017"
+    url: "/reading/Chollet2017"
+    note: "In general, anything that requires long-term planning, and algorithmic-like data manipulation, is out of reach for deep learning models, no matter how much data you throw at them."
+
+  - title: "The bitter lesson"
+    authors: "Richard Sutton, 2019"
+    url: "/reading/Sutton2019"
+    note: "We have to learn the bitter lesson that building in how we think we think does not work in the long run."
+
+outer:
+  - title: "The grammar according to West"
+    authors: "Douglas West"
+    url: "https://dwest.web.illinois.edu/grammar.html"
+    note: "I have been accumulating observations about writing mathematics for many years."
+
+  - title: "The illustrated guide to a Ph.D."
+    authors: "Matt Might"
+    url: "https://matt.might.net/articles/phd-school-in-pictures/"
+    note: "Every fall, I explain to a fresh batch of Ph.D. students what a Ph.D. is. It's hard to describe it in words. So, I use pictures."
+
+  - title: "You and Your Research"
+    authors: "Richard Hamming & James Kaiser, 1986"
+    url: "/YouAndYourResearch.pdf"
+    note: "Why do so few scientists make significant contributions and so many are forgotten in the long run?"
+
+  - title: "Advice to a young mathematician"
+    authors: "Michael Atiyah et al., 2008"
+    url: "/AdviceToAYoungMathematician.pdf"
+    note: "You may learn from others but interpret what you learn in your own way."

@@ -7,37 +7,29 @@ export interface PersonalInfo {
   title: string
   email: string
   github: string
+  huggingface: string
   google_scholar: string
+  semantic_scholar: string
+  dblp: string
   linkedin: string
   location: string
-  company: string
-  company_url: string
-  location_url: string
   profile_image: string
+  about: string[]
 }
 
 export interface Education {
-  institution: string
-  school: string
-  degree: string
+  title: string
+  subtitle: string
   period: string
   location: string
   details: string[]
 }
 
-export interface Experience {
+export interface Position {
   title: string
-  company: string
-  department: string
+  subtitle: string
   period: string
   location: string
-  details: string[]
-}
-
-export interface Award {
-  title: string
-  organization: string
-  period: string
   details: string[]
 }
 
@@ -50,25 +42,12 @@ export interface Publication {
   note?: string
 }
 
-export interface Project {
-  title: string
-  organization: string
-  period: string
-  details: string[]
-}
 
 export interface CVData {
   personal: PersonalInfo
   education: Education[]
-  experience: Experience[]
-  awards: Award[]
-  publications: {
-    conference: Publication[]
-    workshop: Publication[]
-    journal: Publication[]
-    preprint: Publication[]
-  }
-  projects: Project[]
+  position: Position[]
+  publication: Publication[]
 }
 
 export function getCVData(): CVData {
