@@ -70,7 +70,7 @@ export default async function BlogPost({ params }: Props) {
                             {postData.author}, {postData.date}
                         </p>
                     </CardHeader>
-                    <CardContent className="text-justify">
+                    <CardContent>
                         <ReactMarkdown
                             remarkPlugins={[remarkMath]}
                             rehypePlugins={[rehypeKatex]}
