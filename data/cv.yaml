@@ -1,7 +1,7 @@
 personal:
-  profile_image: "/avatar_scholar_256.png"
+  profile_image: "/profile.jpg"
   name: "Giung Nam"
-  title: "Ph.D. Student @ KAIST AI"
+  title: "Postdoctoral Researcher @ KAIST AI"
   location: "Seoul, South Korea"
   email: "{first_name} [at] kaist [dot] ac [dot] kr"
   github: "cs-giung"
@@ -11,19 +11,17 @@ personal:
   semantic_scholar: "G.-Nam/2065197138"
   dblp: "304/9008"
   about:
-    - "I'm a Ph.D. candidate at the [Statistical Inference and Machine Learning (SIML)](https://siml.kaist.ac.kr/) laboratory in KAIST AI, advised by [Juho Lee](https://scholar.google.com/citations?user=Py4URJUAAAAJ). My research is grounded in the philosophy that [_today's posterior is tomorrow's prior_](https://doi.org/10.1137/1.9781611970654), where __*the current model serves as the foundational prior for the next generation of models.*__"
-    - "The rapid evolution of deep learning has established pre-trained [foundation models](https://en.wikipedia.org/wiki/Foundation_model) as the bedrock of modern AI systems. As this landscape continues to evolve, I focus on investigating how to effectively transfer, adapt, and compress their knowledge to catalyze the development of future models that are stronger in capability and lighter in cost. My research covers [transfer learning](https://en.wikipedia.org/wiki/Transfer_learning), [knowledge distillation](https://en.wikipedia.org/wiki/Knowledge_distillation), and [model compression](https://en.wikipedia.org/wiki/Model_compression)."
-    - "Beyond my own research, I am deeply committed to contributing to the academic community through rigorous peer review. Since 2022, I have regularly reviewed for major AI venues such as ICML, NeurIPS, and ICLR. I was honored to be recognized as a Top Reviewer at NeurIPS for three consecutive years (2022-2024)."
+    - "I am a Postdoctoral Researcher and Technical Research Personnel at the [Statistical Inference and Machine Learning (SIML)](https://siml.kaist.ac.kr/) laboratory in KAIST AI. Having earned my Ph.D. in the same lab advised by [Juho Lee](https://scholar.google.com/citations?user=Py4URJUAAAAJ), my research continues to be grounded in the philosophy that [_today's posterior is tomorrow's prior_](https://doi.org/10.1137/1.9781611970654), where __*the current model serves as the foundational prior for the next generation of models.*__"
+    - "The rapid evolution of deep learning has established pre-trained [foundation models](https://en.wikipedia.org/wiki/Foundation_model) as the bedrock of modern AI systems. As this landscape continues to evolve, I focus on investigating how to effectively transfer, adapt, and compress their knowledge to catalyze the development of future models that are stronger in capability and lighter in cost. My research covers [transfer learning](https://en.wikipedia.org/wiki/Transfer_learning), [knowledge distillation](https://en.wikipedia.org/wiki/Knowledge_distillation), and [model compression](https://en.wikipedia.org/wiki/Model_compression), with a recent interest in [weak-to-strong generalization](https://openai.com/index/weak-to-strong-generalization/) and [self-play](https://en.wikipedia.org/wiki/Self-play) mechanisms."
 
 education:
   - title: "KAIST"
     subtitle: "Ph.D., Kim Jaechul Graduate School of AI"
-    period: "Sep 2022 - Feb 2026 (Expected)"
-    location: "Daejeon, South Korea"
+    period: "Sep 2022 - Feb 2026"
+    location: "Seoul, South Korea"
     details:
       - "Thesis: Exploiting prior knowledge in pre-trained models"
       - "Committee: [Juho Lee](https://scholar.google.com/citations?user=Py4URJUAAAAJ) (Advisor), [Eunho Yang](https://scholar.google.com/citations?user=UWO1mloAAAAJ), [Jong Chul Ye](https://scholar.google.com/citations?hl=ko&user=HNMjoNEAAAAJ), [Sehoon Kim](https://scholar.google.com/citations?hl=ko&user=zQABr7QAAAAJ), [Se-Young Yun](https://scholar.google.com/citations?hl=ko&user=X_IAjb8AAAAJ)"
-      - "GPA: 4.24/4.30"
 
   - title: "KAIST"
     subtitle: "M.S., Kim Jaechul Graduate School of AI"
@@ -32,22 +30,20 @@ education:
     details:
       - "Thesis: [Diversity matters when learning from ensembles](http://hdl.handle.net/10203/308199)"
       - "Committee: [Juho Lee](https://scholar.google.com/citations?user=Py4URJUAAAAJ) (Advisor), [Eunho Yang](https://scholar.google.com/citations?user=UWO1mloAAAAJ), [Sung Ju Hwang](https://scholar.google.com/citations?user=RP4Qx3QAAAAJ)"
-      - "GPA: 4.20/4.30"
 
   - title: "Korea University"
     subtitle: "B.S., Department of Computer Science and Engineering"
     period: "Mar 2017 - Aug 2020"
     location: "Seoul, South Korea"
-    details:
-      - "GPA: 4.32/4.50"
 
 position:
   - title: "KAIST"
     subtitle: "Technical Research Personnel, Kim Jaechul Graduate School of AI"
     period: "Mar 2024 - Feb 2027 (Expected)"
-    location: "Daejeon, South Korea"
+    location: "Seoul, South Korea"
     details:
       - "Fulfilling mandatory military service through a specialized research position."
+      - "Ph.D. (Mar 2024 - Feb 2026), Postdoc (Mar 2026 - Feb 2027)"
 
   - title: "ETRI"
     subtitle: "Research Intern, Visual Intelligence Laboratory"
