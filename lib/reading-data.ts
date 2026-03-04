@@ -11,8 +11,8 @@ export interface ReadingItem {
 }
 
 export interface ReadingData {
-    scrapbook: ReadingItem[]
-    outer: ReadingItem[]
+    notes: ReadingItem[]
+    links: ReadingItem[]
 }
 
 export function getReadingData(): ReadingData {
@@ -31,13 +31,13 @@ export function getReadingData(): ReadingData {
 
     // Filter out posts that are already manually defined in reading.yaml (by URL)
     // to avoid duplicates if the user hasn't cleaned up yaml yet.
-    const existingUrls = new Set(readingData.scrapbook?.map(item => item.url) || [])
+    const existingUrls = new Set(readingData.notes?.map(item => item.url) || [])
     const newPostItems = postItems.filter(item => !existingUrls.has(item.url))
 
     return {
         ...readingData,
-        scrapbook: [
-            ...(readingData.scrapbook || []),
+        notes: [
+            ...(readingData.notes || []),
             ...newPostItems
         ]
     }

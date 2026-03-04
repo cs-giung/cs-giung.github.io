@@ -10,18 +10,18 @@ export const metadata: Metadata = {
 
 export default function Reading() {
   const readingData = getReadingData()
-  const scrapbook = readingData.scrapbook || []
-  const outer = readingData.outer || []
+  const notes = readingData.notes || []
+  const links = readingData.links || []
 
   return (
     <main className="min-h-screen bg-background">
       <div className="container mx-auto px-4 py-8 max-w-4xl">
         <NavTabs />
         <div className="space-y-8">
-          {/* Scrapbook Section */}
-          <Section title="Scrapbook">
-            {scrapbook.length > 0 ? (
-              scrapbook.map((item, index) => (
+          {/* Notes Section */}
+          <Section title="Notes">
+            {notes.length > 0 ? (
+              notes.map((item, index) => (
                 <div key={index}>
                   <ReadingItem
                     title={item.title}
@@ -32,14 +32,14 @@ export default function Reading() {
                 </div>
               ))
             ) : (
-              <p className="text-muted-foreground">No scrapbook items yet.</p>
+              <p className="text-muted-foreground">No notes yet.</p>
             )}
           </Section>
 
-          {/* Outer Section */}
-          <Section title="Outer">
-            {outer.length > 0 ? (
-              outer.map((item, index) => (
+          {/* Links Section */}
+          <Section title="Links">
+            {links.length > 0 ? (
+              links.map((item, index) => (
                 <div key={index}>
                   <ReadingItem
                     title={item.title}
@@ -50,7 +50,7 @@ export default function Reading() {
                 </div>
               ))
             ) : (
-              <p className="text-muted-foreground">No outer items yet.</p>
+              <p className="text-muted-foreground">No links yet.</p>
             )}
           </Section>
         </div>
