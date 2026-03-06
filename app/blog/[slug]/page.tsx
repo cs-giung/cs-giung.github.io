@@ -55,7 +55,7 @@ const getText = (children: React.ReactNode): string => {
     if (typeof children === 'string') return children;
     if (typeof children === 'number') return children.toString();
     if (Array.isArray(children)) return children.map(getText).join('');
-    if (React.isValidElement(children)) return getText(children.props.children);
+    if (React.isValidElement(children)) return getText((children as React.ReactElement<{children?: React.ReactNode}>).props.children);
     return '';
 };
 
