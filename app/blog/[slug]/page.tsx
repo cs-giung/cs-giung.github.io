@@ -1,4 +1,4 @@
-import { Card, CardContent, CardHeader, CardTitle, CardFooter } from '@/components/ui/card'
+import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 import { NavTabs } from '@/components/ui/nav-tabs'
 import { getBlogPostData, getAllBlogPostSlugs, getAdjacentBlogPosts } from '@/lib/blog-posts'
 import { Metadata } from 'next'
@@ -12,7 +12,6 @@ import React from 'react'
 import { TableOfContents } from '@/components/blog/table-of-contents'
 import Link from 'next/link'
 import { ChevronLeft, ChevronRight } from 'lucide-react'
-import { Separator } from '@/components/ui/separator'
 
 interface Props {
     params: Promise<{ slug: string }>
@@ -115,7 +114,7 @@ const createMarkdownComponents = (
         return <li {...props} className="mt-2">{props.children}</li>;
     },
     a: (props) => {
-        const { href, children, ...rest } = props;
+        const { href, children } = props;
         const isFootnoteRef = href?.includes('fn-') && !href?.includes('fnref-');
         const isBackLink = href?.includes('fnref-');
         
