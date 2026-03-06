@@ -41,7 +41,7 @@ const markdownComponents: Components = {
         if (isInline) {
             return <code className="relative rounded bg-muted px-[0.3rem] py-[0.2rem] font-mono text-sm font-semibold">{children}</code>
         }
-        return <code className="relative rounded bg-muted font-mono text-sm">{children}</code>
+        return <code className="relative rounded font-mono text-sm">{children}</code>
     },
     pre: ({ children }) => <pre className="mb-4 mt-6 overflow-x-auto rounded-lg border bg-black py-4 px-4 text-white dark:bg-muted dark:text-foreground">{children}</pre>,
     img: ({ src, alt }) => (

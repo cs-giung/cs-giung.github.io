@@ -10,6 +10,7 @@ export function NavTabs() {
     const tabs = [
         { name: 'CV', href: '/' },
         { name: 'Reading', href: '/reading' },
+        { name: 'Blog', href: '/blog' },
     ]
 
     return (

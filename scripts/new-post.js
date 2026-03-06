@@ -8,6 +8,7 @@ const rl = readline.createInterface({
 });
 
 const POSTS_DIR = path.join(process.cwd(), 'data', 'posts');
+const BLOG_DIR = path.join(process.cwd(), 'data', 'blog');
 
 // Helper to slugify title
 function slugify(text) {
@@ -24,31 +25,36 @@ function slugify(text) {
 
 console.log('--- Create New Post ---');
 
-rl.question('Post Title: ', (title) => {
-    if (!title) {
-        console.error('Title is required.');
-        rl.close();
-        return;
-    }
+rl.question('Type (1: Reading, 2: Blog) [default: 1]: ', (type) => {
+    const isBlog = type === '2';
+    const targetDir = isBlog ? BLOG_DIR : POSTS_DIR;
+    const typeLabel = isBlog ? 'Blog' : 'Reading';
 
-    const date = new Date().toISOString().split('T')[0];
-    const slug = slugify(title);
-    const filename = `${date}-${slug}.md`;
-    const filePath = path.join(POSTS_DIR, filename);
+    rl.question(`${typeLabel} Post Title: `, (title) => {
+        if (!title) {
+            console.error('Title is required.');
+            rl.close();
+            return;
+        }
 
-    // Check if file exists
-    if (fs.existsSync(filePath)) {
-        console.error(`Error: Post already exists at ${filename}`);
-        rl.close();
-        return;
-    }
+        const date = new Date().toISOString().split('T')[0];
+        const slug = slugify(title);
+        const filename = isBlog ? `${slug}.md` : `${date}-${slug}.md`;
+        const filePath = path.join(targetDir, filename);
 
-    rl.question('Author (default: Giung): ', (author) => {
-        const finalAuthor = author.trim() || 'Giung';
+        // Check if file exists
+        if (fs.existsSync(filePath)) {
+            console.error(`Error: Post already exists at ${filename}`);
+            rl.close();
+            return;
+        }
 
-        rl.question('Description: ', (description) => {
+        rl.question('Author (default: Giung): ', (author) => {
+            const finalAuthor = author.trim() || 'Giung';
 
-            const frontmatter = `---
+            rl.question('Description: ', (description) => {
+
+                const frontmatter = `---
 title: "${title}"
 date: "${date}"
 author: "${finalAuthor}"
@@ -58,11 +64,12 @@ description: "${description || ''}"
 Write your content here...
 `;
 
-            fs.writeFileSync(filePath, frontmatter);
-            console.log(`\n✅ Created new post: ${filename}`);
-            console.log(`File path: data/posts/${filename}`);
+                fs.writeFileSync(filePath, frontmatter);
+                console.log(`\n✅ Created new ${typeLabel.toLowerCase()} post: ${filename}`);
+                console.log(`File path: data/${isBlog ? 'blog' : 'posts'}/${filename}`);
 
-            rl.close();
+                rl.close();
+            });
         });
     });
 });
