@@ -8,7 +8,7 @@ description: "But the ultimate goal of any education is to be surpassed."
 ## 靑出於藍
 
 > 學不可以已。青，取之於藍，而青於藍；冰，水為之，而寒於水。  
-> \- 荀子, "勸學篇"
+> \- 荀子, ["勸學篇"](https://zh.wikisource.org/zh-hant/荀子/勸學篇) (c. 3rd Century BC)
 
 In East Asian tradition, the phrase "靑出於藍" describes a student who surpasses their teacher. The metaphor is one of physical refinement: indigo dye is extracted from the indigo plant, yet through the process of coloring, the resulting pigment becomes deeper and more vibrant than the source.
 
@@ -17,7 +17,7 @@ This represents the provocative question at the heart of modern AI: is it possib
 ## Wrong, but useful
 
 > Essentially, all models are wrong, but some are useful.  
-> \- George Box and Norman Draper, "Empirical Model-Building and Response Surfaces"
+> \- George Box and Norman Draper, ["Empirical Model-Building and Response Surfaces"](http://books.google.com/books?vid=ISBN9780471810339) (1987).
 
 In the standard trajectory of human education, we are rarely told the absolute truth from the start.[^1] Instead, we are fed a series of increasingly sophisticated, useful lies.
 
@@ -26,7 +26,7 @@ Looking back at my high school science classes, we were initially taught the Boh
 We weren't being lied to out of malice; we were being provided with a weak supervisor. The Bohr model served as the necessary, simplified scaffold that allowed our minds to eventually grasp the stronger (and far more complex) truth of quantum mechanics. We used a flawed model to bootstrap ourselves toward a more accurate one.
 
 > We know that the aether transmits transverse vibrations to very great distances without sensible loss of energy by dissipation.  
-> \- James Clerk Maxwell, "Encyclopædia Britannica, Ninth Edition"
+> \- James Clerk Maxwell, ["Encyclopædia Britannica, Ninth Edition"](https://en.wikisource.org/wiki/Encyclopædia_Britannica,_Ninth_Edition/Ether_(2.)) (1878).
 
 History shows us that this isn't just a classroom tactic; it is the engine of discovery. Consider James Clerk Maxwell, who derived his groundbreaking equations for electromagnetism by imagining space was filled with literal mechanical "gears and idle wheels."
 
@@ -40,18 +40,18 @@ For a long time,[^2] the cynical view of LLMs was that they were "stochastic par
 
 However, we are beginning to see glimpses that challenge this mirror-image theory. When a model solves an open conjecture that has stumped Donald Knuth, it suggests the system is navigating a latent space of logic that goes beyond simple mimicry:
 > Shock! Shock! I learned yesterday that an open problem I'd been working on for several weeks had just been solved by Claude Opus 4.6. It seems that I'll have to revise my opinions about "generative AI" one of these days.  
-> \- Donald Knuth, "Claude's Cycles"
+> \- Donald Knuth, ["Claude's Cycles"](https://www-cs-faculty.stanford.edu/~knuth/papers/claude-cycles.pdf) (2026-02-28).
 
 This isn't an isolated anecdote. Terence Tao also recently mentioned a similar phase shift regarding the application of AI tools to Erdős problems:
 > Recently, the application of AI tools to Erdos problems passed a milestone: an Erdos problem #728 was solved more or less autonomously by AI... with the result not replicated in existing literature.  
-> \- Terence Tao, tooted in mathstodon.xyz
+> \- Terence Tao, tooted in [mathstodon.xyz](https://mathstodon.xyz/@tao/115855840223258103) (2026-01-08).
 
 The phrase "not replicated in existing literature" is a compelling marker of this emergence.[^3] It suggests the model is producing results that its Indigo supervisors (the human researchers) had not yet discovered. These models are beginning to produce useful answers for questions no human has ever successfully answered before; they are showing signs of superhuman performance.
 
 ## From Demonstration to Elicitation
 
 > As a result, for the purposes of alignment we do not need the weak supervisor to teach the strong model new capabilities; instead, we simply need the weak supervisor to elicit what the strong model already knows.  
-> \- Burns et al., "Weak-to-Strong Generalization: Eliciting Strong Capabilities With Weak Supervision"
+> \- Burns et al., ["Weak-to-Strong Generalization: Eliciting Strong Capabilities With Weak Supervision"](https://arxiv.org/abs/2312.09390) (2023).
 
 If we accept that these models can outgrow us, we face a fundamental challenge in alignment. In the past, we aligned models through demonstration ("doing as I do"). But you cannot provide a "Gold Standard" label for a problem you cannot solve yourself.
 
@@ -62,7 +62,7 @@ This realization is the driving force behind recent advancements in Weak-to-Stro
 ## Repaying the Teacher
 
 > Man vergilt einem Lehrer schlecht, wenn man immer nur der Schüler bleibt.  
-> \- Friedrich Nietzsche, "Also sprach Zarathustra: Ein Buch für Alle und Keinen"
+> \- Friedrich Nietzsche, ["Also sprach Zarathustra: Ein Buch für Alle und Keinen"](https://www.deutschestextarchiv.de/book/view/nietzsche_zarathustra01_1883?p=117) (1883).
 
 If we view AI alignment as a strictly corrective process (keeping the model within the bounds of what we already know), we are essentially demanding that the student never surpass the teacher. We are asking for an Indigo that never yields Blue.
 
@@ -73,3 +73,7 @@ Perhaps the path forward is not to resist this shift, but to adapt our roles as 
 [^1]: Absolute truth might be fundamentally unreachable, "as any physical theory is always provisional" (Stephen Hawking), but you get the point.
 [^2]: And for many, it still is!
 [^3]: For full context, Tao added the caveat: "although similar results proven by similar methods were located."
+
+## Update History
+
+- 2026-03-09: Updated hyperlinks.
