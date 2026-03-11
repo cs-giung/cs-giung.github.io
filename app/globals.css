@@ -121,3 +121,14 @@
     @apply bg-background text-foreground;
   }
 }
+
+/* KaTeX equation spacing adjustment */
+.katex-display {
+  margin-top: 1.5rem !important;
+  margin-bottom: -0.5rem !important;
+}
+
+/* Ensure no extra top margin if it's the first element in CardContent */
+.katex-display:first-child {
+  margin-top: 0 !important;
+}
