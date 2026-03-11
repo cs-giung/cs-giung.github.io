@@ -50,22 +50,6 @@ export default function Home() {
             </CardContent>
           </Card>
 
-          {/* Education Section */}
-          <Section title="Education">
-            {cvData.education.map((edu, index) => (
-              <div key={index}>
-                <SectionItem
-                  title={edu.title}
-                  subtitle={edu.subtitle}
-                  period={edu.period}
-                  location={edu.location}
-                  details={edu.details}
-                />
-                {index < cvData.education.length - 1 && <Separator className="mt-6" />}
-              </div>
-            ))}
-          </Section>
-
           {/* Position Section */}
           <Section title="Position">
             {cvData.position.map((pos, index) => (
@@ -78,6 +62,22 @@ export default function Home() {
                   details={pos.details}
                 />
                 {index < cvData.position.length - 1 && <Separator className="mt-6" />}
+              </div>
+            ))}
+          </Section>
+
+          {/* Education Section */}
+          <Section title="Education">
+            {cvData.education.map((edu, index) => (
+              <div key={index}>
+                <SectionItem
+                  title={edu.title}
+                  subtitle={edu.subtitle}
+                  period={edu.period}
+                  location={edu.location}
+                  details={edu.details}
+                />
+                {index < cvData.education.length - 1 && <Separator className="mt-6" />}
               </div>
             ))}
           </Section>
