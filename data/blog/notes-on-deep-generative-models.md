@@ -18,10 +18,10 @@ To achieve this, we typically minimize a divergence measure, $\phi^{\ast} = \arg
 > While both generative modeling and sampling involve approximating a target distribution, they differ fundamentally in terms of the information available. In generative modeling, one has access to samples, whereas in sampling, we only have access to a pointwise oracle and no samples.  
 > \- Shen et al., ["Sequential Controlled Langevin Diffusions"](https://arxiv.org/abs/2412.07081) (2024)
 
-Ultimately, "efficient generation" remains the guiding principle of any DGM; the ability to estimate and optimize the divergence is a natural, practical prerequisite that arises during the training process.[^1]
-Furthermore, it is crucial to emphasize the phrase "from a finite dataset of samples," as it highlights a fundamental distinction of DGMs in the information available compared to classical sampling setups:
+Ultimately, "efficient generation" remains the guiding principle of any DGM; the ability to estimate and optimize the density or divergence is a natural, practical prerequisite that arises during the training process.[^1]
+Furthermore, it is crucial to emphasize the phrase "from a finite dataset of samples," as it highlights a fundamental distinction of DGMs compared to classical sampling setups, regarding the information available.
 
-[^1]: Indeed, the divergence is not always explicitly computed.
+[^1]: Indeed, density and divergence are not always explicitly computed.
 
 ### Energy-Based Models (EBMs)
 
