@@ -89,3 +89,8 @@ links:
     authors: "Nicky Case, 2017"
     url: "https://ncase.me/trust"
     note: "What the game is, defines what the players do."
+
+  - title: "The hardware lottery"
+    authors: "Sara Hooker, 2020"
+    url: "/TheHardwareLottery.pdf"
+    note: "The performance of an algorithm is fundamentally intertwined with the hardware and software it runs on."
