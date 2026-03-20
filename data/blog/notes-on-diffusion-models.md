@@ -25,7 +25,7 @@ $$
 where $\alpha_{t} \in [0, 1]$ is a strictly decreasing function in $t$ with $\alpha_{0} \approx 1$ and $\alpha_{1} \approx 0$, and $\alpha_{t \mid s} = \alpha_{t} / \alpha_{s}$.
 The reverse posterior is then given by:
 $$
-\begin{align}
+\begin{align}\textstyle
 q(\bm{z}_{s} \mid \bm{z}_{t}, \bm{z}_{0})
 = \mathcal{N}\left(
     \bm{z}_{s} ; \frac{
@@ -40,7 +40,7 @@ $$
 DDIM introduces a hyperparameter $\sigma_{s}$ for the variance of the reverse posterior, generalizing the stochastic process while maintaining the same marginals $q(\bm{z}_{t} \mid \bm{z}_{0})$.
 The reverse transition is defined by:
 $$
-\begin{align}
+\begin{align}\textstyle
 q(\bm{z}_{s} \mid \bm{z}_{t}, \bm{z}_{0})
 = \mathcal{N}\left(
     \bm{z}_{s} ;
@@ -54,7 +54,7 @@ q(\bm{z}_{s} \mid \bm{z}_{t}, \bm{z}_{0})
 $$
 While setting $\sigma_{s}^{2} = \frac{(1-\alpha_{s})(1-\alpha_{t \mid s})}{(1-\alpha_{t})}$ recovers the standard reverse posterior, DDIM generally defines a non-Markovian forward process; the forward transition now depends on $\bm{z}_{0}$:
 $$
-\begin{align}
+\begin{align}\textstyle
 q(\bm{z}_{t} \mid \bm{z}_{s}, \bm{z}_{0})
 = \mathcal{N}\left(
     \bm{z}_{t} ;
@@ -142,9 +142,9 @@ $$
 where $\alpha_{t} \in [0, 1]$ is a strictly decreasing function in $t$ with $\alpha_{0} \approx 1$ and $\alpha_{1} \approx 0$, and $\alpha_{t \mid s} = \alpha_{t} / \alpha_{s}$.
 The reverse posterior is then given by:
 $$
-\begin{align}
+\begin{align}\textstyle
 q(\bm{z}_{s} \mid \bm{z}_{t}, \bm{z}_{0})
-&= \mathrm{Cat}\left(
+= \mathrm{Cat}\left(
     \bm{z}_{s} ; \frac{
         \left[
             \alpha_{t \mid s} \bm{z}_{t}
@@ -177,14 +177,14 @@ The discrete-time and continuous-time diffusion losses are given by:
 $$
 \begin{align}
 \mathcal{L}(\phi ; \bm{z}_{0}, T)
-&= \mathbb{E}_{t \sim \{\frac{1}{T},\frac{2}{T}\dots,1\}} \mathbb{E}_{\bm{z}_{t} \sim q(\bm{z}_{t} \mid \bm{z}_{0})} \left[
+&=\textstyle \mathbb{E}_{t \sim \{\frac{1}{T},\frac{2}{T}\dots,1\}} \mathbb{E}_{\bm{z}_{t} \sim q(\bm{z}_{t} \mid \bm{z}_{0})} \left[
     T D_{\text{KL}}\left( q(\bm{z}_{s} \mid \bm{z}_{t}, \bm{z}_{0}) \parallel p_{\phi}(\bm{z}_{s} \mid \bm{z}_{t}) \right)
 \right] \\
-&= \mathbb{E}_{t \sim \{\frac{1}{T},\frac{2}{T}\dots,1\}} \mathbb{E}_{\bm{z}_{t} \sim q(\bm{z}_{t} \mid \bm{z}_{0})} \left[
+&=\textstyle \mathbb{E}_{t \sim \{\frac{1}{T},\frac{2}{T}\dots,1\}} \mathbb{E}_{\bm{z}_{t} \sim q(\bm{z}_{t} \mid \bm{z}_{0})} \left[
     \frac{T(\alpha_{t} - \alpha_{s})}{1 - \alpha_{t}} \log{\langle \bm{x}_{\phi}(\bm{z}_{t}, t), \bm{z}_{0} \rangle}
 \right], \\
 \lim_{T \to \infty} \mathcal{L}(\phi ; \bm{z}_{0}, T)
-&= \mathbb{E}_{t \sim \mathcal{U}[0, 1]} \mathbb{E}_{\bm{z}_{t} \sim q(\bm{z}_{t} \mid \bm{z}_{0})} \left[
+&=\textstyle \mathbb{E}_{t \sim \mathcal{U}[0, 1]} \mathbb{E}_{\bm{z}_{t} \sim q(\bm{z}_{t} \mid \bm{z}_{0})} \left[
     \frac{\alpha_{t}^\prime}{1 - \alpha_{t}} \log{\langle \bm{x}_{\phi}(\bm{z}_{t}, t), \bm{z}_{0} \rangle}
 \right].
 \end{align}
@@ -207,15 +207,34 @@ q(\bm{z}_{s} \mid \bm{z}_{t}, \bm{z}_{0}) =
 \end{cases}
 \end{align}
 $$
-While setting $\sigma_{t} = 0$ recovers the reverse posterior of MDM, ReMDM generally defines a non-Markovian forward process; the forward transition now depends on $\bm{z}_{0}$.
+While setting $\sigma_{t} = 0$ recovers the reverse posterior of MDM, ReMDM generally defines a non-Markovian forward process; the forward transition now depends on $\bm{z}_{0}$:
+$$
+\begin{align}
+q(\bm{z}_{t} \mid \bm{z}_{s}, \bm{z}_{0}) =
+\begin{cases}
+    \mathrm{Cat}\left(
+        \bm{z}_{t} ; \frac{
+            (1 - \sigma_{t}) \alpha_{t} \bm{z}_{0}
+            + (\alpha_{s} - \alpha_{t} + \sigma_{t}\alpha_{t}) \bm{m}
+        }{\alpha_{s}}
+    \right) & \bm{z}_{s} \neq \bm{m}, \\
+    \mathrm{Cat}\left(
+        \bm{z}_{t} ; \frac{
+            \sigma_{t} \alpha_{t} \bm{z}_{0}
+            + (1 - \alpha_{s} - \sigma_{t} \alpha_{t})\bm{m}
+        }{1-\alpha_{s}}
+    \right) & \bm{z}_{s} = \bm{m}.
+\end{cases}
+\end{align}
+$$
 The discrete-time diffusion loss is given by:
 $$
 \begin{align}
 \mathcal{L}(\phi ; \bm{z}_{0}, T)
-&= \mathbb{E}_{t \sim \{\frac{1}{T},\frac{2}{T}\dots,1\}} \mathbb{E}_{\bm{z}_{t} \sim q(\bm{z}_{t} \mid \bm{z}_{0})} \left[
+&=\textstyle \mathbb{E}_{t \sim \{\frac{1}{T},\frac{2}{T}\dots,1\}} \mathbb{E}_{\bm{z}_{t} \sim q(\bm{z}_{t} \mid \bm{z}_{0})} \left[
     T D_{\text{KL}}\left( q(\bm{z}_{s} \mid \bm{z}_{t}, \bm{z}_{0}) \parallel p_{\phi}(\bm{z}_{s} \mid \bm{z}_{t}) \right)
 \right] \\
-&= \mathbb{E}_{t \sim \{\frac{1}{T},\frac{2}{T}\dots,1\}} \mathbb{E}_{\bm{z}_{t} \sim q(\bm{z}_{t} \mid \bm{z}_{0})} \left[
+&=\textstyle \mathbb{E}_{t \sim \{\frac{1}{T},\frac{2}{T}\dots,1\}} \mathbb{E}_{\bm{z}_{t} \sim q(\bm{z}_{t} \mid \bm{z}_{0})} \left[
     \frac{T(\alpha_{t} - \alpha_{s} - \sigma_{t}\alpha_{t})}{1 - \alpha_{t}} \log{\langle \bm{x}_{\phi}(\bm{z}_{t}, t), \bm{z}_{0} \rangle}
 \right].
 \end{align}
@@ -227,7 +246,7 @@ UDM defines the stationary distribution as a uniform across all categories, $\bm
 In this regime, the forward process allows a token to transition to any other category (including itself), eventually erasing all signal as it converges to uniform noise.
 For $s < t$, the reverse posterior is given by:
 $$
-\begin{align}
+\begin{align}\textstyle
 q(\bm{z}_{s} \mid \bm{z}_{t}, \bm{z}_{0}) =
 \mathrm{Cat}\left(
     \bm{z}_{s} ; \frac{
@@ -243,10 +262,10 @@ The continuous-time diffusion loss is given by:
 $$
 \begin{align}
 \lim_{T \to \infty} \mathcal{L}(\phi ; \bm{z}_{0}, T)
-&= \lim_{T \to \infty} \mathbb{E}_{t \sim \{\frac{1}{T},\frac{2}{T}\dots,1\}} \mathbb{E}_{\bm{z}_{t} \sim q(\bm{z}_{t} \mid \bm{z}_{0})} \left[
+&=\textstyle \lim_{T \to \infty} \mathbb{E}_{t \sim \{\frac{1}{T},\frac{2}{T}\dots,1\}} \mathbb{E}_{\bm{z}_{t} \sim q(\bm{z}_{t} \mid \bm{z}_{0})} \left[
     T D_{\text{KL}}\left( q(\bm{z}_{s} \mid \bm{z}_{t}, \bm{z}_{0}) \parallel p_{\phi}(\bm{z}_{s} \mid \bm{z}_{t}) \right)
 \right] \\
-&= \mathbb{E}_{t \sim \mathcal{U}[0, 1]} \mathbb{E}_{\bm{z}_{t} \sim q(\bm{z}_{t} \mid \bm{z}_{0})} \left[
+&=\textstyle \mathbb{E}_{t \sim \mathcal{U}[0, 1]} \mathbb{E}_{\bm{z}_{t} \sim q(\bm{z}_{t} \mid \bm{z}_{0})} \left[
     \frac{\alpha_{t}^{\prime}}{K \alpha_{t}} \left[
         \frac{K}{\bar{\bm{x}}^{(i)}}
         - \frac{K}{\bar{\bm{x}}_{\phi}^{(i)}}
