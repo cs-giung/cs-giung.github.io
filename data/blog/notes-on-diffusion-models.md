@@ -94,6 +94,7 @@ $$
 
 ### Continuous-time SDE formulation
 
+__Forward process.__
 DDPM injects noise in a variance-preserving manner on a discrete-time grid:
 $$
 \begin{align}
@@ -118,10 +119,37 @@ $$
 which corresponds to the continuous-time SDE evolving forward in time:
 $$
 \begin{align}
-\mathrm{d}\bm{z}(t) = \bm{f}(\bm{z}(t), t) \mathrm{d}t + \bm{g}(t) \mathrm{d}\bm{w}(t),
+\mathrm{d}\bm{z}(t) = \bm{f}(\bm{z}(t), t) \mathrm{d}t + g(t) \mathrm{d}\bm{w}(t),
 \end{align}
 $$
-where $\bm{f}(\bm{z}(t), t) = -\frac{1}{2} \beta_{t} \bm{z}(t)$ is the drift coefficient, $\bm{g}(t) = \sqrt{\beta_{t}}$ is the diffusion coefficient, and $\bm{w}(t)$ is a standard Wiener process with the increment $\mathrm{d}\bm{w}(t) \approx \sqrt{\mathrm{d}t} \bm{\varepsilon}$.
+where $\bm{f}(\bm{z}(t), t) = -\frac{1}{2} \beta_{t} \bm{z}(t)$ is the drift coefficient, $g(t) = \sqrt{\beta_{t}}$ is the diffusion coefficient, and $\bm{w}(t)$ is a standard Wiener process with the increment $\mathrm{d}\bm{w}(t) \approx \sqrt{\mathrm{d}t} \bm{\varepsilon}$.
+
+__Reverse process.__
+While individual stochastic trajectories are not reversible, the evolution of the probability marginals can be reversed.
+The reverse-time SDE, which shares the same time-marginal densities $q(\bm{z}_{t}) = \int q(\bm{z}_{t} \mid \bm{z}_{0}) q(\bm{z}_{0}) \mathrm{d}\bm{z}_{0}$ as the forward process, is given by:
+$$
+\begin{align}
+\mathrm{d}\bar{\bm{z}}(t) = \left[
+    \bm{f}(\bar{\bm{z}}(t), t) - g^{2}(t) \nabla_{\bm{z}_{t}=\bar{\bm{z}}(t)} \log{q(\bm{z}_{t})}
+\right] \mathrm{d}t + g(t) \mathrm{d}\bar{\bm{w}}(t),
+\end{align}
+$$
+where $\bar{\bm{w}}(t) = \bm{w}(1-t) - \bm{w}(1)$ is a standard Wiener process in reverse time, and $\nabla_{\bm{z}_{t}}\log{q(\bm{z}_{t})}$ is the score function of the marginal density at time $t$.
+Despite the noise term, the reverse time SDE does not inject arbitrary random noise; for $g(t) \neq 0$, the diffusion term is always coupled with the score-driven drift term.
+
+__Probability-flow ODE.__
+Apart from the reverse-time SDE, it is also possible to define a deterministic process that shares the same trajectories of marginal densities $q(\bm{z}_{t})$ as the forward SDE.
+The PF-ODE is given by:
+$$
+\begin{align}\textstyle
+\mathrm{d}\bar{\bm{z}}(t) = \left[
+    \bm{f}(\bar{\bm{z}}(t), t) - \frac{1}{2} g^{2}(t) \nabla_{\bm{z}_{t} = \bar{\bm{z}}(t)} \log{q(\bm{z}_{t})}
+\right] \mathrm{d}t,
+\end{align}
+$$
+which describes a deterministic trajectory for every data point.
+PF-ODE allows the mapping to be integrated in both forward and reverse directions, enabling unique encoding and exact likelihood computation.
+
 
 ## Discrete Diffusion
 
@@ -278,3 +306,50 @@ $$
 \end{align}
 $$
 where $\bar{\bm{x}}^{(i)} = K \alpha_{t} \bm{z}_{0}^{(i)} + (1 - \alpha_{t})$, $\bar{\bm{x}}_{\phi}^{(i)} = K \alpha_{t} \bm{x}_{\phi}^{(i)}(\bm{z}_{t}, t) + (1 - \alpha_{t})$, and $i = \argmax_{j \in [K]} \bm{z}_{t}^{(j)}$.
+
+### Continuous-time CTMC formulation
+
+__Forward process.__
+Discrete diffusion models randomly transit states on a discrete-time grid:
+$$
+\begin{align}
+\bm{z}_{t} = (1 - b_{t}) \bm{z}_{s} + b_{t} \bm{v}_{t},
+\text{ where } b_{t} \sim \mathrm{Bern}(1 - \alpha_{t \mid s}) \text{ and } \bm{v}_{t} \sim \mathrm{Cat}(\bm{\pi}).
+\end{align}
+$$
+Transitioning to continuous-time involves reducing the time interval $\Delta t = t - s$ to an infinitesimal $\mathrm{d}t$, turning difference equations into differential equations.
+By introducing $\beta_{t} = \frac{1 - \alpha_{t \mid t - \Delta t}}{\Delta t}$, the forward step becomes:
+$$
+\begin{align}
+\bm{z}_{t} = (1 - b_{t}) \bm{z}_{t - \Delta t} + b_{t} \bm{v}_{t},
+\text{ where } b_{t} \sim \mathrm{Bern}(\beta_{t} \Delta t),
+\end{align}
+$$
+and the transition probability matrix is given by:
+$$
+\begin{align}
+\bm{P}(t - \Delta t, t) = (1 - \beta_{t} \Delta t) \bm{I} + \beta_{t} \Delta t \bm{\pi} \bm{1}^\top.
+\end{align}
+$$
+As the state remains unchanged over zero time, i.e., $\bm{P}(t - \Delta t, t - \Delta t) = \bm{I}$, we obtain the increment:
+$$
+\begin{align}
+\bm{P}(t - \Delta t, t) - \bm{P}(t - \Delta t, t - \Delta t)
+= \beta_{t} \Delta t \left( \bm{\pi}\bm{1}^\top - \bm{I} \right),
+\end{align}
+$$
+which corresponds to the continuous-time CTMC evolving forward in time with the transition-rate matrix:
+$$
+\begin{align}
+\bm{Q}(t) = \beta_{t} (\bm{\pi}\bm{1}^\top - \bm{I})
+\end{align}
+$$
+The forward evolution of the marginal probability distribution $\bm{q}(t) = \alpha_{t} \bm{z}_{0} + (1 - \alpha_{t}) \bm{\pi}$ is governed by the Kolmogorov forward equation:
+$$
+\begin{align}\textstyle
+\dot{\bm{q}}(t) = \bm{Q}(t) \bm{q}(t).
+\end{align}
+$$
+
+__Reverse process.__
+
