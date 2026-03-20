@@ -2,6 +2,7 @@
 title: "Blue from indigo"
 date: "2026-03-07"
 author: "Giung Nam"
+category: "Posts"
 description: "But the ultimate goal of any education is to be surpassed."
 ---
 

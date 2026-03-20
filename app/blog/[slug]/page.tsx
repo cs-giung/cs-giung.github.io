@@ -188,6 +188,11 @@ export default async function BlogPost({ params }: Props) {
                 <Card className="w-full font-noto-sans-kr font-light border border-border shadow-sm overflow-visible">
                     <CardHeader>
                         <CardTitle className="text-3xl font-bold">{postData.title}</CardTitle>
+                        <div className="flex flex-wrap gap-2 mt-2">
+                            <span className="text-xs font-medium px-2 py-0.5 rounded-full bg-blue-100 text-blue-700 dark:bg-blue-900/30 dark:text-blue-400 uppercase tracking-wider">
+                                {postData.category}
+                            </span>
+                        </div>
                         <p className="text-muted-foreground mt-2">
                             {postData.author}, {postData.date}
                         </p>

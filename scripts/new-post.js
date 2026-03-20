@@ -49,16 +49,29 @@ rl.question('Type (1: Reading, 2: Blog) [default: 1]: ', (type) => {
             return;
         }
 
-        rl.question('Author (default: Giung): ', (author) => {
-            const finalAuthor = author.trim() || 'Giung';
+        rl.question('Author (default: Giung Nam): ', (author) => {
+            const finalAuthor = author.trim() || 'Giung Nam';
 
-            rl.question('Description: ', (description) => {
+            const askCategory = (callback) => {
+                if (isBlog) {
+                    rl.question('Category (1: Posts, 2: Notes & Scribbles) [default: 1]: ', (cat) => {
+                        const categories = { '1': 'Posts', '2': 'Notes & Scribbles' };
+                        callback(categories[cat] || 'Posts');
+                    });
+                } else {
+                    callback(null);
+                }
+            };
 
-                const frontmatter = `---
+            askCategory((category) => {
+                rl.question('Description: ', (description) => {
+
+                    const categoryLine = isBlog ? `category: "${category}"\n` : '';
+                    const frontmatter = `---
 title: "${title}"
 date: "${date}"
 author: "${finalAuthor}"
-description: "${description || ''}"
+${categoryLine}description: "${description || ''}"
 ---
 
 Write your content here...

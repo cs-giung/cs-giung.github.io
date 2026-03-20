@@ -9,6 +9,7 @@ export interface BlogPostData {
     title: string
     date: string
     author: string
+    category: string
     description?: string
     content: string
 }
@@ -26,6 +27,7 @@ export function getBlogPostData(slug: string): BlogPostData {
         title: data.title,
         date: data.date,
         author: data.author,
+        category: data.category || 'Posts',
         description: data.description,
     }
 }
@@ -48,6 +50,7 @@ export function getAllBlogPosts(): Omit<BlogPostData, 'content'>[] {
                 title: data.title,
                 date: data.date,
                 author: data.author,
+                category: data.category || 'Posts',
                 description: data.description,
             }
         })

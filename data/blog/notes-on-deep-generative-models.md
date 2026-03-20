@@ -2,7 +2,8 @@
 title: "Notes on deep generative models"
 date: "2026-03-16"
 author: "Giung Nam"
-description: "(WIP)"
+category: "Notes & Scribbles"
+description: ""
 ---
 
 ## Deep Generative Models (DGMs)

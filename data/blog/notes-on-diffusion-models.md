@@ -2,7 +2,8 @@
 title: "Notes on diffusion models"
 date: "2026-03-20"
 author: "Giung Nam"
-description: "(WIP)"
+category: "Notes & Scribbles"
+description: ""
 ---
 
 ## Continuous Diffusion

@@ -2,6 +2,7 @@
 title: "Testing blog post"
 date: "2026-03-06"
 author: "Giung Nam"
+category: "Posts"
 description: "Dry test of blog posting features."
 ---
 
