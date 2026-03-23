@@ -35,7 +35,7 @@ q(\bm{z}_{s} \mid \bm{z}_{t}, \bm{z}_{0})
 \end{align}
 $$
 
-### Denoising Diffusion Implicit Model (DDIM)
+## Denoising Diffusion Implicit Model (DDIM)
 
 DDIM introduces a hyperparameter $\sigma_{s}$ for the variance of the reverse posterior, generalizing the stochastic process while maintaining the same marginals $q(\bm{z}_{t} \mid \bm{z}_{0})$.
 The reverse transition is defined by:
@@ -94,76 +94,54 @@ $$
 
 ### Continuous-time formulation (SDE, ODE)
 
-__Forward process.__
-DDPM injects noise in a variance-preserving manner on a discrete-time grid:
+DDIM injects noise on a discrete-time grid:
 $$
-\begin{align}
-\bm{z}_{t} = \sqrt{\alpha_{t \mid s}} \bm{z}_{s} + \sqrt{1-\alpha_{t \mid s}} \bm{\varepsilon},
+\begin{align}\textstyle
+\bm{z}_{t} = \sqrt{\alpha_{t}} \bm{z}_{0} + \sqrt{1 - \alpha_{t} - \sigma_{s}^{2}} \frac{\bm{z}_{s} - \sqrt{\alpha_{s}}\bm{z}_{0}}{\sqrt{1 - \alpha_{s}}} + \sigma_{s}\bm{\varepsilon},
 \text{ where } \bm{\varepsilon} \sim \mathcal{N}(\bm{0}, \bm{I}).
 \end{align}
 $$
 Transitioning to continuous-time involves reducing the time interval $\Delta t = t - s$ to an infinitesimal $\mathrm{d}t$, turning difference equations into differential equations.
-By introducing $\beta_t = \frac{1 - \alpha_{t \mid t - \Delta t}}{\Delta t}$, the forward step becomes:
-$$
-\begin{align}
-\bm{z}_{t} = \sqrt{1 - \beta_{t} \Delta t} \bm{z}_{t - \Delta t} + \sqrt{\beta_{t} \Delta t} \bm{\varepsilon}.
-\end{align}
-$$
-Applying a first-order Taylor expansion to the differentiable (at $\Delta t = 0$) coefficient $\sqrt{1 - \beta_{t} \Delta t} \approx 1 - \frac{1}{2} \beta_{t} \Delta t$ and retaining the leading-order stochastic term $O(\sqrt{\Delta t})$, we obtain the increment:
-$$
-\begin{align}
-\textstyle
-\bm{z}_{t} - \bm{z}_{t - \Delta t} \approx -\frac{1}{2}\beta_t \Delta t \bm{z}_{t-\Delta t} + \sqrt{\beta_t \Delta t} \bm{\varepsilon},
-\end{align}
-$$
-which corresponds to the continuous-time SDE evolving forward in time:
-$$
-\begin{align}
-\mathrm{d}\bm{z}(t) = \bm{f}(\bm{z}(t), t) \mathrm{d}t + g(t) \mathrm{d}\bm{w}(t),
-\end{align}
-$$
-where $\bm{f}(\bm{z}(t), t) = -\frac{1}{2} \beta_{t} \bm{z}(t)$ is the drift coefficient, $g(t) = \sqrt{\beta_{t}}$ is the diffusion coefficient, and $\bm{w}(t)$ is a standard Wiener process with the increment $\mathrm{d}\bm{w}(t) \approx \sqrt{\mathrm{d}t} \bm{\varepsilon}$.
-
-__Reverse process.__
-While individual stochastic trajectories are not reversible, the evolution of the probability marginals can be reversed.
-The reverse-time SDE, which shares the same time-marginal densities $q(\bm{z}_{t}) = \int q(\bm{z}_{t} \mid \bm{z}_{0}) q(\bm{z}_{0}) \mathrm{d}\bm{z}_{0}$ as the forward process, is given by:
-$$
-\begin{align}
-\mathrm{d}\bar{\bm{z}}(t) = \left[
-    \bm{f}(\bar{\bm{z}}(t), t) - g^{2}(t) \nabla_{\bm{z}_{t}=\bar{\bm{z}}(t)} \log{q(\bm{z}_{t})}
-\right] \mathrm{d}t + g(t) \mathrm{d}\bar{\bm{w}}(t),
-\end{align}
-$$
-where $\bar{\bm{w}}(t) = \bm{w}(1-t) - \bm{w}(1)$ is a standard Wiener process in reverse time, and $\nabla_{\bm{z}_{t}}\log{q(\bm{z}_{t})}$ is the score function of the marginal density at time $t$.
-Despite the noise term, the reverse time SDE does not inject arbitrary random noise; for $g(t) \neq 0$, the diffusion term is always coupled with the score-driven drift term.
-
-__Probability-flow ODE.__
-DDIM with $\sigma_{s}^{2} = 0$ defines a deterministic transition on a discrete-time grid:
+By introducing $\bm{\varepsilon}_{s} = \frac{\bm{z}_{s} - \sqrt{\alpha_{s}} \bm{z}_{0}}{\sqrt{1 - \alpha_{s}}}$, $\beta_t = \frac{1 - \alpha_{t \mid s}}{\Delta t}$, and $\sigma_{s}^{2} = \frac{(1-\alpha_{s}) (1-\alpha_{t \mid s}) \eta^{2}}{(1-\alpha_{t})}$, the forward step and its approximation are given by:
 $$
 \begin{align}
 \bm{z}_{t}
-&\textstyle = \sqrt{\alpha_{t}} \bm{z}_{0} + \sqrt{1 - \alpha_{t}} \left( \frac{\bm{z}_{s} - \sqrt{\alpha_{s}}\bm{z}_{0}}{\sqrt{1 - \alpha_{s}}} \right) \\
-&\textstyle = \sqrt{\alpha_{t \mid s}} \bm{z}_{s} + \left( \sqrt{1 - \alpha_{t}} - \sqrt{\alpha_{t \mid s}} \sqrt{1 - \alpha_{s}} \right) \bm{\varepsilon}_{s},
-\text{ where } \bm{\varepsilon}_{s} := \frac{\bm{z}_{s} - \sqrt{\alpha_{s}}\bm{z}_{0}}{\sqrt{1 - \alpha_{s}}}.
+&\textstyle = \sqrt{1 - \beta_{t} \Delta t} \bm{z}_{s} + \left(
+    \sqrt{1 - \alpha_{t} - \sigma_{s}^{2}} - \sqrt{1 - \beta_{t} \Delta t} \sqrt{1 - \alpha_{s} - \sigma_{s}^{2}}
+\right) \bm{\varepsilon}_{s} + \eta \sqrt{\beta_{t} \Delta t} \bm{\varepsilon} \\
+&\textstyle \approx \left(
+    1 - \frac{1}{2} \beta_{t} \Delta t
+\right) \bm{z}_{s} + \left(
+    \frac{1 - \eta^{2}}{2 \sqrt{1 - \alpha_{s}}} \beta_{t} \Delta t
+\right) \bm{\varepsilon}_{s} + \eta \sqrt{\beta_{t} \Delta t} \bm{\varepsilon}.
 \end{align}
 $$
-With the same substitutions for $\Delta t = t - s$ and $\beta_{t} = \frac{1 - \alpha_{t \mid t - \Delta t}}{\Delta t}$, we apply the approximations of $\sqrt{\alpha_{t \mid s}} \approx 1 - \frac{1}{2} \beta_{t} \Delta t$ and $\sqrt{1 - \alpha_{t}} \approx \sqrt{1 - \alpha_{s}} + \frac{\beta_{s} \alpha_{s}}{2 \sqrt{1 - \alpha_{s}}} \Delta t$, and we obtain the increment:
+Using the score-matching identity, $\bm{\varepsilon}_{s} = -\sqrt{1 - \alpha_{s}} \nabla_{\bm{z} = \bm{z}_{s}} \log{q(\bm{z} \mid \bm{z}_{0})}$, we obtain the increment:
 $$
 \begin{align}\textstyle
-\bm{z}_{t} - \bm{z}_{t - \Delta t}
-\approx -\frac{1}{2} \beta_{t} \Delta t \bm{z}_{t - \Delta t} + \frac{\beta_{t}}{2 \sqrt{1 - \alpha_{t - \Delta t}}} \Delta t \bm{\varepsilon}_{t - \Delta t}.
+\bm{z}_{t} - \bm{z}_{t - \Delta t} \approx
+-\frac{1}{2} \beta_{t} \Delta t \bm{z}_{t - \Delta t}
+-\frac{1 - \eta^{2}}{2} \beta_{t} \Delta t \nabla_{\bm{z} = \bm{z}_{t - \Delta t}} \log{q(\bm{z}_{t - \Delta t} \mid \bm{z}_{0})}
++\eta \sqrt{\beta_{t} \Delta t} \bm{\varepsilon},
 \end{align}
 $$
-Applying the score-matching identity, $\bm{\varepsilon}_{t - \Delta t} = - \sqrt{1 - \alpha_{t - \Delta t}} \nabla \log{q(\bm{z}_{t - \Delta t})}$, yields the continuous-time PF-ODE, which describes a deterministic trajectory for every data point:
+which corresponds to the continuous-time SDE evolving forward and reverse in time, respectively:
 $$
-\begin{align}\textstyle
-\mathrm{d}\bm{z}(t) = \left[
-    \bm{f}(\bm{z}(t), t) - \frac{1}{2} g^{2}(t) \nabla_{\bm{z}_{t} = \bm{z}(t)} \log{q(\bm{z}_{t})}
-\right] \mathrm{d}t,
+\begin{align}
+\mathrm{d}\bm{z}(t) &\textstyle = \left[
+    \bm{f}(\bm{z}(t), t) - \frac{1 - \eta^{2}}{2}g^{2}(t) \nabla_{\bm{z}_{t} = \bm{z}(t)} \log{q(\bm{z}_{t} \mid \bm{z}_{0})}
+\right] \mathrm{d}t + \eta g(t) \mathrm{d}\bm{w}(t), \\
+\mathrm{d}\bar{\bm{z}}(t) &\textstyle = \left[
+    \bm{f}(\bar{\bm{z}}(t), t) - \frac{1 + \eta^{2}}{2} g^{2}(t) \nabla_{\bm{z}_{t} = \bar{\bm{z}}(t)} \log{q(\bm{z}_{t})}
+\right] \mathrm{d}t + \eta g(t) \mathrm{d}\bar{\bm{w}}(t),
 \end{align}
 $$
-where $\bm{f}(\bm{z}(t), t) = -\frac{1}{2} \beta_{t} \bm{z}(t)$ and $g(t) = \sqrt{\beta_{t}}$.
-Unlike the SDE formulation (from DDPM), the PF-ODE formulation (from DDIM) lacks stochasticity, allowing the mapping to be integrated bi-directionally.
+where $\bm{f}(\bm{z}(t), t) = -\frac{1}{2} \beta_{t} \bm{z}(t)$is the drift coefficient, $g(t) = \sqrt{\beta_{t}}$ is the diffusion coefficient, and $\bm{w}(t)$ and $\bar{\bm{w}}(t) = \bm{w}(1-t) - \bm{w}(1)$ are standard Wiener processes in forward and reverse time, respectively.
+
+__Remark.__
+In this unified formulation, $\eta = 0$ corresponds to the deterministic DDIM setup where $\sigma_{s} = 0$; here, the forward and reverse SDEs collapse into a single PF-ODE, establishing a unique, invertible path between the noise and the data.
+On the other hand, $\eta=1$ corresponds to the stochastic DDPM setup.
+It is worth noting that even in this stochastic regime, the reverse-time SDE does not inject arbitrary random noise; for $g(t) \neq 0$, the diffusion term remains strictly coupled with the score-driven drift term.
 
 ## Discrete Diffusion
 
