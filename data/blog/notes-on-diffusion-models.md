@@ -92,7 +92,7 @@ $$
 \end{align}
 $$
 
-### Continuous-time SDE formulation
+### Continuous-time formulation (SDE, ODE)
 
 __Forward process.__
 DDPM injects noise in a variance-preserving manner on a discrete-time grid:
@@ -138,18 +138,32 @@ where $\bar{\bm{w}}(t) = \bm{w}(1-t) - \bm{w}(1)$ is a standard Wiener process i
 Despite the noise term, the reverse time SDE does not inject arbitrary random noise; for $g(t) \neq 0$, the diffusion term is always coupled with the score-driven drift term.
 
 __Probability-flow ODE.__
-Apart from the reverse-time SDE, it is also possible to define a deterministic process that shares the same trajectories of marginal densities $q(\bm{z}_{t})$ as the forward SDE.
-The PF-ODE is given by:
+DDIM with $\sigma_{s}^{2} = 0$ defines a deterministic transition on a discrete-time grid:
+$$
+\begin{align}
+\bm{z}_{t}
+&\textstyle = \sqrt{\alpha_{t}} \bm{z}_{0} + \sqrt{1 - \alpha_{t}} \left( \frac{\bm{z}_{s} - \sqrt{\alpha_{s}}\bm{z}_{0}}{\sqrt{1 - \alpha_{s}}} \right) \\
+&\textstyle = \sqrt{\alpha_{t \mid s}} \bm{z}_{s} + \left( \sqrt{1 - \alpha_{t}} - \sqrt{\alpha_{t \mid s}} \sqrt{1 - \alpha_{s}} \right) \bm{\varepsilon}_{s},
+\text{ where } \bm{\varepsilon}_{s} := \frac{\bm{z}_{s} - \sqrt{\alpha_{s}}\bm{z}_{0}}{\sqrt{1 - \alpha_{s}}}.
+\end{align}
+$$
+With the same substitutions for $\Delta t = t - s$ and $\beta_{t} = \frac{1 - \alpha_{t \mid t - \Delta t}}{\Delta t}$, we apply the approximations of $\sqrt{\alpha_{t \mid s}} \approx 1 - \frac{1}{2} \beta_{t} \Delta t$ and $\sqrt{1 - \alpha_{t}} \approx \sqrt{1 - \alpha_{s}} + \frac{\beta_{s} \alpha_{s}}{2 \sqrt{1 - \alpha_{s}}} \Delta t$, and we obtain the increment:
 $$
 \begin{align}\textstyle
-\mathrm{d}\bar{\bm{z}}(t) = \left[
-    \bm{f}(\bar{\bm{z}}(t), t) - \frac{1}{2} g^{2}(t) \nabla_{\bm{z}_{t} = \bar{\bm{z}}(t)} \log{q(\bm{z}_{t})}
+\bm{z}_{t} - \bm{z}_{t - \Delta t}
+\approx -\frac{1}{2} \beta_{t} \Delta t \bm{z}_{t - \Delta t} + \frac{\beta_{t}}{2 \sqrt{1 - \alpha_{t - \Delta t}}} \Delta t \bm{\varepsilon}_{t - \Delta t}.
+\end{align}
+$$
+Applying the score-matching identity, $\bm{\varepsilon}_{t - \Delta t} = - \sqrt{1 - \alpha_{t - \Delta t}} \nabla \log{q(\bm{z}_{t - \Delta t})}$, yields the continuous-time PF-ODE, which describes a deterministic trajectory for every data point:
+$$
+\begin{align}\textstyle
+\mathrm{d}\bm{z}(t) = \left[
+    \bm{f}(\bm{z}(t), t) - \frac{1}{2} g^{2}(t) \nabla_{\bm{z}_{t} = \bm{z}(t)} \log{q(\bm{z}_{t})}
 \right] \mathrm{d}t,
 \end{align}
 $$
-which describes a deterministic trajectory for every data point.
-PF-ODE allows the mapping to be integrated in both forward and reverse directions, enabling unique encoding and exact likelihood computation.
-
+where $\bm{f}(\bm{z}(t), t) = -\frac{1}{2} \beta_{t} \bm{z}(t)$ and $g(t) = \sqrt{\beta_{t}}$.
+Unlike the SDE formulation (from DDPM), the PF-ODE formulation (from DDIM) lacks stochasticity, allowing the mapping to be integrated bi-directionally.
 
 ## Discrete Diffusion
 
@@ -307,7 +321,7 @@ $$
 $$
 where $\bar{\bm{x}}^{(i)} = K \alpha_{t} \bm{z}_{0}^{(i)} + (1 - \alpha_{t})$, $\bar{\bm{x}}_{\phi}^{(i)} = K \alpha_{t} \bm{x}_{\phi}^{(i)}(\bm{z}_{t}, t) + (1 - \alpha_{t})$, and $i = \argmax_{j \in [K]} \bm{z}_{t}^{(j)}$.
 
-### Continuous-time CTMC formulation
+### Continuous-time formulation (CTMC)
 
 __Forward process.__
 Discrete diffusion models randomly transit states on a discrete-time grid:
