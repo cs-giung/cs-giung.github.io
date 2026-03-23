@@ -139,9 +139,13 @@ $$
 where $\bm{f}(\bm{z}(t), t) = -\frac{1}{2} \beta_{t} \bm{z}(t)$is the drift coefficient, $g(t) = \sqrt{\beta_{t}}$ is the diffusion coefficient, and $\bm{w}(t)$ and $\bar{\bm{w}}(t) = \bm{w}(1-t) - \bm{w}(1)$ are standard Wiener processes in forward and reverse time, respectively.
 
 __Remark.__
-In this unified formulation, $\eta = 0$ corresponds to the deterministic DDIM setup where $\sigma_{s} = 0$; here, the forward and reverse SDEs collapse into a single PF-ODE, establishing a unique, invertible path between the noise and the data.
+Here, $\eta = 0$ corresponds to the deterministic DDIM setup where $\sigma_{s} = 0$; the forward and reverse SDEs collapse into a single PF-ODE, establishing a unique, invertible path between the noise and the data.
 On the other hand, $\eta=1$ corresponds to the stochastic DDPM setup.
 It is worth noting that even in this stochastic regime, the reverse-time SDE does not inject arbitrary random noise; for $g(t) \neq 0$, the diffusion term remains strictly coupled with the score-driven drift term.
+
+__Remark.__
+Introducing a neural network for $\bm{\varepsilon}$-prediction, i.e., $\bm{\varepsilon}_{\phi}(\bm{z}_{t}, t) \approx \bm{\varepsilon}_{0}$, is more algebraically concise than $\bm{x}$-prediction in this formulation, as the $\bm{\varepsilon}$-prediction network directly yields the score function via the score-matching identity.
+Indeed, it is standard practice for diffusion models to adopt an $\bm{\varepsilon}$-prediction strategy.
 
 ## Discrete Diffusion
 
@@ -301,8 +305,7 @@ where $\bar{\bm{x}}^{(i)} = K \alpha_{t} \bm{z}_{0}^{(i)} + (1 - \alpha_{t})$, $
 
 ### Continuous-time formulation (CTMC)
 
-__Forward process.__
-Discrete diffusion models randomly transit states on a discrete-time grid:
+Markovian discrete diffusion models randomly transit states on a discrete-time grid:
 $$
 \begin{align}
 \bm{z}_{t} = (1 - b_{t}) \bm{z}_{s} + b_{t} \bm{v}_{t},
@@ -310,30 +313,23 @@ $$
 \end{align}
 $$
 Transitioning to continuous-time involves reducing the time interval $\Delta t = t - s$ to an infinitesimal $\mathrm{d}t$, turning difference equations into differential equations.
-By introducing $\beta_{t} = \frac{1 - \alpha_{t \mid t - \Delta t}}{\Delta t}$, the forward step becomes:
+By introducing $\beta_{t} = \frac{1 - \alpha_{t \mid s}}{\Delta t}$, the transition probability matrix is:
 $$
 \begin{align}
-\bm{z}_{t} = (1 - b_{t}) \bm{z}_{t - \Delta t} + b_{t} \bm{v}_{t},
-\text{ where } b_{t} \sim \mathrm{Bern}(\beta_{t} \Delta t),
+\bm{P}(s, t) = (1 - \beta_{t} \Delta t) \bm{I} + \beta_{t} \Delta t \bm{\pi} \bm{1}^\top.
 \end{align}
 $$
-and the transition probability matrix is given by:
+As the state remains unchanged over zero time, i.e., $\bm{P}(s, s) = \bm{I}$, we obtain the increment:
 $$
 \begin{align}
-\bm{P}(t - \Delta t, t) = (1 - \beta_{t} \Delta t) \bm{I} + \beta_{t} \Delta t \bm{\pi} \bm{1}^\top.
-\end{align}
-$$
-As the state remains unchanged over zero time, i.e., $\bm{P}(t - \Delta t, t - \Delta t) = \bm{I}$, we obtain the increment:
-$$
-\begin{align}
-\bm{P}(t - \Delta t, t) - \bm{P}(t - \Delta t, t - \Delta t)
+\bm{P}(s, t) - \bm{P}(s, s)
 = \beta_{t} \Delta t \left( \bm{\pi}\bm{1}^\top - \bm{I} \right),
 \end{align}
 $$
 which corresponds to the continuous-time CTMC evolving forward in time with the transition-rate matrix:
 $$
 \begin{align}
-\bm{Q}(t) = \beta_{t} (\bm{\pi}\bm{1}^\top - \bm{I})
+\bm{Q}(t) = \beta_{t} (\bm{\pi}\bm{1}^\top - \bm{I}).
 \end{align}
 $$
 The forward evolution of the marginal probability distribution $\bm{q}(t) = \alpha_{t} \bm{z}_{0} + (1 - \alpha_{t}) \bm{\pi}$ is governed by the Kolmogorov forward equation:
@@ -343,5 +339,10 @@ $$
 \end{align}
 $$
 
-__Reverse process.__
+The relationship between the forward rate matrix $\bm{Q}(t)$ and the reverse rate matrix $\bar{\bm{Q}}(t)$ is governed by the entry-wise probability balance:
+$$
+\begin{align}
+\bar{Q}_{ij}(t) = Q_{ji}(t) \frac{q_{j}(t)}{q_{i}(t)}.
+\end{align}
+$$
 
