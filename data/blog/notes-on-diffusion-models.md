@@ -353,31 +353,30 @@ However, in many applications, we seek samples under a specific reward function 
 To this end, we define the reward-tilted distribution by reweighting the original density with an exponential reward term:
 $$
 \begin{align}\textstyle
-q_{r}(\bm{z}_{0}) \propto q(\bm{z}_{0}) \exp{\left( \beta r(\bm{z}_{0}) \right)}.
+q^{r}(\bm{z}_{0}) \propto q(\bm{z}_{0}) \exp{\left( \beta r(\bm{z}_{0}) \right)}.
 \end{align}
 $$
 
-### Guidance and search methods
+### Local search via guidance
 
 In continuous diffusion, steering toward high reward can be achieved by modifying the score function.
-If we define an intermediate reward-tilted density $q^{r}(\bm{z}_{t}) \propto q(\bm{z}_{t}) \exp{\left( \beta r_{t}(\bm{z}_{t}) \right)}$ by assuming an intermediate reward function $r_{t}$, its score is given by:
+By defining an intermediate reward-tilted density $q^{r}(\bm{z}_{t}) \propto q(\bm{z}_{t}) \exp{\left( \beta r_{t}(\bm{z}_{t}) \right)}$, involving an intermediate reward function $r_{t}$, the corresponding score is:
 $$
 \begin{align}\textstyle
 \nabla_{\bm{z}_{t}} \log{q^{r}(\bm{z}_{t})}
 = \nabla_{\bm{z}_{t}} \log{q(\bm{z}_{t})} + \beta \nabla_{\bm{z}_{t}} r_{t}(\bm{z}_{t}),
 \end{align}
 $$
-which suggests that adding a steering term (the gradient of the intermediate reward) to the original score function effectively guides the reverse process toward the reward-tilted distribution.
-However, an explicit intermediate reward $r_{t}$ is rarely available, as most rewards are only defined for the clean data at $t=0$.
-To address this, one can define $r_{t}$ as the expected tilted reward conditioned on the current noisy state:
+where the second term acts as a steering gradient.
+Since the reward is typically only defined at $t=0$, one can define the intermediate reward $r_{t}$ as the expected tilted reward conditioned on the current noisy state:
 $$
 \begin{align}\textstyle
 r_{t}(\bm{z}_{t}) := \frac{1}{\beta} \log{\mathbb{E}_{\bm{z}_{0} \sim q(\cdot \mid \bm{z}_{t})} \left[ \exp{\left( \beta r(\bm{z}_{0}) \right)} \right]}.
 \end{align}
 $$
 
-In discrete diffusion, where gradients are unavailable, we instead tilt the transition rates of the CTMC.
-The reverse evolution of the reward-tilted process is governed by a modified reverse rate matrix $\bar{\bm{Q}}^{r}(t)$, where the transition rate from state $i$ to state $j$ is defined via Doob's $h$-transform:
+For discrete diffusion, where gradients are unavailable, we tilt the transition rates of the CTMC.
+The reverse evolution is governed by a modified rate matrix $\bar{\bm{Q}}^{r}(t)$ via Doob's $h$-transform:
 $$
 \begin{align}\textstyle
 \bar{Q}^{r}_{ij}(t) = \bar{Q}_{ij}(t) \frac{h(j,t)}{h(i,t)},
@@ -385,18 +384,18 @@ $$
 \end{align}
 $$
 
-### SMC methods
+### Global search via SMC
 
-While local guidance (gradients or $h$-transforms) provides a point-wise steering mechanism, SMC methods offer a robust search strategy applicable to both continuous and discrete diffusions.
+While local guidance provides point-wise steering, SMC methods offer a robust global search strategy.
 Using the reverse transition of the original diffusion process as the proposal distribution, SMC evolves a population of $M$ particles via:
 $$
 \begin{align}\textstyle
 \text{(Sampling)} &\quad \forall m \in [M] : \bm{z}_{s}^{m} \sim p(\bm{z}_{s} \mid \bm{z}_{t}^{m}), \\
 \text{(Resampling)} &\quad \forall m \in [M] : \bm{z}_{s}^{m} \gets \bm{z}_{s}^{m^{\prime}},
-    \text{ where } m^\prime \sim \mathrm{Cat}\left( \left\{ \bar{G}(\bm{z}_{t}^{i}, \bm{z}_{s}^{i}) \right\}_{i=1}^{M} \right),
+    \text{ where } m^\prime \sim \mathrm{Cat}\left( \left\{ \bar{G}(\bm{z}_{t}^{i}, \bm{z}_{s}^{i}) \right\}_{i=1}^{M} \right).
 \end{align}
 $$
-where the unnormalized and normalized incremental weights respectively are:
+Here, the unnormalized and normalized incremental weights are:
 $$
 \begin{align}\textstyle
 G(\bm{z}_{t}, \bm{z}_{s}) = \frac{h(\bm{z}_{s}, s)}{h(\bm{z}_{t}, t)}, \quad
