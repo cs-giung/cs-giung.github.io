@@ -7,7 +7,7 @@ category: "Notes & Scribbles"
 description: ""
 ---
 
-### FPE and FKF
+### FPE
 
 A controlled Ito process $(\bm{X}_{t}^{\bm{u}} \in \mathbb{R}^{d})_{t \in [0,T]}$ is defined as the solution to the SDE:
 $$
@@ -28,29 +28,11 @@ $$
 \right\} + \frac{\sigma_{t}^{2}}{2} \Delta p_{t}^{\bm{u}}(\bm{x}).
 \end{align}
 $$
-Conversely, FKE provides a deterministic backward-time evolution of expected costs $r^{\bm{u}}$:
-$$
-\begin{align}\textstyle
-\partial_{t} r^{\bm{u}}(\bm{x}, t) + \langle
-    \bm{f}(\bm{x}, t) + \sigma_{t} \bm{u}(\bm{x}, t),
-    \nabla r^{\bm{u}}(\bm{x}, t)
-\rangle + \frac{\sigma_{t}^{2}}{2} \Delta r^{\bm{u}}(\bm{x}, t) - c(\bm{x}, t) r^{\bm{u}}(\bm{x}, t) = 0,
-\end{align}
-$$
-which, via FKF, represents the conditional expectation of future outcomes given the current state:
-$$
-\begin{align}\textstyle
-r^{\bm{u}}(\bm{x}, t) = \mathbb{E} \left[
-    \exp{\left( -\int_{t}^{T} c(\bm{X}_{s}^{\bm{u}}, s) \mathrm{d}s\right)} \Phi(\bm{X}_{T}^{\bm{u}}) \mid \bm{X}_{t}^{\bm{u}} = \bm{x}
-\right],
-\end{align}
-$$
-with the terminal constraint $r^{\bm{u}}(\bm{x}, T) = \Phi(\bm{x})$ and the running cost $c : \mathbb{R}^{d} \times [0,T] \rightarrow \mathbb{R}$.
 
-### KL divergence
+### KLD
 
 Let $\mathbb{P}^{\bm{u}}$ and $\mathbb{P}^{\tilde{\bm{u}}}$ be path measures on the space of continuous paths $C([0,T];\mathbb{R}^{d})$, induced by SDEs with the same reference drift $\bm{f}$ and diffusion coefficient $\sigma_{t}$, but governed by different controls $\bm{u}$ and $\tilde{\bm{u}}$.
-Assuming absolute continuity $\mathbb{P}^{\bm{u}} \ll \mathbb{P}^{\tilde{\bm{u}}}$, the KL divergence of $\mathbb{P}^{\bm{u}}$ with respect to $\mathbb{P}^{\tilde{\bm{u}}}$ is given by:
+Assuming absolute continuity $\mathbb{P}^{\bm{u}} \ll \mathbb{P}^{\tilde{\bm{u}}}$, the KLD of $\mathbb{P}^{\bm{u}}$ with respect to $\mathbb{P}^{\tilde{\bm{u}}}$ is given by:
 $$
 \begin{align}
 D_{\text{KL}} \left(
@@ -70,7 +52,7 @@ $$
 
 ### SOC
 
-The SOC formulation aims to determine the optimal control that minimally perturbs the reference dynamics starting from $\pi_{0}$ while minimizing the expected cumulative cost and terminal cost:
+The SOC formulation aims to determine the optimal control $\bm{u}^{\ast}$ that minimally perturbs the reference dynamics starting from $\pi_{0}$ while minimizing the cost:
 $$
 \begin{align}
 \inf_{\bm{u}}
@@ -82,9 +64,10 @@ $$
 \text{s.t.}
 & \textstyle \quad \mathrm{d}\bm{X}_{t}^{\bm{u}} = \left[
     \bm{f}(\bm{X}_{t}^{\bm{u}}, t) + \sigma_{t} \bm{u}(\bm{X}_{t}^{\bm{u}}, t)
-\right] \mathrm{d}t + \sigma_{t} \mathrm{d} \bm{B}_{t}, \bm{X}_{0}^{\bm{u}} \sim \pi_{0}.
+\right] \mathrm{d}t + \sigma_{t} \mathrm{d} \bm{B}_{t}, \bm{X}_{0}^{\bm{u}} \sim \pi_{0},
 \end{align}
 $$
+where $c : \mathbb{R}^{d} \times [0,T] \rightarrow \mathbb{R}$ is the running cost, and $\Phi : \mathbb{R}^{d} \rightarrow \mathbb{R}$ is the terminal cost.
 We define the value function $V_{t} : \mathbb{R}^{d} \rightarrow \mathbb{R}$ as the optimal cost-to-go from any fixed point $(\bm{x}, t)$:
 $$
 \begin{align}
@@ -104,7 +87,7 @@ $$
 which solves the HJB equation:
 $$
 \begin{align}\textstyle
-\partial_{t} V_{t}(\bm{x})
+\partial_{t} V_{t}
 = - \left[
     \langle \bm{f}, \nabla V_{t} \rangle
     + \frac{\sigma_{t}^{2}}{2} \Delta V_{t}
@@ -124,12 +107,43 @@ $$
 \right) \mathrm{d}t + \nabla V_{t}^\top \sigma_{t} \mathrm{d}\bm{B}_{t}.
 \end{align}
 $$
-
-
 Here, the optimal control $\bm{u}^{\ast}$ is written in terms of the value function:
 $$
 \begin{align}
 \bm{u}^{\ast}(\bm{x}, t) = - \sigma_{t} \nabla V_{t}(\bm{x}).
+\end{align}
+$$
+
+### Feynman-Kac-formulated SOC
+
+Introducing the desirability function $\phi_{t} : \mathbb{R}^{d} \rightarrow \mathbb{R}$ via the exponential transformation:
+$$
+\begin{align}
+V_{t}(\bm{x}) = -\log{\phi_{t}(\bm{x})},
+\end{align}
+$$
+transforms the non-linear HJB equation into the linear PDE for $\phi_{t}$:
+$$
+\begin{align}\textstyle
+\partial_{t} \phi_{t} 
+= - \left[
+    \langle \bm{f}, \nabla \phi_{t} \rangle + \frac{\sigma_{t}^{2}}{2} \Delta \phi_{t}
+\right] + c \phi_{t},
+\quad\text{s.t.}\quad \phi_{T} = \exp{\left(-\Phi\right)},
+\end{align}
+$$
+which, via FKF, represents the conditional expectation of future outcomes given the current state:
+$$
+\begin{align}\textstyle
+\phi_{t}(\bm{x}) = \mathbb{E}_{\bm{X}_{0:T} \sim \mathbb{P}^{\bm{0}}} \left[
+    \exp{\left( -\int_{t}^{T} c(\bm{X}_{s}, s) \mathrm{d}s - \Phi(\bm{X}_{T}) \right)} \mid \bm{X}_{t} = \bm{x}
+\right].
+\end{align}
+$$
+Here, the optimal control $\bm{u}^{\ast}$ is written in terms of the desirability function:
+$$
+\begin{align}
+\bm{u}^{\ast}(\bm{x}, t) = \sigma_{t} \nabla \log{\phi_{t}(\bm{x})}.
 \end{align}
 $$
 
