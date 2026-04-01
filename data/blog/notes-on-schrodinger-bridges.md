@@ -147,6 +147,46 @@ $$
 \end{align}
 $$
 
+### Lagrangian mechanics
+
+$$
+\begin{align}
+L(\bm{x}, \dot{\bm{x}}, t)
+& \textstyle = \frac{1}{2} \left\lVert \frac{\dot{\bm{x}} - \bm{f}(\bm{x}, t)}{\sigma_{t}} \right\rVert^{2} + c(\bm{x}, t) \\
+S[\bm{x}]
+& \textstyle = \int_{0}^{T} L(\bm{x}, \dot{\bm{x}}, t) \mathrm{d}t + \Phi(\bm{x}_{T}) \\
+\bm{p}
+& \textstyle = \frac{\partial L}{\partial\dot{\bm{x}}} = \frac{\bm{u}}{\sigma_{t}} \\
+\dot{\bm{p}}
+& \textstyle = \frac{\mathrm{d}}{\mathrm{d}t} \frac{\partial L}{\partial\dot{\bm{x}}} = -(\nabla \bm{f})^{\top} \bm{p} + \nabla c
+\end{align}
+$$
+
+$$
+\begin{align}
+H(\bm{x}, \bm{p}, t)
+& \textstyle = \langle \bm{p}, \dot{\bm{x}} \rangle - L(\bm{x}, \dot{\bm{x}}, t) \\
+& \textstyle = \langle \bm{p}, \bm{f}(\bm{x}, t) \rangle + \frac{\sigma_{t}^{2}}{2} \left\lVert \bm{p} \right\rVert^{2} - c(\bm{x}, t)
+\end{align}
+$$
+
+$$
+\begin{align}\textstyle
+\partial_{t} V_{t} + \frac{\sigma_{t}^{2}}{2} \Delta V_{t} = H(\bm{x}, -\nabla V_{t}, t)
+\end{align}
+$$
+
+
+$t \mapsto \frac{it}{\hbar}$
+
+$\Phi(\bm{x}, t) = \phi_{t}(\bm{x})$
+
+$V(\bm{x}, t) = \hbar c(\bm{x}, t)$
+
+$m_{t} = \frac{\hbar}{\sigma_{t}^{2}}$
+
+$i \hbar \partial_{t} \Psi(\bm{x}, t) = \left[ -\frac{\hbar^{2}}{2m_{t}}\Delta + V(\bm{x}, t) \right] \Psi(\bm{x}, t)$
+
 ### DSB
 
 The DSB formulation aims to determine the optimal pair of control and density that minimally perturbs the reference dynamics subject to initial and terminal marginal constraints:
@@ -234,7 +274,6 @@ The DSB formulation can be interpreted as a specific instance of the SOC formula
 $$
 \begin{align}\textstyle
 c(\bm{x},t)=0, \quad
-V_{t}(\bm{x}) = -\log{\phi_{t}(\bm{x})}, \quad
 \Phi(\bm{x}) = V_{T}(\bm{x}) = \log{\frac{\hat{\phi}_{T}(\bm{x})}{\pi_{T}(\bm{x})}}.
 \end{align}
 $$
