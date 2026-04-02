@@ -31,7 +31,7 @@ $$
 
 ### KLD
 
-Let $\mathbb{P}^{\bm{u}}$ and $\mathbb{P}^{\tilde{\bm{u}}}$ be path measures on the space of continuous paths $C([0,T];\mathbb{R}^{d})$, induced by SDEs with the same reference drift $\bm{f}$ and diffusion coefficient $\sigma_{t}$, but governed by different controls $\bm{u}$ and $\tilde{\bm{u}}$.
+Let $\mathbb{P}^{\bm{u}}$ and $\mathbb{P}^{\tilde{\bm{u}}}$ be path measures on the space of continuous paths $C([0,T];\mathbb{R}^{d})$, induced by SDEs with the same initial law, the same reference drift $\bm{f}$, and the same diffusion coefficient $\sigma_{t}$, but governed by different controls $\bm{u}$ and $\tilde{\bm{u}}$.
 Assuming absolute continuity $\mathbb{P}^{\bm{u}} \ll \mathbb{P}^{\tilde{\bm{u}}}$, the KLD of $\mathbb{P}^{\bm{u}}$ with respect to $\mathbb{P}^{\tilde{\bm{u}}}$ is given by:
 $$
 \begin{align}
@@ -132,7 +132,7 @@ $$
 \quad\text{s.t.}\quad \phi_{T} = \exp{\left(-\Phi\right)},
 \end{align}
 $$
-which, via FKF, represents the conditional expectation of future outcomes given the current state:
+which, via FKF, yields
 $$
 \begin{align}\textstyle
 \phi_{t}(\bm{x}) = \mathbb{E}_{\bm{X}_{0:T} \sim \mathbb{P}^{\bm{0}}} \left[
@@ -149,43 +149,87 @@ $$
 
 ### Lagrangian mechanics
 
+The Lagrangian, action, generalized momentum, and generalized force are:
 $$
 \begin{align}
 L(\bm{x}, \dot{\bm{x}}, t)
-& \textstyle = \frac{1}{2} \left\lVert \frac{\dot{\bm{x}} - \bm{f}(\bm{x}, t)}{\sigma_{t}} \right\rVert^{2} + c(\bm{x}, t) \\
+& \textstyle = \frac{1}{2} \left\lVert \frac{\dot{\bm{x}} - \bm{f}(\bm{x}, t)}{\sigma_{t}} \right\rVert^{2} + c(\bm{x}, t), \\
 S[\bm{x}]
-& \textstyle = \int_{0}^{T} L(\bm{x}, \dot{\bm{x}}, t) \mathrm{d}t + \Phi(\bm{x}_{T}) \\
+& \textstyle = \int_{0}^{T} L(\bm{x}, \dot{\bm{x}}, t) \mathrm{d}t + \Phi(\bm{x}_{T}), \\
 \bm{p}
-& \textstyle = \frac{\partial L}{\partial\dot{\bm{x}}} = \frac{\bm{u}}{\sigma_{t}} \\
+& \textstyle = \frac{\partial L}{\partial\dot{\bm{x}}} = \frac{\bm{u}}{\sigma_{t}}, \\
 \dot{\bm{p}}
-& \textstyle = \frac{\mathrm{d}}{\mathrm{d}t} \frac{\partial L}{\partial\dot{\bm{x}}} = -(\nabla \bm{f})^{\top} \bm{p} + \nabla c
+& \textstyle = \frac{\partial L}{\partial\bm{x}} = -(\nabla \bm{f})^{\top} \bm{p} + \nabla c.
 \end{align}
 $$
-
+The Hamiltonian and canonical equation are:
 $$
 \begin{align}
 H(\bm{x}, \bm{p}, t)
 & \textstyle = \langle \bm{p}, \dot{\bm{x}} \rangle - L(\bm{x}, \dot{\bm{x}}, t) \\
-& \textstyle = \langle \bm{p}, \bm{f}(\bm{x}, t) \rangle + \frac{\sigma_{t}^{2}}{2} \left\lVert \bm{p} \right\rVert^{2} - c(\bm{x}, t)
+& \textstyle = \langle \bm{p}, \bm{f}(\bm{x}, t) \rangle + \frac{\sigma_{t}^{2}}{2} \left\lVert \bm{p} \right\rVert^{2} - c(\bm{x}, t), \\
+\dot{\bm{x}} & \textstyle = \frac{\partial H}{\partial \bm{p}} = \bm{f}(\bm{x}, t) + \sigma_{t}^{2} \bm{p}, \\
+\dot{\bm{p}} & \textstyle = -\frac{\partial H}{\partial \bm{x}} = -(\nabla \bm{f})^{\top} \bm{p} + \nabla c.
+\end{align}
+$$
+The HJB equation can be rewritten in terms of the Hamiltonian:
+$$
+\begin{align}\textstyle
+\partial_{t} V_{t} + \frac{\sigma_{t}^{2}}{2} \Delta V_{t} = H(\bm{x}, -\nabla V_{t}, t).
+\end{align}
+$$
+
+### Quantum mechanics
+
+$$
+\begin{align}\textstyle
+\partial_{s} \hat{\phi}_{s} = \frac{\sigma_{T-s}^{2}}{2} \Delta \hat{\phi}_{s} + \langle \bm{f}, \nabla \hat{\phi}_{s} \rangle - c \hat{\phi}_{s}.
 \end{align}
 $$
 
 $$
 \begin{align}\textstyle
-\partial_{t} V_{t} + \frac{\sigma_{t}^{2}}{2} \Delta V_{t} = H(\bm{x}, -\nabla V_{t}, t)
+s = i \tau, \quad
+m_{\tau} = \frac{\hbar}{\sigma_{T-s}^{2}}, \quad
+\Psi(\bm{x}, \tau) = \hat{\phi}_{s}(\bm{x}).
 \end{align}
 $$
 
+$$
+\begin{align}\textstyle
+i \hbar \partial_{\tau} \Psi(\bm{x}, \tau) = \left[
+    \frac{1}{2m_{\tau}} \left( - i \hbar \nabla - \bm{A}(\bm{x}, \tau) \right)^{2} + U(\bm{x}, \tau)
+\right] \Psi(\bm{x}, \tau)
+\end{align}
+$$
 
-$t \mapsto \frac{it}{\hbar}$
+$$
+\begin{align}\textstyle
+\bm{A}(\bm{x}, \tau) & \textstyle = i m_{\tau} \bm{f}(\bm{x}, T - i\tau), \\
+U(\bm{x}, \tau) & \textstyle = \hbar c(\bm{x}, T - i\tau) + \frac{1}{2} m_{\tau} \left\lVert \bm{x}(\bm{x}, T - i\tau) \right\rVert^{2}
+\end{align}
+$$
 
-$\Phi(\bm{x}, t) = \phi_{t}(\bm{x})$
+### Option pricing
 
-$V(\bm{x}, t) = \hbar c(\bm{x}, t)$
+BSE for an call option price $C(S, t)$ is given by:
+$$
+\begin{align}\textstyle
+\partial_{t} C + r S \partial_{S} C + \frac{1}{2} \sigma^{2} S^{2} \partial_{SS} C - rC = 0,
+\end{align}
+$$
+which can be interpreted as a specific instance of the SOC formulation with the followings:
+$$
+\begin{align}
+S = e^{x}, \quad C(e^{x}, t) = \phi_{t}(x),
+\end{align}
+$$
 
-$m_{t} = \frac{\hbar}{\sigma_{t}^{2}}$
-
-$i \hbar \partial_{t} \Psi(\bm{x}, t) = \left[ -\frac{\hbar^{2}}{2m_{t}}\Delta + V(\bm{x}, t) \right] \Psi(\bm{x}, t)$
+$$
+\begin{align}
+\partial_{t} \phi_{t} + \left( r - \frac{1}{2}\sigma^{2} \right)
+\end{align}
+$$
 
 ### DSB
 
