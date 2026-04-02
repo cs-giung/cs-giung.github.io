@@ -182,14 +182,14 @@ $$
 ### Quantum mechanics
 
 We assume $\sigma_{t}$, $\bm{f}$, and $c$ admit analytic continuation to complex time.
-For the time-reversed field and corresponding SDE:
+For the time-reversed $\hat{\phi}_{s}$:
 $$
 \begin{align}\textstyle
 \hat{\phi}_{s}(\bm{x}) := \phi_{T-s}(\bm{x}), \quad
 \partial_{s} \hat{\phi}_{s} = \frac{\sigma_{T-s}^{2}}{2} \Delta \hat{\phi}_{s} + \langle \bm{f}, \nabla \hat{\phi}_{s} \rangle - c \hat{\phi}_{s},
 \end{align}
 $$
-substituting $s = i \tau$, $m_{\tau} = \frac{\hbar}{\sigma_{T - i\tau}^{2}}$, $\Psi(\bm{x}, \tau) = \hat{\phi}_{i\tau}(\bm{x})$ yields a Wick-rotated Schrodinger equation:
+substituting $s = i \tau$, $m_{\tau} = \frac{\hbar}{\sigma_{T - i\tau}^{2}}$, $\Psi(\bm{x}, \tau) = \hat{\phi}_{i\tau}(\bm{x})$ yields:
 $$
 \begin{align}\textstyle
 i \hbar \partial_{\tau} \Psi(\bm{x}, \tau) = \left[
@@ -197,11 +197,11 @@ i \hbar \partial_{\tau} \Psi(\bm{x}, \tau) = \left[
 \right] \Psi(\bm{x}, \tau),
 \end{align}
 $$
-for a particle in an electromagnetic field described by scalar and vector potentials:
+formally equivalent to a Schrodinger equation with an effective vector and scalar potentials:
 $$
 \begin{align}\textstyle
-U(\bm{x}, \tau) & \textstyle = \hbar c(\bm{x}, T - i\tau) + \frac{1}{2} m_{\tau} \left\lVert \bm{x}(\bm{x}, T - i\tau) \right\rVert^{2}, \\
-\bm{A}(\bm{x}, \tau) & \textstyle = i m_{\tau} \bm{f}(\bm{x}, T - i\tau).
+\bm{A}(\bm{x}, \tau) & \textstyle = i m_{\tau} \bm{f}(\bm{x}, T - i\tau), \\
+U(\bm{x}, \tau) & \textstyle = \hbar c(\bm{x}, T - i\tau) + \frac{\hbar}{2}\nabla\cdot\bm{f}(\bm{x}, T - i\tau) + \frac{1}{2} m_{\tau} \left\lVert \bm{f}(\bm{x}, T - i\tau) \right\rVert^{2}.
 \end{align}
 $$
 
