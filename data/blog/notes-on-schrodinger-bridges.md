@@ -186,10 +186,10 @@ For the time-reversed $\hat{\phi}_{s}$:
 $$
 \begin{align}\textstyle
 \hat{\phi}_{s}(\bm{x}) := \phi_{T-s}(\bm{x}), \quad
-\partial_{s} \hat{\phi}_{s} = \frac{\sigma_{T-s}^{2}}{2} \Delta \hat{\phi}_{s} + \langle \bm{f}, \nabla \hat{\phi}_{s} \rangle - c \hat{\phi}_{s},
+\partial_{s} \hat{\phi}_{s} = \frac{\sigma_{T-s}^{2}}{2} \Delta \hat{\phi}_{s} + \langle \bm{f}, \nabla \hat{\phi}_{s} \rangle - c \hat{\phi}_{s}.
 \end{align}
 $$
-substituting $s = i \tau$, $m_{\tau} = \frac{\hbar}{\sigma_{T - i\tau}^{2}}$, $\Psi(\bm{x}, \tau) = \hat{\phi}_{i\tau}(\bm{x})$ yields:
+Substituting $s = i \tau$, $m_{\tau} = \frac{\hbar}{\sigma_{T - i\tau}^{2}}$, $\Psi(\bm{x}, \tau) = \hat{\phi}_{i\tau}(\bm{x})$ yields:
 $$
 \begin{align}\textstyle
 i \hbar \partial_{\tau} \Psi(\bm{x}, \tau) = \left[
@@ -197,7 +197,7 @@ i \hbar \partial_{\tau} \Psi(\bm{x}, \tau) = \left[
 \right] \Psi(\bm{x}, \tau),
 \end{align}
 $$
-formally equivalent to a Schrodinger equation with an effective vector and scalar potentials:
+which is formally equivalent to the Schrodinger equation with an effective vector and scalar potentials:
 $$
 \begin{align}\textstyle
 \bm{A}(\bm{x}, \tau) & \textstyle = i m_{\tau} \bm{f}(\bm{x}, T - i\tau), \\
@@ -207,24 +207,13 @@ $$
 
 ### Option pricing
 
-BSE for an call option price $C(S, t)$ is given by:
+Substituting $x = \log{S}$, $\phi_{t}(x) = C(e^{x}, t)$, $\sigma_{t} = \sigma$, $c(x, t) = r$, and $\bm{f}(x, t) = r - \frac{1}{2}\sigma^{2}$ into the linear PDE for $\phi_{t}$ yields:
 $$
 \begin{align}\textstyle
 \partial_{t} C + r S \partial_{S} C + \frac{1}{2} \sigma^{2} S^{2} \partial_{SS} C - rC = 0,
 \end{align}
 $$
-which can be interpreted as a specific instance of the SOC formulation with the followings:
-$$
-\begin{align}
-S = e^{x}, \quad C(e^{x}, t) = \phi_{t}(x),
-\end{align}
-$$
-
-$$
-\begin{align}
-\partial_{t} \phi_{t} + \left( r - \frac{1}{2}\sigma^{2} \right)
-\end{align}
-$$
+which is formally equivalent to the Black-Scholes equation for an underlying asset price $S(t)$, a call option price $C(S, t)$, a volatility $\sigma$, and a risk-free interest rate $r$.
 
 ### DSB
 
