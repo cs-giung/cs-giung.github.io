@@ -181,32 +181,27 @@ $$
 
 ### Quantum mechanics
 
+We assume $\sigma_{t}$, $\bm{f}$, and $c$ admit analytic continuation to complex time.
+For the time-reversed field and corresponding SDE:
 $$
 \begin{align}\textstyle
-\partial_{s} \hat{\phi}_{s} = \frac{\sigma_{T-s}^{2}}{2} \Delta \hat{\phi}_{s} + \langle \bm{f}, \nabla \hat{\phi}_{s} \rangle - c \hat{\phi}_{s}.
+\hat{\phi}_{s}(\bm{x}) := \phi_{T-s}(\bm{x}), \quad
+\partial_{s} \hat{\phi}_{s} = \frac{\sigma_{T-s}^{2}}{2} \Delta \hat{\phi}_{s} + \langle \bm{f}, \nabla \hat{\phi}_{s} \rangle - c \hat{\phi}_{s},
 \end{align}
 $$
-
-$$
-\begin{align}\textstyle
-s = i \tau, \quad
-m_{\tau} = \frac{\hbar}{\sigma_{T-s}^{2}}, \quad
-\Psi(\bm{x}, \tau) = \hat{\phi}_{s}(\bm{x}).
-\end{align}
-$$
-
+substituting $s = i \tau$, $m_{\tau} = \frac{\hbar}{\sigma_{T - i\tau}^{2}}$, $\Psi(\bm{x}, \tau) = \hat{\phi}_{i\tau}(\bm{x})$ yields a Wick-rotated Schrodinger equation:
 $$
 \begin{align}\textstyle
 i \hbar \partial_{\tau} \Psi(\bm{x}, \tau) = \left[
     \frac{1}{2m_{\tau}} \left( - i \hbar \nabla - \bm{A}(\bm{x}, \tau) \right)^{2} + U(\bm{x}, \tau)
-\right] \Psi(\bm{x}, \tau)
+\right] \Psi(\bm{x}, \tau),
 \end{align}
 $$
-
+for a particle in an electromagnetic field described by scalar and vector potentials:
 $$
 \begin{align}\textstyle
-\bm{A}(\bm{x}, \tau) & \textstyle = i m_{\tau} \bm{f}(\bm{x}, T - i\tau), \\
-U(\bm{x}, \tau) & \textstyle = \hbar c(\bm{x}, T - i\tau) + \frac{1}{2} m_{\tau} \left\lVert \bm{x}(\bm{x}, T - i\tau) \right\rVert^{2}
+U(\bm{x}, \tau) & \textstyle = \hbar c(\bm{x}, T - i\tau) + \frac{1}{2} m_{\tau} \left\lVert \bm{x}(\bm{x}, T - i\tau) \right\rVert^{2}, \\
+\bm{A}(\bm{x}, \tau) & \textstyle = i m_{\tau} \bm{f}(\bm{x}, T - i\tau).
 \end{align}
 $$
 
