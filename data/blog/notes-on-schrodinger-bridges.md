@@ -7,9 +7,11 @@ category: "Notes & Scribbles"
 description: ""
 ---
 
-### FPE
+## Controlled diffusion process
 
-A controlled Ito process $(\bm{X}_{t}^{\bm{u}} \in \mathbb{R}^{d})_{t \in [0,T]}$ is defined as the solution to the SDE:
+### CDP
+
+A controlled diffusion process $(\bm{X}_{t}^{\bm{u}} \in \mathbb{R}^{d})_{t \in [0,T]}$ is defined as the solution to the SDE:
 $$
 \begin{align}
 \mathrm{d}\bm{X}_{t}^{\bm{u}}
@@ -17,7 +19,19 @@ $$
 \end{align}
 $$
 with the reference drift $\bm{f} : \mathbb{R}^{d} \times [0, T] \rightarrow \mathbb{R}^{d}$, the diffusion coefficient $\sigma_{t} : [0, T] \rightarrow \mathbb{R}_{\geq 0}$, and the control drift $\bm{u} : \mathbb{R}^{d} \times [0, T] \rightarrow \mathbb{R}^{d}$.
-FPE provides a deterministic forward-time evolution of probability densities $p_{t}^{\bm{u}}$:
+The corresponding reverse-time process $( \bar{\bm{X}}_{\bar{t}}^{\bm{u}} = \bm{X}_{T - \bar{t}}^{\bm{u}} )_{\bar{t} \in [0,T]}$ satisfies:
+$$
+\begin{align}\textstyle
+\mathrm{d}\bar{\bm{X}}_{\bar{t}}^{\bm{u}}
+&= \left[
+    - \bm{f}(\bar{\bm{X}}_{\bar{t}}^{\bm{u}}, T - \bar{t})
+    - \sigma_{T - \bar{t}}\bm{u}(\bar{\bm{X}}_{\bar{t}}^{\bm{u}}, T - \bar{t})
+    + \sigma_{T - \bar{t}}^{2}\nabla\log{p_{T - \bar{t}}^{\bm{u}}(\bar{\bm{X}}_{\bar{t}}^{\bm{u}})}
+\right] \mathrm{d}\bar{t} + \sigma_{T - \bar{t}}\mathrm{d}\bar{\bm{B}}_{\bar{t}},
+\end{align}
+$$
+where $p_{t}^{\bm{u}}$ is the marginal density of $\bm{X}_{t}^{\bm{u}}$ at time $t$, i.e., $\bm{X}_{t}^{\bm{u}} \sim p_{t}^{\bm{u}}$.
+FPE provides a forward-time evolution of $p_{t}^{\bm{u}}$:
 $$
 \begin{align}\textstyle
 \partial_{t} p_{t}^{\bm{u}}(\bm{x})
@@ -49,6 +63,8 @@ D_{\text{KL}} \left(
 \right\rVert^{2} p_{t}^{\bm{u}}(\bm{x}) \right] \mathrm{d}\bm{x} \mathrm{d}t.
 \end{align}
 $$
+
+## Stochastic Optimal Control
 
 ### SOC
 
@@ -84,21 +100,17 @@ V_{t}(\bm{x})
 \right],
 \end{align}
 $$
-which solves the HJB equation:
+which solves the HJB equation and satisfies the backward-time evolution in the SDE:
 $$
 \begin{align}\textstyle
 \partial_{t} V_{t}
-= - \left[
+& \textstyle = - \left[
     \langle \bm{f}, \nabla V_{t} \rangle
     + \frac{\sigma_{t}^{2}}{2} \Delta V_{t}
 \right] + \frac{\sigma_{t}^{2}}{2} \left\lVert \nabla V_{t} \right\rVert^{2} - c,
-\quad\text{s.t.}\quad V_{T} = \Phi,
-\end{align}
-$$
-and satisfies the backward-time evolution in the SDE:
-$$
-\begin{align}\textstyle
-\mathrm{d}V_{t} = \left(
+\quad\text{s.t.}\quad V_{T} = \Phi, \\
+\mathrm{d}V_{t}
+& \textstyle = \left(
     \frac{\sigma_{t}^{2}}{2} \left\lVert
         \nabla V_{t}
     \right\rVert^{2} - c + \langle
@@ -116,13 +128,7 @@ $$
 
 ### Feynman-Kac-formulated SOC
 
-Introducing the desirability function $\phi_{t} : \mathbb{R}^{d} \rightarrow \mathbb{R}$ via the exponential transformation:
-$$
-\begin{align}
-V_{t}(\bm{x}) = -\log{\phi_{t}(\bm{x})},
-\end{align}
-$$
-transforms the non-linear HJB equation into the linear PDE for $\phi_{t}$:
+Introducing the desirability function $\phi_{t} = e^{-V_{t}}$ converts the non-linear HJB equation into the linear PDE for $\phi_{t}$:
 $$
 \begin{align}\textstyle
 \partial_{t} \phi_{t} 
@@ -179,41 +185,17 @@ $$
 \end{align}
 $$
 
-### Quantum mechanics
-
-We assume $\sigma_{t}$, $\bm{f}$, and $c$ admit analytic continuation to complex time.
-For the time-reversed $\hat{\phi}_{s}$:
-$$
-\begin{align}\textstyle
-\hat{\phi}_{s}(\bm{x}) := \phi_{T-s}(\bm{x}), \quad
-\partial_{s} \hat{\phi}_{s} = \frac{\sigma_{T-s}^{2}}{2} \Delta \hat{\phi}_{s} + \langle \bm{f}, \nabla \hat{\phi}_{s} \rangle - c \hat{\phi}_{s}.
-\end{align}
-$$
-Substituting $s = i \tau$, $m_{\tau} = \frac{\hbar}{\sigma_{T - i\tau}^{2}}$, $\Psi(\bm{x}, \tau) = \hat{\phi}_{i\tau}(\bm{x})$ yields:
-$$
-\begin{align}\textstyle
-i \hbar \partial_{\tau} \Psi(\bm{x}, \tau) = \left[
-    \frac{1}{2m_{\tau}} \left( - i \hbar \nabla - \bm{A}(\bm{x}, \tau) \right)^{2} + U(\bm{x}, \tau)
-\right] \Psi(\bm{x}, \tau),
-\end{align}
-$$
-which is formally equivalent to the Schrodinger equation with an effective vector and scalar potentials:
-$$
-\begin{align}\textstyle
-\bm{A}(\bm{x}, \tau) & \textstyle = i m_{\tau} \bm{f}(\bm{x}, T - i\tau), \\
-U(\bm{x}, \tau) & \textstyle = \hbar c(\bm{x}, T - i\tau) + \frac{\hbar}{2}\nabla\cdot\bm{f}(\bm{x}, T - i\tau) + \frac{1}{2} m_{\tau} \left\lVert \bm{f}(\bm{x}, T - i\tau) \right\rVert^{2}.
-\end{align}
-$$
-
 ### Option pricing
 
-Substituting $x = \log{S}$, $\phi_{t}(x) = C(e^{x}, t)$, $\sigma_{t} = \sigma$, $c(x, t) = r$, and $\bm{f}(x, t) = r - \frac{1}{2}\sigma^{2}$ into the linear PDE for $\phi_{t}$ yields:
+Substituting $x = \log{S}$, $\phi_{t}(x) = C(e^{x}, t)$, $\sigma_{t} = \sigma$, $c(x, t) = r$, $\bm{f}(x, t) = r - \frac{1}{2}\sigma^{2}$ yields:
 $$
 \begin{align}\textstyle
 \partial_{t} C + r S \partial_{S} C + \frac{1}{2} \sigma^{2} S^{2} \partial_{SS} C - rC = 0,
 \end{align}
 $$
 which is formally equivalent to the Black-Scholes equation for an underlying asset price $S(t)$, a call option price $C(S, t)$, a volatility $\sigma$, and a risk-free interest rate $r$.
+
+## Dynamic Schrodinger Bridge
 
 ### DSB
 
@@ -249,7 +231,11 @@ $$
 \partial_{t}\psi_{t} = -\frac{\sigma_{t}^{2}}{2} \left\lVert \nabla \psi_{t} \right\rVert^{2} - \langle \nabla \psi_{t}, \bm{f} \rangle - \frac{\sigma_{t}^{2}}{2} \Delta \psi_{t}, \\
 \partial_{t}p_{t}^{\ast} = - \nabla \cdot \left[ \left( \bm{f} + \sigma_{t}^{2}\nabla\psi_{t} \right) p_{t}^{\ast} \right] + \frac{\sigma_{t}^{2}}{2} \Delta p_{t}^{\ast},
 \end{cases}
-\quad \text{s.t.} \quad p_{0}^{\ast} = \pi_{0}, p_{T}^{\ast} = \pi_{T}.
+\quad \text{s.t.} \quad
+\begin{cases}
+p_{0}^{\ast} = \pi_{0}, \\
+p_{T}^{\ast} = \pi_{T}.
+\end{cases}
 \end{align}
 $$
 Here, the optimal control $\bm{u}^{\ast}$ is written in terms of the Lagrange multiplier:
@@ -270,8 +256,8 @@ $$
 \end{cases}
 \quad \text{s.t.} \quad
 \begin{cases}
-p_{0}^{\ast} &= \phi_{0}\hat{\phi}_{0}, \\
-p_{T}^{\ast} &= \phi_{T} \hat{\phi}_{T},
+p_{0}^{\ast} = \phi_{0}\hat{\phi}_{0}, \\
+p_{T}^{\ast} = \phi_{T} \hat{\phi}_{T},
 \end{cases}
 \end{align}
 $$
@@ -279,13 +265,13 @@ where the solution is given by:
 $$
 \begin{align}
 \begin{cases}
-\phi_{t}(\bm{x}) &= \int_{\mathbb{R}^{d}} \mathbb{P}_{T \mid t}^{\bm{0}}(\bm{y} \mid \bm{x}) \phi_{T}(\bm{y}) \mathrm{d}\bm{y}, \\
-\hat{\phi}_{t}(\bm{x}) &= \int_{\mathbb{R}^{d}} \mathbb{P}_{t \mid 0}^{\bm{0}}(\bm{x} \mid \bm{y}) \hat{\phi}_{0}(\bm{y}) \mathrm{d}\bm{y},
+\phi_{t}(\bm{x}) = \int_{\mathbb{R}^{d}} \mathbb{P}_{T \mid t}^{\bm{0}}(\bm{y} \mid \bm{x}) \phi_{T}(\bm{y}) \mathrm{d}\bm{y}, \\
+\hat{\phi}_{t}(\bm{x}) = \int_{\mathbb{R}^{d}} \mathbb{P}_{t \mid 0}^{\bm{0}}(\bm{x} \mid \bm{y}) \hat{\phi}_{0}(\bm{y}) \mathrm{d}\bm{y},
 \end{cases}
 \quad \text{s.t.} \quad
 \begin{cases}
-\pi_{0}(\bm{x}) &= \phi_{0}(\bm{x}) \hat{\phi}_{0}(\bm{x}), \\
-\pi_{T}(\bm{x}) &= \phi_{T}(\bm{x}) \hat{\phi}_{T}(\bm{x}).
+\pi_{0}(\bm{x}) = \phi_{0}(\bm{x}) \hat{\phi}_{0}(\bm{x}), \\
+\pi_{T}(\bm{x}) = \phi_{T}(\bm{x}) \hat{\phi}_{T}(\bm{x}).
 \end{cases}
 \end{align}
 $$
@@ -302,7 +288,7 @@ The DSB formulation can be interpreted as a specific instance of the SOC formula
 $$
 \begin{align}\textstyle
 c(\bm{x},t)=0, \quad
-\Phi(\bm{x}) = V_{T}(\bm{x}) = \log{\frac{\hat{\phi}_{T}(\bm{x})}{\pi_{T}(\bm{x})}}.
+\Phi(\bm{x}) = \log{\frac{\hat{\phi}_{T}(\bm{x})}{\pi_{T}(\bm{x})}}.
 \end{align}
 $$
 Substituting these yields the SOC formulation equivalent to the DSB formulation:
@@ -321,3 +307,30 @@ $$
 \end{align}
 $$
 
+### DDIM as DSB
+
+The standard continuous diffusion involving a Gaussian forward transition kernel:
+$$
+\begin{align}\textstyle
+q(\bm{x}_{t} \mid \bm{x}_{0}) = \mathcal{N}\left( \bm{x}_{t} ; \sqrt{\alpha_{t}}\bm{x}_{0}, (1 - \alpha_{t}) \bm{I} \right),
+\quad\text{where } \alpha_{t} = \exp{\left( -\int_{0}^{t} \beta_{s} \mathrm{d}s \right)},
+\end{align}
+$$
+can be described by defining the reference dynamics $\mathbb{P}^{\bm{0}}$ as:
+$$
+\begin{align}\textstyle
+\mathrm{d}\bm{X}_{t} = \bm{f}(\bm{X}_{t}, t)\mathrm{d}t + \sigma_{t}\mathrm{d}\bm{B}_{t},
+\quad\text{ where }
+\bm{f}(\bm{x}, t) = -\frac{1}{2}\beta_{t}\bm{x}, \; \sigma_{t} = \sqrt{\beta_{t}}.
+\end{align}
+$$
+By designing $\beta_{t} : [0,T] \rightarrow \mathbb{R}$ such that $\mathbb{P}^{\bm{0}}$ approximately reaches $\pi_{T} = \mathcal{N}(\bm{0},\bm{I})$ starting from $\pi_{0} = p_{\text{data}}$, the system can be interpreted as a DSB problem where the reference process is pre-aligned with the target boundary conditions.
+Thus, the optimal controls vanishes:
+$$
+\begin{align}
+\bm{u}^{\ast}(\bm{x}, t)
+= \sigma_{t} \nabla \log{\phi_{t}(\bm{x})}
+= \sqrt{\beta_{t}} \left( \nabla\log{p_{t}^{\ast}}(\bm{x}) - \nabla\log{\hat{\phi}_{t}}(\bm{x}) \right)
+= \bm{0}.
+\end{align}
+$$
