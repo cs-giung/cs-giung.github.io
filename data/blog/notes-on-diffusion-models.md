@@ -35,7 +35,7 @@ q(\bm{z}_{s} \mid \bm{z}_{t}, \bm{z}_{0})
 \end{align}
 $$
 
-## Denoising Diffusion Implicit Model (DDIM)
+### Denoising Diffusion Implicit Model (DDIM)
 
 DDIM introduces a hyperparameter $\sigma_{s}$ for the variance of the reverse posterior, generalizing the stochastic process while maintaining the same marginals $q(\bm{z}_{t} \mid \bm{z}_{0})$.
 The reverse transition is defined by:

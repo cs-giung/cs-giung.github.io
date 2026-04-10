@@ -284,7 +284,7 @@ $$
 
 ### SOC-formulated DSB
 
-The DSB formulation can be interpreted as a specific instance of the SOC formulation with the followings:
+The DSB formulation can be interpreted as a SOC formulation with the following costs:
 $$
 \begin{align}\textstyle
 c(\bm{x},t)=0, \quad
@@ -307,7 +307,34 @@ $$
 \end{align}
 $$
 
-### DDIM as DSB
+### DOT-formulated DSB
+
+The DSB formulation can be interpreted as a DOT formulation with the following velocity field:
+$$
+\begin{align}\textstyle
+\bm{v}(\bm{x}, t) = \bm{u}(\bm{x}, t) + \frac{\sigma_{t}}{2} \nabla\log{p_{t}(\bm{x})}.
+\end{align}
+$$
+Reparameterizing the objective yields the DOT formulation equivalent to the DSB formulation:
+$$
+\begin{align}
+\inf_{\bm{v}}
+& \textstyle \quad \int_{0}^{T} \int_{\mathbb{R}^{d}} \left[ \left(
+    \frac{1}{2} \left\lVert \bm{v} \right\rVert^{2}
+    + \frac{\sigma_{t}^{2}}{8} \left\lVert \nabla \log{p_{t}} \right\rVert^{2}
+    - \frac{1}{2} \langle \nabla \log{p_{t}}, \bm{f} \rangle
+\right) \bm{p}_{t}^{\bm{u}} \right]  \mathrm{d}\bm{x} \mathrm{d}t, \\
+\text{s.t.}
+& \textstyle \quad \partial_{t} p_{t}^{\bm{u}}
+= -\nabla \cdot \left\{
+    \left[
+        \bm{f} + \sigma_{t} \bm{v}
+    \right] p_{t}^{\bm{u}}
+\right\}, p_{0}^{\bm{u}} = \pi_{0}, p_{T}^{\bm{u}} = \pi_{T}.
+\end{align}
+$$
+
+### DDPM as DSB
 
 The standard continuous diffusion involving a Gaussian forward transition kernel:
 $$
@@ -324,7 +351,7 @@ $$
 \bm{f}(\bm{x}, t) = -\frac{1}{2}\beta_{t}\bm{x}, \; \sigma_{t} = \sqrt{\beta_{t}}.
 \end{align}
 $$
-By designing $\beta_{t} : [0,T] \rightarrow \mathbb{R}$ such that $\mathbb{P}^{\bm{0}}$ approximately reaches $\pi_{T} = \mathcal{N}(\bm{0},\bm{I})$ starting from $\pi_{0} = p_{\text{data}}$, the system can be interpreted as a DSB problem where the reference process is pre-aligned with the target boundary conditions.
+By designing $\beta_{t} : [0,T] \rightarrow \mathbb{R}_{\geq 0}$ such that $\mathbb{P}^{\bm{0}}$ approximately reaches $\pi_{T} = \mathcal{N}(\bm{0},\bm{I})$ starting from $\pi_{0} = p_{\text{data}}$, the system can be interpreted as a DSB problem where the reference process is pre-aligned with the target boundary conditions.
 Thus, the optimal controls vanishes:
 $$
 \begin{align}
@@ -332,5 +359,33 @@ $$
 = \sigma_{t} \nabla \log{\phi_{t}(\bm{x})}
 = \sqrt{\beta_{t}} \left( \nabla\log{p_{t}^{\ast}}(\bm{x}) - \nabla\log{\hat{\phi}_{t}}(\bm{x}) \right)
 = \bm{0}.
+\end{align}
+$$
+
+### FM as DSB
+
+The standard flow matching involving a Dirac delta transition kernel:
+$$
+\begin{align}\textstyle
+q(\bm{x}_{t} \mid \bm{x}_{0}, \bm{x}_{T}) = \delta\left(
+    \bm{x}_{t} - \frac{(T-t)\bm{x}_{0} + t\bm{x}_{T}}{T}
+\right),
+\end{align}
+$$
+can be described by defining the reference dynamics $\mathbb{P}^{\bm{0}}$ as:
+$$
+\begin{align}\textstyle
+\mathrm{d}\bm{X}_{t} = \bm{f}(\bm{X}_{t}, t)\mathrm{d}t + \sigma_{t}\mathrm{d}\bm{B}_{t},
+\quad\text{ where }
+\bm{f}(\bm{x}, t) = 0, \; \sigma_{t} = \sigma.
+\end{align}
+$$
+By taking $\sigma \to 0$, the DSB problem converges to a classical DOT problem, where the underlying stochastic particle dynamics collapse into purely deterministic trajectories.
+For a specific pair $(\bm{x}_{0}, \bm{x}_{T}) \sim \pi_{0,T}$, the conditional velocity field is simply the straight-line displacement: $\lim_{\sigma \to 0} \sigma \bm{u}^{\ast}(\bm{x}, t) = \frac{1}{T}(\bm{x}_{T} - \bm{x}_{0})$.
+With an independent coupling, i.e., $\pi_{0,T}(\bm{x}_{0}, \bm{x}_{T}) = \pi_{0}(\bm{x}_{0}) \pi_{T}(\bm{x}_{T})$, the PF-ODE is given by:
+$$
+\begin{align}\textstyle
+\mathrm{d}\bm{X}_{t}^{\ast} = \bm{v}^{\ast}(\bm{X}_{t}^{\ast}, t) \mathrm{d}t, \quad
+\bm{v}^{\ast}(\bm{x}, t) = \mathbb{E}_{\pi_{0,T}} \left[ \frac{1}{T} (\bm{x}_{T} - \bm{x}_{0}) \mid \bm{X}_{t}^{\ast}=\bm{x} \right].
 \end{align}
 $$
