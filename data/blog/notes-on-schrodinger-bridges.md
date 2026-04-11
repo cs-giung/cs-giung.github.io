@@ -367,25 +367,33 @@ $$
 The standard flow matching involving a Dirac delta transition kernel:
 $$
 \begin{align}\textstyle
-q(\bm{x}_{t} \mid \bm{x}_{0}, \bm{x}_{T}) = \delta\left(
-    \bm{x}_{t} - \frac{(T-t)\bm{x}_{0} + t\bm{x}_{T}}{T}
+q(\bm{x}_{t} \mid \bm{x}_{0}, \bm{x}_{T}) = \lim_{\sigma \to 0} \mathcal{N}\left(
+    \bm{x}_{t} ; \frac{(T-t)\bm{x}_{0} + t\bm{x}_{T}}{T}, \frac{t(T-t)\sigma^{2}}{T}\bm{I}
 \right),
 \end{align}
 $$
 can be described by defining the reference dynamics $\mathbb{P}^{\bm{0}}$ as:
 $$
 \begin{align}\textstyle
-\mathrm{d}\bm{X}_{t} = \bm{f}(\bm{X}_{t}, t)\mathrm{d}t + \sigma_{t}\mathrm{d}\bm{B}_{t},
+\mathrm{d}\bm{X}_{t} = \bm{f}(\bm{X}_{t}, t)\mathrm{d}t + \sigma\mathrm{d}\bm{B}_{t},
 \quad\text{ where }
-\bm{f}(\bm{x}, t) = 0, \; \sigma_{t} = \sigma.
+\bm{f}(\bm{x}, t) = 0, \; \sigma \to 0.
 \end{align}
 $$
 By taking $\sigma \to 0$, the DSB problem converges to a classical DOT problem, where the underlying stochastic particle dynamics collapse into purely deterministic trajectories.
-For a specific pair $(\bm{x}_{0}, \bm{x}_{T}) \sim \pi_{0,T}$, the conditional velocity field is simply the straight-line displacement: $\lim_{\sigma \to 0} \sigma \bm{u}^{\ast}(\bm{x}, t) = \frac{1}{T}(\bm{x}_{T} - \bm{x}_{0})$.
+For a specific pair $(\bm{x}_{0}, \bm{x}_{T}) \sim \pi_{0,T}$, the conditional velocity field is simply the straight-line displacement: $\bm{u}^{\ast}(\bm{x}, t) = \frac{1}{T}(\bm{x}_{T} - \bm{x}_{0})$.
 With an independent coupling, i.e., $\pi_{0,T}(\bm{x}_{0}, \bm{x}_{T}) = \pi_{0}(\bm{x}_{0}) \pi_{T}(\bm{x}_{T})$, the PF-ODE is given by:
 $$
 \begin{align}\textstyle
 \mathrm{d}\bm{X}_{t}^{\ast} = \bm{v}^{\ast}(\bm{X}_{t}^{\ast}, t) \mathrm{d}t, \quad
 \bm{v}^{\ast}(\bm{x}, t) = \mathbb{E}_{\pi_{0,T}} \left[ \frac{1}{T} (\bm{x}_{T} - \bm{x}_{0}) \mid \bm{X}_{t}^{\ast}=\bm{x} \right].
+\end{align}
+$$
+Note that we have the following forward transition when $\pi_{T} = \mathcal{N}(\bm{0}, \bm{I})$:
+$$
+\begin{align}\textstyle
+q(\bm{x}_{t} \mid \bm{x}_{0}) = \mathcal{N}\left(
+    \bm{x}_{t} ; (1-\frac{t}{T})\bm{x}_{0}, (\frac{t}{T})^{2}\bm{I}
+\right).
 \end{align}
 $$
