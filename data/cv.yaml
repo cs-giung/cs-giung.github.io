@@ -62,6 +62,12 @@ position:
 
 publication:
 
+  - title: "OCNR: stabilizing self-play by mitigating iteration-collapse with one-class novelty rewards"
+    authors: "Seungyoo Lee, **Giung Nam**, Hyungi Lee, Juho Lee"
+    venue: "ICML"
+    year: 2026
+    note: "To appear in the Forty-Third International Conference on Machine Learning, Jul 2026."
+
   - title: "ASCG: Adaptive spatial classifier guidance for surgical concept suppression in diffusion models"
     authors: "Younghwan Kil, Joonhyeong Park, **Giung Nam**, Juho Lee"
     venue: "SAFE@CVPR"
