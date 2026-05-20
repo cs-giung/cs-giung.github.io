@@ -4,6 +4,7 @@ personal:
   title: "Postdoctoral Researcher @ KAIST AI"
   location: "Seoul, South Korea"
   email: "{first_name} [at] kaist [dot] ac [dot] kr"
+  cv_url: "/CV.pdf"
   github: "cs-giung"
   huggingface: "cs-giung"
   linkedin: "giung-nam-3443562ab"
@@ -39,7 +40,7 @@ education:
 position:
   - title: "KAIST"
     subtitle: "Postdoctoral Researcher, Information & Electronics Research Institute"
-    period: "Mar 2026 - Present"
+    period: "Mar 2026 - Feb 2027 (expected)"
     location: "Seoul, South Korea"
     details:
       - "Fulfilling mandatory military service through a specialized research position."

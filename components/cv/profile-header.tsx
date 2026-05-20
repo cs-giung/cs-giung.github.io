@@ -1,6 +1,6 @@
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar'
 import { Card, CardContent } from '@/components/ui/card'
-import { MapPin, Mail, User, GraduationCap } from 'lucide-react'
+import { MapPin, Mail, User, GraduationCap, FileText } from 'lucide-react'
 import { PersonalInfo } from '@/lib/cv-data'
 
 interface ProfileHeaderProps {
@@ -38,6 +38,18 @@ export function ProfileHeader({ personal }: ProfileHeaderProps) {
               <div className="flex items-center gap-2">
                 <Mail className="w-4 h-4 text-muted-foreground" />
                 {personal.email}
+              </div>
+
+              <div className="flex items-center gap-2">
+                <FileText className="w-4 h-4 text-muted-foreground" />
+                <a
+                  href={personal.cv_url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-blue-600 hover:underline"
+                >
+                  CV.pdf
+                </a>
               </div>
 
               <div className="flex items-center gap-2">

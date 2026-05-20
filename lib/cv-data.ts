@@ -14,6 +14,7 @@ export interface PersonalInfo {
   linkedin: string
   location: string
   profile_image: string
+  cv_url?: string
   about: string[]
 }
 
