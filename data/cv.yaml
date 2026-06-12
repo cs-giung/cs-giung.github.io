@@ -21,7 +21,7 @@ education:
     period: "Sep 2022 - Feb 2026"
     location: "Seoul, South Korea"
     details:
-      - "Thesis: Exploiting prior knowledge in pre-trained models"
+      - "Thesis: [Exploiting prior knowledge in pre-trained models](http://hdl.handle.net/10203/342931)"
       - "Committee: [Juho Lee](https://scholar.google.com/citations?user=Py4URJUAAAAJ) (Advisor), [Eunho Yang](https://scholar.google.com/citations?user=UWO1mloAAAAJ), [Jong Chul Ye](https://scholar.google.com/citations?hl=ko&user=HNMjoNEAAAAJ), [Sehoon Kim](https://scholar.google.com/citations?hl=ko&user=zQABr7QAAAAJ), [Se-Young Yun](https://scholar.google.com/citations?hl=ko&user=X_IAjb8AAAAJ)"
 
   - title: "KAIST"
@@ -73,7 +73,7 @@ publication:
     authors: "Younghwan Kil, Joonhyeong Park, **Giung Nam**, Juho Lee"
     venue: "SAFE@CVPR"
     year: 2026
-    note: "To appear in the Second Edition of Workshop on Synthetic & Adversarial ForEnsics, June 2026."
+    note: "In the Second Edition of Workshop on Synthetic & Adversarial ForEnsics, June 2026."
 
   - title: "Improving constrained language generation via self-distilled twisted sequential Monte Carlo"
     authors: "Sooyeon Kim, **Giung Nam**, Byoungwoo Park, Juho Lee"
