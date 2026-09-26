@@ -63,8 +63,26 @@ position:
 
 publication:
 
+  - title: "SKIM: pruning large language model agents via selective knowledge informed masking"
+    authors: "Moonseok Choi, Jongwon Jeong, Minki Kang, **Giung Nam†**, Juho Lee† (†: Equal corresponding)"
+    venue: "NeurIPS"
+    year: 2026
+    note: "In the Fortieth Annual Conference on Neural Information Processing Systems, Dec 2026 (To appear)."
+
+  - title: "SAVE: sparsity-aware influence estimation for vocabulary-expanded LLMs"
+    authors: "Seungyoo Lee, **Giung Nam**, Seanie Lee, Hyungi Lee, Juho Lee"
+    venue: "NeurIPS"
+    year: 2026
+    note: "In the Fortieth Annual Conference on Neural Information Processing Systems, Dec 2026 (To appear)."
+
+  - title: "Example-based spatial guidance for training-free concept erasure in diffusion models"
+    authors: "Younghwan Kil, **Giung Nam**, Joonhyeong Park, Jinwoo Shin, Juho Lee"
+    venue: "NeurIPS"
+    year: 2026
+    note: "In the Fortieth Annual Conference on Neural Information Processing Systems, Dec 2026 (To appear)."
+
   - title: "OCNR: stabilizing self-play by mitigating iteration-collapse with one-class novelty rewards"
-    authors: "Seungyoo Lee, **Giung Nam**, Hyungi Lee, Juho Lee"
+    authors: "Seungyoo Lee, **Giung Nam**, Hyungi Lee†, Juho Lee† (†: Equal corresponding)"
     venue: "ICML"
     year: 2026
     url: "https://openreview.net/forum?id=70lhVsTZ62"
