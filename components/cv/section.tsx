@@ -6,17 +6,19 @@ import { LinkableTitle } from '@/components/ui/linkable-title'
 
 interface SectionProps {
   title: string
+  description?: string
   children: ReactNode
   className?: string
 }
 
-export function Section({ title, children, className = '' }: SectionProps) {
+export function Section({ title, description, children, className = '' }: SectionProps) {
   return (
     <Card className={`w-full ${className}`}>
       <CardHeader>
         <CardTitle className="text-2xl">
           <h2>{title}</h2>
         </CardTitle>
+        {description && <p className="text-sm text-muted-foreground">{description}</p>}
       </CardHeader>
       <CardContent className="space-y-6">
         {children}

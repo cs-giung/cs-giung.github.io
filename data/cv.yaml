@@ -64,131 +64,131 @@ position:
 publication:
 
   - title: "SKIM: pruning large language model agents via selective knowledge informed masking"
-    authors: "Moonseok Choi, Jongwon Jeong, Minki Kang, **Giung Nam†**, Juho Lee† (†: Equal corresponding)"
+    authors: "Moonseok Choi, Jongwon Jeong, Minki Kang, **Giung Nam†**, Juho Lee†"
     venue: "NeurIPS"
     year: 2026
-    note: "In the Fortieth Annual Conference on Neural Information Processing Systems, Dec 2026 (To appear)."
+    note: "Conference on Neural Information Processing Systems, Dec 2026 (To appear)."
 
   - title: "SAVE: sparsity-aware influence estimation for vocabulary-expanded LLMs"
-    authors: "Seungyoo Lee, **Giung Nam**, Seanie Lee, Hyungi Lee, Juho Lee"
+    authors: "Seungyoo Lee, **Giung Nam**, Seanie Lee, Hyungi Lee†, Juho Lee†"
     venue: "NeurIPS"
     year: 2026
-    note: "In the Fortieth Annual Conference on Neural Information Processing Systems, Dec 2026 (To appear)."
+    note: "Conference on Neural Information Processing Systems, Dec 2026 (To appear)."
 
   - title: "Example-based spatial guidance for training-free concept erasure in diffusion models"
     authors: "Younghwan Kil, **Giung Nam**, Joonhyeong Park, Jinwoo Shin, Juho Lee"
     venue: "NeurIPS"
     year: 2026
-    note: "In the Fortieth Annual Conference on Neural Information Processing Systems, Dec 2026 (To appear)."
+    note: "Conference on Neural Information Processing Systems, Dec 2026 (To appear)."
 
   - title: "OCNR: stabilizing self-play by mitigating iteration-collapse with one-class novelty rewards"
-    authors: "Seungyoo Lee, **Giung Nam**, Hyungi Lee†, Juho Lee† (†: Equal corresponding)"
+    authors: "Seungyoo Lee, **Giung Nam**, Hyungi Lee†, Juho Lee†"
     venue: "ICML"
     year: 2026
     url: "https://openreview.net/forum?id=70lhVsTZ62"
-    note: "In the Forty-Third International Conference on Machine Learning, Jul 2026."
+    note: "International Conference on Machine Learning, Jul 2026."
 
   - title: "ASCG: Adaptive spatial classifier guidance for surgical concept suppression in diffusion models"
     authors: "Younghwan Kil, Joonhyeong Park, **Giung Nam**, Juho Lee"
     venue: "SAFE@CVPR"
     year: 2026
     url: "https://www.safeworkshop.org/cvpr-2026/"
-    note: "In the Second Edition of Workshop on Synthetic & Adversarial ForEnsics, June 2026."
+    note: "Second Edition of Workshop on Synthetic & Adversarial ForEnsics, June 2026."
 
   - title: "Improving constrained language generation via self-distilled twisted sequential Monte Carlo"
     authors: "Sooyeon Kim, **Giung Nam**, Byoungwoo Park, Juho Lee"
     venue: "FPI@NeurIPS"
     year: 2025
     url: "https://openreview.net/forum?id=00CWDFhpWQ"
-    note: "In the Second Edition of Frontiers in Probabilistic Inference: Learning meets Sampling, Dec 2025."
+    note: "Second Edition of Frontiers in Probabilistic Inference: Learning meets Sampling, Dec 2025."
 
   - title: "PANGEA: projection-based augmentation with non-relevant general data for enhanced domain adaptation in LLMs"
-    authors: "Seungyoo Lee, **Giung Nam**, Moonseok Choi, Hyungi Lee†, Juho Lee† (†: Equal corresponding)"
+    authors: "Seungyoo Lee, **Giung Nam**, Moonseok Choi, Hyungi Lee†, Juho Lee†"
     venue: "NeurIPS"
     year: 2025
     url: "https://openreview.net/forum?id=7EjdHkOwc4"
-    note: "In the Thirty-Ninth Annual Conference on Neural Information Processing Systems, Dec 2025."
+    note: "Conference on Neural Information Processing Systems, Dec 2025."
 
   - title: "Ensemble distribution distillation via flow matching"
-    authors: "Jonggeon Park*, **Giung Nam***, Hyunsu Kim, Jongmin Yoon, Juho Lee (*: Equal contribution)"
+    authors: "Jonggeon Park*, **Giung Nam***, Hyunsu Kim, Jongmin Yoon, Juho Lee"
     venue: "ICML"
     year: 2025
     url: "https://openreview.net/forum?id=waeJHU2oeI"
-    note: "In the Forty-Second International Conference on Machine Learning, Jul 2025."
+    note: "International Conference on Machine Learning, Jul 2025."
 
   - title: "Parameter expanded stochastic gradient Markov chain Monte Carlo"
     authors: "Hyunsu Kim, **Giung Nam**, Chulhee Yun, Hongseok Yang, Juho Lee"
     venue: "ICLR"
     year: 2025
     url: "https://openreview.net/forum?id=exgLs4snap"
-    note: "In the Thirteenth International Conference on Learning Representations, Apr 2025."
+    note: "International Conference on Learning Representations, Apr 2025."
 
   - title: "Ex uno pluria: insights on ensembling in low precision number systems"
     authors: "**Giung Nam**, Juho Lee"
     venue: "NeurIPS"
     year: 2024
     url: "https://openreview.net/forum?id=CbtkDWZzDq"
-    note: "In the Thirty-Eighth Conference on Neural Information Processing Systems, Dec 2024."
+    note: "Conference on Neural Information Processing Systems, Dec 2024."
 
   - title: "Sparse weight averaging with multiple particles for iterative magnitude pruning"
-    authors: "Moonseok Choi*, Hyungi Lee*, **Giung Nam***, Juho Lee (*: Equal contribution)"
+    authors: "Moonseok Choi*, Hyungi Lee*, **Giung Nam***, Juho Lee"
     venue: "ICLR"
     year: 2024
     url: "https://openreview.net/forum?id=Y9t7MqZtCR"
-    note: "In the Twelfth International Conference on Learning Representations, May 2024."
+    note: "International Conference on Learning Representations, May 2024."
 
   - title: "Enhancing transfer learning with flexible nonparametric posterior sampling"
-    authors: "Hyungi Lee*, **Giung Nam***, Edwin Fong, Juho Lee (*: Equal contribution)"
+    authors: "Hyungi Lee*, **Giung Nam***, Edwin Fong, Juho Lee"
     venue: "ICLR"
     year: 2024
     url: "https://openreview.net/forum?id=vSwu81S33z"
-    note: "In the Twelfth International Conference on Learning Representations, May 2024."
+    note: "International Conference on Learning Representations, May 2024."
 
   - title: "Lipsum-FT: robust fine-tuning of zero-shot models using random text guidance"
     authors: "**Giung Nam**, Byeongho Heo, Juho Lee"
     venue: "ICLR"
     year: 2024
     url: "https://openreview.net/forum?id=2JF8mJRJ7M"
-    note: "In the Twelfth International Conference on Learning Representations, May 2024."
+    note: "International Conference on Learning Representations, May 2024."
 
   - title: "Traversing between modes in function space for fast ensembling"
-    authors: "Eunggu Yun*, Hyungi Lee*, **Giung Nam***, Juho Lee (*: Equal contribution)"
+    authors: "Eunggu Yun*, Hyungi Lee*, **Giung Nam***, Juho Lee"
     venue: "ICML"
     year: 2023
     url: "https://openreview.net/forum?id=Kw7g8iUNAw"
-    note: "In the Fortieth International Conference on Machine Learning, Jul 2023."
+    note: "International Conference on Machine Learning, Jul 2023."
 
   - title: "Martingale posterior neural processes"
     authors: "Hyungi Lee, Eunggu Yun, **Giung Nam**, Edwin Fong, Juho Lee"
     venue: "ICLR"
     year: 2023
     url: "https://openreview.net/forum?id=-9PVqZ-IR_"
-    note: "In the Eleventh International Conference on Learning Representations, May 2023."
+    note: "International Conference on Learning Representations, May 2023."
 
   - title: "Decoupled training for long-tailed classification with stochastic representations"
-    authors: "**Giung Nam***, Sunguk Jang*, Juho Lee (*: Equal contribution)"
+    authors: "**Giung Nam***, Sunguk Jang*, Juho Lee"
     venue: "ICLR"
     year: 2023
     url: "https://openreview.net/forum?id=bcYZwYo-0t"
-    note: "In the Eleventh International Conference on Learning Representations, May 2023."
+    note: "International Conference on Learning Representations, May 2023."
 
   - title: "Benefits of stochastic weight averaging in developing neural network radiation scheme for numerical weather prediction"
     authors: "Hwan-Jin Song, Soonyoung Roh, Juho Lee, **Giung Nam**, Eunggu Yun, Jongmin Yoon, Park Sa Kim"
     venue: "JAMES"
     year: 2022
     url: "https://doi.org/10.1029/2021MS002921"
-    note: "In the Journal of Advances in Modeling Earth Systems, Oct 2022."
+    note: "Journal of Advances in Modeling Earth Systems, Oct 2022."
 
   - title: "Improving ensemble distillation with weight averaging and diversifying perturbation"
     authors: "**Giung Nam**, Hyungi Lee, Byeongho Heo, Juho Lee"
     venue: "ICML"
     year: 2022
     url: "https://proceedings.mlr.press/v162/nam22a.html"
-    note: "In the Thirty-ninth International Conference on Machine Learning, Jul 2022."
+    note: "International Conference on Machine Learning, Jul 2022."
 
   - title: "Diversity matters when learning from ensembles"
-    authors: "**Giung Nam***, Jongmin Yoon*, Yoonho Lee, Juho Lee (*: Equal contribution)"
+    authors: "**Giung Nam***, Jongmin Yoon*, Yoonho Lee, Juho Lee"
     venue: "NeurIPS"
     year: 2021
     url: "https://openreview.net/forum?id=f_eOQN87eXc"
-    note: "In the Thirty-Fifth Conference on Neural Information Processing Systems, Dec 2021."
+    note: "Conference on Neural Information Processing Systems, Dec 2021."

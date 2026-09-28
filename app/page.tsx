@@ -83,7 +83,7 @@ export default function Home() {
           </Section>
 
           {/* Publication Section */}
-          <Section title="Publication">
+          <Section title="Publication" description="*: Co-first; †: Co-corresponding">
             {cvData.publication.map((pub, index) => {
               const previousPub = cvData.publication[index - 1];
               const isYearDifferent = previousPub && (previousPub.year !== pub.year);
