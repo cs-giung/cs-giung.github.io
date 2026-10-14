@@ -38,6 +38,7 @@ export interface Publication {
   title: string
   authors: string
   venue: string
+  status?: 'preprint' | 'published'
   year: number
   url?: string
   note?: string

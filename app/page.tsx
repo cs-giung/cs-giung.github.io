@@ -21,6 +21,10 @@ import { NavTabs } from '@/components/ui/nav-tabs'
 
 export default function Home() {
   const cvData = getCVData()
+  const publications = [
+    ...cvData.publication.filter(pub => pub.status === 'preprint').sort((a, b) => b.year - a.year),
+    ...cvData.publication.filter(pub => pub.status !== 'preprint').sort((a, b) => b.year - a.year),
+  ]
 
   return (
     <main className="min-h-screen bg-background">
@@ -83,25 +87,28 @@ export default function Home() {
           </Section>
 
           {/* Publication Section */}
-          <Section title="Publication" description="*: Co-first; †: Co-corresponding">
-            {cvData.publication.map((pub, index) => {
-              const previousPub = cvData.publication[index - 1];
-              const isYearDifferent = previousPub && (previousPub.year !== pub.year);
-              const shouldRenderSeparator = index > 0 && isYearDifferent;
+          <Section title="Preprints & Publications" description="*: Co-first; †: Co-corresponding" className="gap-4">
+            {publications.map((pub, index) => {
+              const previousPub = publications[index - 1]
+              const isPreprint = pub.status === 'preprint'
+              const shouldRenderSeparator = !previousPub ||
+                isPreprint !== (previousPub.status === 'preprint') ||
+                (!isPreprint && previousPub.year !== pub.year)
 
               return (
-                <div key={index}>
+                <div key={pub.title}>
                   {shouldRenderSeparator && (
-                    <div className="flex items-center my-4"> {/* Flexbox 컨테이너 */}
-                      <div className="flex-grow border-t text-muted-foreground mr-4"></div>
-                      <span className="text-sm text-muted-foreground">{pub.year}</span>
-                      <div className="flex-grow border-t text-muted-foreground ml-4"></div>
+                    <div className={`flex items-center ${index === 0 ? 'mb-4' : 'my-4'}`}>
+                      <div className="flex-grow border-t text-muted-foreground mr-4" aria-hidden="true"></div>
+                      <h3 className="text-sm text-muted-foreground">{isPreprint ? 'Preprints' : pub.year}</h3>
+                      <div className="flex-grow border-t text-muted-foreground ml-4" aria-hidden="true"></div>
                     </div>
                   )}
                   <PublicationItem
                     title={pub.title}
                     authors={pub.authors}
                     venue={pub.venue}
+                    status={pub.status}
                     url={pub.url}
                     note={pub.note}
                   />

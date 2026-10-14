@@ -3,6 +3,7 @@ import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 import { ReactNode } from 'react'
 import ReactMarkdown, { Components } from 'react-markdown'
 import { LinkableTitle } from '@/components/ui/linkable-title'
+import type { Publication } from '@/lib/cv-data'
 
 interface SectionProps {
   title: string
@@ -14,11 +15,11 @@ interface SectionProps {
 export function Section({ title, description, children, className = '' }: SectionProps) {
   return (
     <Card className={`w-full ${className}`}>
-      <CardHeader>
+      <CardHeader className="flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between">
         <CardTitle className="text-2xl">
           <h2>{title}</h2>
         </CardTitle>
-        {description && <p className="text-sm text-muted-foreground">{description}</p>}
+        {description && <p className="text-sm text-muted-foreground sm:text-right">{description}</p>}
       </CardHeader>
       <CardContent className="space-y-6">
         {children}
@@ -40,6 +41,7 @@ interface PublicationItemProps {
   title: string
   authors: string
   venue: string
+  status?: Publication['status']
   url?: string
   note?: string
 }
@@ -145,6 +147,7 @@ export function PublicationItem({
   title,
   authors,
   venue,
+  status,
   url,
   note,
 }: PublicationItemProps) {
@@ -166,9 +169,11 @@ export function PublicationItem({
             </ReactMarkdown>
           </div>
         </div>
-        <div className="flex flex-col sm:items-end gap-1">
-          <Badge variant="secondary">{venue}</Badge>
-        </div>
+        {status !== 'preprint' && (
+          <div className="flex flex-col sm:items-end gap-1">
+            <Badge variant="secondary">{venue}</Badge>
+          </div>
+        )}
       </div>
     </div>
   )

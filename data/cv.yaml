@@ -63,6 +63,22 @@ position:
 
 publication:
 
+  - title: "Harness-Aware Distillation for Small Language Model Agents"
+    authors: "Moonseok Choi, Taehong Moon, **Giung Nam†**, Juho Lee†"
+    venue: "arXiv"
+    status: "preprint"
+    year: 2026
+    url: "https://arxiv.org/abs/2610.02858"
+    note: "arXiv:2610.02858, Oct 2026."
+
+  - title: "Proper Scoring Rule-based Diffusion for Probabilistic Weather Forecasting"
+    authors: "Joonhyeong Park, **Giung Nam**, Hyungi Lee, Kyunghyun Cho, Byoungwoo Park†, Juho Lee†"
+    venue: "arXiv"
+    status: "preprint"
+    year: 2026
+    url: "https://arxiv.org/abs/2609.38632"
+    note: "arXiv:2609.38632, Sep 2026."
+
   - title: "SKIM: pruning large language model agents via selective knowledge informed masking"
     authors: "Moonseok Choi, Jongwon Jeong, Minki Kang, **Giung Nam†**, Juho Lee†"
     venue: "NeurIPS"
