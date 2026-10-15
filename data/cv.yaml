@@ -63,7 +63,15 @@ position:
 
 publication:
 
-  - title: "Harness-Aware Distillation for Small Language Model Agents"
+  - title: "Rationale distribution distillation via flow matching for distributional continuous latent reasoning"
+    authors: "Mingyeong Kim, Gyusang Cho, Juho Lee, **Giung Nam**"
+    venue: "arXiv"
+    status: "preprint"
+    year: 2026
+    url: "https://arxiv.org/abs/2610.19871"
+    note: "arXiv:2610.19871, Oct 2026."
+
+  - title: "Harness-aware distillation for small language model agents"
     authors: "Moonseok Choi, Taehong Moon, **Giung Nam†**, Juho Lee†"
     venue: "arXiv"
     status: "preprint"
@@ -71,7 +79,7 @@ publication:
     url: "https://arxiv.org/abs/2610.02858"
     note: "arXiv:2610.02858, Oct 2026."
 
-  - title: "Proper Scoring Rule-based Diffusion for Probabilistic Weather Forecasting"
+  - title: "Proper scoring rule-based diffusion for probabilistic weather forecasting"
     authors: "Joonhyeong Park, **Giung Nam**, Hyungi Lee, Kyunghyun Cho, Byoungwoo Park†, Juho Lee†"
     venue: "arXiv"
     status: "preprint"
@@ -104,7 +112,7 @@ publication:
     url: "https://openreview.net/forum?id=70lhVsTZ62"
     note: "International Conference on Machine Learning, Jul 2026."
 
-  - title: "ASCG: Adaptive spatial classifier guidance for surgical concept suppression in diffusion models"
+  - title: "ASCG: adaptive spatial classifier guidance for surgical concept suppression in diffusion models"
     authors: "Younghwan Kil, Joonhyeong Park, **Giung Nam**, Juho Lee"
     venue: "SAFE@CVPR"
     year: 2026
