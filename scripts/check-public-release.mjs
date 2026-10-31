@@ -47,6 +47,7 @@ const reviewedAssets = new Set([
   'public/Box1976_Figure1.png',
   'public/Swift1726_Figure1.jpg',
   'public/google08a4171fdeccc94c.html',
+  'public/google91bdf56f9a36698d.html',
   'public/sitemap_index.xml',
   'public/fonts/README.md',
 ])
