@@ -1,16 +1,4 @@
 links:
-  - title: "You and your research"
-    authors: "Richard Hamming & James Kaiser, 1986"
-    date: "1986"
-    url: "/you-and-your-research.pdf"
-    note: "Why do so few scientists make significant contributions and so many are forgotten in the long run?"
-
-  - title: "Advice to a young mathematician"
-    authors: "Michael Atiyah et al., 2008"
-    date: "2008"
-    url: "/advice-to-a-young-mathematician.pdf"
-    note: "You may learn from others but interpret what you learn in your own way."
-
   - title: "The illustrated guide to a Ph.D."
     authors: "Matt Might, 2010"
     date: "2010"
@@ -22,9 +10,3 @@ links:
     date: "2017"
     url: "https://ncase.me/trust"
     note: "What the game is, defines what the players do."
-
-  - title: "The hardware lottery"
-    authors: "Sara Hooker, 2020"
-    date: "2020"
-    url: "/the-hardware-lottery.pdf"
-    note: "The performance of an algorithm is fundamentally intertwined with the hardware and software it runs on."

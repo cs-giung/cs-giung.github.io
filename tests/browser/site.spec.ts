@@ -48,7 +48,7 @@ test('Blog has two simple frames and only blue titles navigate', async ({ page }
   await expect(page.locator('[data-blog-panel]')).toHaveCount(2)
   await expect(page.locator('[data-blog-entry]')).toHaveCount(blogEntryCount)
   await expect(page.locator('[data-blog-panel="own"] hr')).toHaveCount(1)
-  await expect(page.locator('[data-blog-panel="reading"] hr')).toHaveCount(0)
+  await expect(page.locator('[data-blog-panel="reading"] hr')).toHaveCount(1)
   const orwell = page
     .locator('[data-blog-entry]')
     .filter({ hasText: 'The function of the machine' })
@@ -69,6 +69,37 @@ test('Blog has two simple frames and only blue titles navigate', async ({ page }
   )
   await back.click()
   await expect(page).toHaveURL('/blog/')
+})
+
+test('external Blog links follow excerpts on phones and desktops', async ({ page }) => {
+  await page.goto('/blog/')
+  await fontsReady(page)
+  const panel = page.locator('[data-blog-panel="reading"]')
+  const excerpts = panel.locator('[data-blog-group="reading"]')
+  const divider = panel.locator('hr')
+  const links = panel.locator('[data-blog-group="links"]')
+  await expect(links.locator('[data-blog-entry]')).toHaveCount(getBlogLinks().length)
+  await expect(excerpts.locator('[data-link-kind="external"]')).toHaveCount(0)
+  await expect(links.locator('[data-link-kind="internal"]')).toHaveCount(0)
+  await expect(links.locator('h2')).toHaveText(
+    [...getBlogLinks()]
+      .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime())
+      .map((link) => `${link.title} (External link, opens in a new tab)`),
+  )
+  for (const width of [320, 1440]) {
+    await page.setViewportSize({ width, height: 1000 })
+    const [excerptBox, dividerBox, linksBox] = await Promise.all([
+      excerpts.boundingBox(),
+      divider.boundingBox(),
+      links.boundingBox(),
+    ])
+    expect(excerptBox && dividerBox && linksBox).toBeTruthy()
+    expect(dividerBox!.y).toBeGreaterThanOrEqual(excerptBox!.y + excerptBox!.height)
+    expect(linksBox!.y).toBeGreaterThanOrEqual(dividerBox!.y + dividerBox!.height)
+    expect(linksBox!.x).toBe(excerptBox!.x)
+    expect(linksBox!.width).toBe(excerptBox!.width)
+    expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true)
+  }
 })
 
 test('desktop contents and footnotes flank the article and retain working targets', async ({

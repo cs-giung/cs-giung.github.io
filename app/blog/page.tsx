@@ -20,16 +20,17 @@ export default function Blog() {
   const articles = posts.filter((post) => post.type === 'article').map(toItem)
   const notes = posts.filter((post) => post.type === 'note').map(toItem)
   const hasOwn = articles.length > 0 || notes.length > 0
-  const reading = [
-    ...posts.filter((post) => post.type === 'excerpt').map(toItem),
-    ...getBlogLinks().map((item) => ({
+  const reading = posts.filter((post) => post.type === 'excerpt').map(toItem)
+  const links = getBlogLinks()
+    .map((item) => ({
       title: item.title,
       authors: item.authors.replace(/,\s*\d{4}$/, ''),
       href: item.url,
       description: item.note,
       date: item.date,
-    })),
-  ].sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime())
+    }))
+    .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime())
+  const hasReading = reading.length > 0 || links.length > 0
 
   return (
     <main className="min-h-screen bg-background">
@@ -68,21 +69,38 @@ export default function Blog() {
               )}
             </section>
           )}
-          {reading.length > 0 && (
+          {hasReading && (
             <section data-blog-panel="reading" aria-label="Reading" className={panelClassName}>
-              <ul
-                data-blog-list=""
-                data-blog-group="reading"
-                aria-label="Reading"
-                className="space-y-3"
-              >
-                {reading.map((item) => (
-                  <PostListItem key={item.href} {...item} />
-                ))}
-              </ul>
+              {reading.length > 0 && (
+                <ul
+                  data-blog-list=""
+                  data-blog-group="reading"
+                  aria-label="Reading"
+                  className="space-y-3"
+                >
+                  {reading.map((item) => (
+                    <PostListItem key={item.href} {...item} />
+                  ))}
+                </ul>
+              )}
+              {reading.length > 0 && links.length > 0 && (
+                <hr className="my-4 border-0 border-t border-border" />
+              )}
+              {links.length > 0 && (
+                <ul
+                  data-blog-list=""
+                  data-blog-group="links"
+                  aria-label="External links"
+                  className="space-y-3"
+                >
+                  {links.map((item) => (
+                    <PostListItem key={item.href} {...item} />
+                  ))}
+                </ul>
+              )}
             </section>
           )}
-          {!hasOwn && reading.length === 0 && (
+          {!hasOwn && !hasReading && (
             <section className={panelClassName}>
               <p className="text-sm text-muted-foreground">No posts yet.</p>
             </section>

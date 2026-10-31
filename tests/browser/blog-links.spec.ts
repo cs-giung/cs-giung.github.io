@@ -9,7 +9,8 @@ for (const hasTouch of [false, true]) {
     }) => {
       await page.goto('/blog/')
       await page.evaluate(() => document.fonts.ready)
-      for (const kind of ['internal', 'external', 'pdf']) {
+      await expect(page.locator('[data-blog-entry][data-link-kind="pdf"]')).toHaveCount(0)
+      for (const kind of ['internal', 'external']) {
         const row = page.locator(`[data-blog-entry][data-link-kind="${kind}"]`).first()
         const title = row.locator('h2 a')
         await expect(title).toHaveCSS('text-decoration-line', 'none')

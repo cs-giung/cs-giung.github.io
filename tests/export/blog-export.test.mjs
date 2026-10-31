@@ -32,7 +32,7 @@ test('Blog lists every published article/link, not drafts or legacy aliases', ()
   assert(!fs.existsSync('out/reading/testing-blog-post/index.html'))
 })
 
-test('two rounded frames separate original writing from reading, with one rule inside the own frame', () => {
+test('two rounded frames each separate their two lists with one matching rule', () => {
   const html = read('blog/index.html')
   assert.equal((html.match(/data-blog-panel="/g) || []).length, 2)
   const own = html.match(/<section\b[^>]*data-blog-panel="own"[^>]*>([\s\S]*?)<\/section>/)?.[1]
@@ -41,12 +41,18 @@ test('two rounded frames separate original writing from reading, with one rule i
   )?.[1]
   assert(own && reading)
   assert.equal((own.match(/<hr\b/g) || []).length, 1)
-  assert(!reading.includes('<hr'))
+  assert.equal((reading.match(/<hr\b/g) || []).length, 1)
   assert(own.indexOf('data-blog-group="articles"') < own.indexOf('<hr'))
   assert(own.indexOf('<hr') < own.indexOf('data-blog-group="notes"'))
+  assert(reading.indexOf('data-blog-group="reading"') < reading.indexOf('<hr'))
+  assert(reading.indexOf('<hr') < reading.indexOf('data-blog-group="links"'))
+  assert.equal(
+    own.match(/<hr\b[^>]*class="([^"]+)"/)?.[1],
+    reading.match(/<hr\b[^>]*class="([^"]+)"/)?.[1],
+  )
   assert.deepEqual(
     groupsIn(html).map(([, id]) => id),
-    ['articles', 'notes', 'reading'],
+    ['articles', 'notes', 'reading', 'links'],
   )
   assert.equal((html.match(/<h2\b/g) || []).length, posts.length + getBlogLinks().length)
   assert(!html.includes('data-mailbox'))
@@ -62,7 +68,9 @@ test('all articles and notes remain discoverable without visible category headin
     for (const [, id, content] of groups)
       assert.equal(content.includes(`href="/blog/${post.slug}/"`), id === expected, post.slug)
   }
-  for (const link of getBlogLinks()) assert(groups[2][2].includes(`href="${link.url}"`), link.title)
+  for (const link of getBlogLinks())
+    for (const [, id, content] of groups)
+      assert.equal(content.includes(`href="${link.url}"`), id === 'links', link.title)
 })
 
 test('every entry has a title, date and unabridged wrapping description', () => {
@@ -83,9 +91,11 @@ test('entry headings read title · author · date, omitting the repeated site au
   const groups = groupsIn(read('blog/index.html'))
   assert(!groups[0][2].includes('data-post-author'))
   assert(!groups[1][2].includes('data-post-author'))
-  const readingRows = [
-    ...groups[2][2].matchAll(/<li\b[^>]*data-blog-entry=""[^>]*>([\s\S]*?)<\/li>/g),
-  ]
+  const readingRows = groups
+    .slice(2)
+    .flatMap(([, , content]) => [
+      ...content.matchAll(/<li\b[^>]*data-blog-entry=""[^>]*>([\s\S]*?)<\/li>/g),
+    ])
   for (const [, row] of readingRows) {
     assert(row.includes('post-list-meta'))
     assert(row.includes('data-post-author=""'))
@@ -121,10 +131,10 @@ test('only blue titles link to articles, preserving native link behavior', () =>
     }
   }
   assert.equal(rows.filter(([, kind]) => kind === 'external').length, 2)
-  assert.equal(rows.filter(([, kind]) => kind === 'pdf').length, 3)
+  assert.equal(rows.filter(([, kind]) => kind === 'pdf').length, 0)
 })
 
-test('essays precede notes while reading items remain newest-first', () => {
+test('essays precede notes, then excerpts precede external links with each list newest-first', () => {
   const groups = groupsIn(read('blog/index.html'))
   const hrefsIn = (content) =>
     [...content.matchAll(/<a\b[^>]*href="([^"]+)"/g)].map((match) => match[1])
@@ -140,21 +150,34 @@ test('essays precede notes while reading items remain newest-first', () => {
     ...posts.map((post) => [`/blog/${post.slug}/`, new Date(post.date).getTime()]),
     ...getBlogLinks().map((link) => [link.url, new Date(link.date).getTime()]),
   ])
-  const timestamps = hrefsIn(groups[2][2]).map((href) => dates.get(href))
-  assert(timestamps.every(Number.isFinite))
   assert.deepEqual(
-    timestamps,
-    [...timestamps].sort((a, b) => b - a),
+    hrefsIn(groups[2][2]),
+    posts.filter((post) => post.type === 'excerpt').map((post) => `/blog/${post.slug}/`),
   )
+  assert.deepEqual(
+    hrefsIn(groups[3][2]),
+    [...getBlogLinks()]
+      .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime())
+      .map((link) => link.url),
+  )
+  for (const [, id, content] of groups.slice(2)) {
+    const timestamps = hrefsIn(content).map((href) => dates.get(href))
+    assert(timestamps.every(Number.isFinite), id)
+    assert.deepEqual(
+      timestamps,
+      [...timestamps].sort((a, b) => b - a),
+      id,
+    )
+  }
 })
 
 test('canonical PDFs and old case-sensitive aliases retain identical content', () => {
   const html = read('blog/index.html')
-  const canonical = new Set(
-    getBlogLinks()
-      .filter((link) => link.url.startsWith('/'))
-      .map((link) => link.url),
-  )
+  const canonical = new Set([
+    '/you-and-your-research.pdf',
+    '/advice-to-a-young-mathematician.pdf',
+    '/the-hardware-lottery.pdf',
+  ])
   for (const url of canonical) {
     assert.match(url, /^\/[a-z0-9]+(?:-[a-z0-9]+)*\.pdf$/)
     assert.equal(fs.readFileSync(`out${url}`).subarray(0, 5).toString(), '%PDF-')
@@ -170,6 +193,69 @@ test('canonical PDFs and old case-sensitive aliases retain identical content', (
     assert(fs.readFileSync(`out/${alias.name}`).equals(fs.readFileSync(`out/${target}`)))
     assert(!html.includes(`href="/${alias.name}"`))
   }
+})
+
+test('Hamming opens as an internal excerpt while its complete PDF remains a source', () => {
+  const listing = read('blog/index.html')
+  const rows = [...listing.matchAll(/<li\b[^>]*data-link-kind="([^"]+)"[^>]*>([\s\S]*?)<\/li>/g)]
+  const matching = rows.filter(([, , row]) => row.includes('You and your research'))
+  assert.equal(matching.length, 1)
+  assert.equal(matching[0][1], 'internal')
+  assert(matching[0][2].includes('href="/blog/you-and-your-research/"'))
+  assert(matching[0][2].includes('Richard Hamming'))
+  assert(!listing.includes('href="/you-and-your-research.pdf"'))
+
+  const html = read('blog/you-and-your-research/index.html')
+  assert(html.includes('href="https://cs-giung.github.io/you-and-your-research.pdf"'))
+  assert(html.includes('transcript edited by J. F. Kaiser'))
+  assert.equal((html.match(/<p>\[…\]<\/p>/g) || []).length, 7)
+  assert(!html.includes('aria-label="Table of contents"'))
+  assert(read('sitemap.xml').includes(`${baseUrl}/blog/you-and-your-research/`))
+})
+
+test('Hardware Lottery opens as an internal excerpt with its source PDF preserved', () => {
+  const listing = read('blog/index.html')
+  const rows = [...listing.matchAll(/<li\b[^>]*data-link-kind="([^"]+)"[^>]*>([\s\S]*?)<\/li>/g)]
+  const matching = rows.filter(([, , row]) => row.includes('The hardware lottery'))
+  assert.equal(matching.length, 1)
+  assert.equal(matching[0][1], 'internal')
+  assert(matching[0][2].includes('href="/blog/the-hardware-lottery/"'))
+  assert(matching[0][2].includes('Sara Hooker'))
+  assert(!listing.includes('href="/the-hardware-lottery.pdf"'))
+
+  const html = read('blog/the-hardware-lottery/index.html')
+  assert(html.includes('href="https://cs-giung.github.io/the-hardware-lottery.pdf"'))
+  assert(html.includes('arXiv:2009.06489v2'))
+  assert.equal((html.match(/<p>\[…\]<\/p>/g) || []).length, 3)
+  assert(!html.includes('aria-label="Table of contents"'))
+  assert(read('sitemap.xml').includes(`${baseUrl}/blog/the-hardware-lottery/`))
+})
+
+test('Advice opens as a five-contributor excerpt with its complete PDF available', () => {
+  const listing = read('blog/index.html')
+  const rows = [...listing.matchAll(/<li\b[^>]*data-link-kind="([^"]+)"[^>]*>([\s\S]*?)<\/li>/g)]
+  const matching = rows.filter(([, , row]) => row.includes('Advice to a young mathematician'))
+  assert.equal(matching.length, 1)
+  assert.equal(matching[0][1], 'internal')
+  assert(matching[0][2].includes('href="/blog/advice-to-a-young-mathematician/"'))
+  assert(!listing.includes('href="/advice-to-a-young-mathematician.pdf"'))
+
+  const html = read('blog/advice-to-a-young-mathematician/index.html')
+  assert(html.includes('href="https://cs-giung.github.io/advice-to-a-young-mathematician.pdf"'))
+  for (const contributor of [
+    'I. Sir Michael Atiyah',
+    'II. Béla Bollobás',
+    'III. Alain Connes',
+    'IV. Dusa McDuff',
+    'V. Peter Sarnak',
+  ])
+    assert(html.includes(`<strong>${contributor}</strong>`), contributor)
+  assert(html.includes('(i) A “dream”:'))
+  assert(html.includes('(ii) Some very worthwhile problems'))
+  assert(html.includes('(i) When learning an area'))
+  assert.equal((html.match(/<p>\[…\]<\/p>/g) || []).length, 7)
+  assert(!html.includes('aria-label="Table of contents"'))
+  assert(read('sitemap.xml').includes(`${baseUrl}/blog/advice-to-a-young-mathematician/`))
 })
 
 test('article envelopes retain authors, recipients, citations and one page h1', () => {

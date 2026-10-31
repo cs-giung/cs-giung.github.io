@@ -145,6 +145,42 @@ test('the Vygotsky excerpt uses the linked Thinking and Speech chapter translati
   assert.equal(resolveBlogSlug('Vygotsky1934'), post.slug)
 })
 
+test('Hamming excerpts preserve lecture order, omissions, and transcript attribution', () => {
+  const post = getBlogPostData('you-and-your-research')
+  assert.equal(post.title, 'You and your research')
+  assert.equal(post.author, 'Richard Hamming')
+  assert.equal(post.date, '1986-03-07')
+  assert.equal(post.type, 'excerpt')
+  assert.deepEqual(post.sources, [
+    {
+      title: 'You and Your Research (lecture transcript edited by J. F. Kaiser)',
+      url: 'https://cs-giung.github.io/you-and-your-research.pdf',
+    },
+  ])
+  const passages = [
+    'Knowledge and productivity are like compound interest.',
+    'Great scientists tolerate ambiguity very well.',
+    "If you do not work on an important problem, it's unlikely you'll do important work.",
+    'Great Thoughts Time.',
+    'if you have the door to your office closed',
+    'The essence of science is cumulative.',
+    'it is not sufficient to do a job, you have to sell it.',
+  ]
+  let previous = -1
+  for (const passage of passages) {
+    const index = post.content.indexOf(passage)
+    assert(index > previous, passage)
+    previous = index
+  }
+  assert(post.content.includes('Just hard work is not enough - it must be applied sensibly.'))
+  assert(post.content.includes('it is that you have a reasonable attack.'))
+  assert(post.content.includes('Now I cannot prove the cause and effect sequence'))
+  assert(post.content.includes('you also must learn to give informal talks.'))
+  assert.equal((post.content.match(/^\[…\]$/gm) || []).length, 7)
+  assert(!/^#{1,6}\s/m.test(post.content))
+  assert(!getBlogLinks().some((link) => link.url === '/you-and-your-research.pdf'))
+})
+
 test('multi-source articles retain every original URL in reading order', () => {
   const expected = {
     'not-a-vox-populi-but-a-vox-expertorum': [
@@ -175,7 +211,7 @@ test('multi-source articles retain every original URL in reading order', () => {
 
 test('curated links are preserved separately from article metadata', () => {
   const links = getBlogLinks()
-  assert.equal(links.length, 5)
+  assert.equal(links.length, 2)
   assert(!links.some((link) => link.url === 'https://dwest.web.illinois.edu/grammar.html'))
   assert.equal(new Set(links.map((link) => link.url)).size, links.length)
   for (const link of links) {
