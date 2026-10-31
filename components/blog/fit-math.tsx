@@ -102,7 +102,9 @@ export function FitMath({ postSlug }: { postSlug: string }) {
           for (let pass = 0; pass < 4; pass++) {
             const overflow = display.scrollWidth - display.clientWidth
             if (overflow <= 0) break
-            const correction = mathFit(available, available + overflow * 2)
+            const expression = dimensions(formula)?.expression || available
+            const target = Math.max(4, expression - overflow * 2)
+            const correction = mathFit(target, expression)
             scale *= correction.scale
             formula.style.fontSize = `${size * scale}px`
           }

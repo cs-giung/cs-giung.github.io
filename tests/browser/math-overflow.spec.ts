@@ -11,20 +11,23 @@ test('formula fitting accounts for visual overflow beyond the measured layout bo
     content:
       '.katex-html > .katex-base:not(.katex-tag)::after { content: ""; position: absolute; right: -64px; width: 64px; height: 1px; }',
   })
-  await page.setViewportSize({ width: 321, height: 1000 })
-  await expect
-    .poll(() =>
-      page.locator('[data-post-body] .katex-display').evaluateAll((nodes) =>
-        nodes
-          .filter((node) => node.scrollWidth > node.clientWidth + 1)
-          .map((node, index) => ({
-            index,
-            width: node.clientWidth,
-            scrollWidth: node.scrollWidth,
-          })),
-      ),
-    )
-    .toEqual([])
+  // The narrower width also models the space reserved by classic Linux scrollbars.
+  for (const width of [306, 321]) {
+    await page.setViewportSize({ width, height: 1000 })
+    await expect
+      .poll(() =>
+        page.locator('[data-post-body] .katex-display').evaluateAll((nodes) =>
+          nodes
+            .filter((node) => node.scrollWidth > node.clientWidth + 1)
+            .map((node, index) => ({
+              index,
+              width: node.clientWidth,
+              scrollWidth: node.scrollWidth,
+            })),
+        ),
+      )
+      .toEqual([])
+  }
   await expect(page.locator('[data-post-body] .katex-display').first()).toHaveCSS(
     'overflow-x',
     'visible',
