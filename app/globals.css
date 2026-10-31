@@ -1,5 +1,4 @@
-@import "tailwindcss";
-@import "tw-animate-css";
+@import 'tailwindcss';
 
 @custom-variant dark (&:is(.dark *));
 
@@ -8,20 +7,6 @@
   --color-foreground: var(--foreground);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
-  --font-noto-sans-kr: var(--font-noto-sans-kr);
-  --color-sidebar-ring: var(--sidebar-ring);
-  --color-sidebar-border: var(--sidebar-border);
-  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
-  --color-sidebar-accent: var(--sidebar-accent);
-  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
-  --color-sidebar-primary: var(--sidebar-primary);
-  --color-sidebar-foreground: var(--sidebar-foreground);
-  --color-sidebar: var(--sidebar);
-  --color-chart-5: var(--chart-5);
-  --color-chart-4: var(--chart-4);
-  --color-chart-3: var(--chart-3);
-  --color-chart-2: var(--chart-2);
-  --color-chart-1: var(--chart-1);
   --color-ring: var(--ring);
   --color-input: var(--input);
   --color-border: var(--border);
@@ -46,6 +31,7 @@
 
 :root {
   --radius: 0.625rem;
+  --card-padding: 1.5rem;
   --background: oklch(1 0 0);
   --foreground: oklch(0.141 0.005 285.823);
   --card: oklch(1 0 0);
@@ -64,19 +50,6 @@
   --border: oklch(0.92 0.004 286.32);
   --input: oklch(0.92 0.004 286.32);
   --ring: oklch(0.705 0.015 286.067);
-  --chart-1: oklch(0.646 0.222 41.116);
-  --chart-2: oklch(0.6 0.118 184.704);
-  --chart-3: oklch(0.398 0.07 227.392);
-  --chart-4: oklch(0.828 0.189 84.429);
-  --chart-5: oklch(0.769 0.188 70.08);
-  --sidebar: oklch(0.985 0 0);
-  --sidebar-foreground: oklch(0.141 0.005 285.823);
-  --sidebar-primary: oklch(0.21 0.006 285.885);
-  --sidebar-primary-foreground: oklch(0.985 0 0);
-  --sidebar-accent: oklch(0.967 0.001 286.375);
-  --sidebar-accent-foreground: oklch(0.21 0.006 285.885);
-  --sidebar-border: oklch(0.92 0.004 286.32);
-  --sidebar-ring: oklch(0.705 0.015 286.067);
 }
 
 .dark {
@@ -98,19 +71,6 @@
   --border: oklch(1 0 0 / 10%);
   --input: oklch(1 0 0 / 15%);
   --ring: oklch(0.552 0.016 285.938);
-  --chart-1: oklch(0.488 0.243 264.376);
-  --chart-2: oklch(0.696 0.17 162.48);
-  --chart-3: oklch(0.769 0.188 70.08);
-  --chart-4: oklch(0.627 0.265 303.9);
-  --chart-5: oklch(0.645 0.246 16.439);
-  --sidebar: oklch(0.21 0.006 285.885);
-  --sidebar-foreground: oklch(0.985 0 0);
-  --sidebar-primary: oklch(0.488 0.243 264.376);
-  --sidebar-primary-foreground: oklch(0.985 0 0);
-  --sidebar-accent: oklch(0.274 0.006 286.033);
-  --sidebar-accent-foreground: oklch(0.985 0 0);
-  --sidebar-border: oklch(1 0 0 / 10%);
-  --sidebar-ring: oklch(0.552 0.016 285.938);
 }
 
 @layer base {
@@ -122,13 +82,457 @@
   }
 }
 
-/* KaTeX equation spacing adjustment */
-.katex-display {
-  margin-top: 1.5rem !important;
-  margin-bottom: -0.5rem !important;
+/* Keep the page width stable when navigating between short and long pages. */
+@media screen {
+  html {
+    scrollbar-gutter: stable;
+  }
+
+  @supports not (scrollbar-gutter: stable) {
+    html {
+      overflow-y: scroll;
+    }
+  }
 }
 
-/* Ensure no extra top margin if it's the first element in CardContent */
-.katex-display:first-child {
-  margin-top: 0 !important;
+/* A self-contained academic document; About and Blog keep their own styles. */
+.cv-document {
+  width: 100%;
+  max-width: none;
+  margin-inline: auto;
+  padding: var(--card-padding);
+  background: white;
+  color: #111;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 10.5pt;
+  line-height: 1.35;
+  overflow-wrap: break-word;
+}
+
+.cv-document a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.cv-document p,
+.cv-document li {
+  orphans: 3;
+  widows: 3;
+}
+
+.cv-document strong {
+  font-weight: 600;
+}
+
+.cv-document sup {
+  position: static;
+  font-size: 0.75em;
+  line-height: 0;
+  vertical-align: super;
+}
+
+.cv-document .cv-content > * + * {
+  margin-top: 20pt;
+}
+
+.cv-document .cv-profile {
+  padding-bottom: 12pt;
+  border-bottom: 1pt solid #111;
+  break-inside: avoid;
+}
+
+.cv-document .cv-identity-heading {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 8pt;
+  margin-bottom: 6pt;
+}
+
+.cv-document .cv-document-label {
+  color: #555;
+  font-size: 8.5pt;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.cv-document h1 {
+  font-size: 28pt;
+  font-weight: 700;
+  line-height: 1.1;
+}
+
+.cv-document .cv-profile-title {
+  font-size: 11pt;
+}
+
+.cv-document .cv-affiliation {
+  margin-top: 1pt;
+  color: #444;
+  font-size: 10pt;
+}
+
+.cv-document .cv-contact-line {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 3pt 12pt;
+  margin-top: 8pt;
+  list-style: none;
+  font-size: 9.5pt;
+}
+
+.cv-document .cv-profile-meta {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 4pt 12pt;
+  margin-top: 6pt;
+  color: #555;
+  font-size: 8.5pt;
+}
+
+.cv-document .cv-updated {
+  white-space: nowrap;
+}
+
+/* Upper career sections have their own layout; Teaching keeps cv-entry unchanged. */
+.cv-document .cv-career-entry,
+.cv-document .cv-honor-entry {
+  break-inside: avoid;
+}
+
+.cv-document .cv-career-entry + .cv-career-entry {
+  margin-top: 11pt;
+}
+
+.cv-document .cv-career-heading {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: baseline;
+  gap: 8pt;
+}
+
+.cv-document .cv-career-heading h3 {
+  font-size: 10.5pt;
+  font-weight: 600;
+}
+
+.cv-document .cv-career-subtitle {
+  margin-top: 1pt;
+  font-size: 10pt;
+}
+
+.cv-document .cv-career-period {
+  max-width: 44mm;
+  color: #444;
+  font-size: 9.5pt;
+  text-align: right;
+}
+
+.cv-document .cv-period-segment {
+  display: inline-block;
+  white-space: nowrap;
+}
+
+.cv-document .cv-career-meta {
+  margin-top: 2pt;
+  color: #555;
+  font-size: 9.25pt;
+}
+
+/* Keep each person's name intact without preventing long titles from wrapping. */
+.cv-document .cv-career-meta a,
+.cv-document .cv-teaching-details a {
+  white-space: nowrap;
+}
+
+.cv-document .cv-career-meta > span + span::before {
+  content: ' · ';
+  padding-inline: 3pt;
+}
+
+.cv-document .cv-career-details {
+  margin-top: 4pt;
+  color: #333;
+  font-size: 9.75pt;
+}
+
+.cv-document .cv-career-details > * + * {
+  margin-top: 2pt;
+}
+
+.cv-document .cv-labelled-detail {
+  display: grid;
+  grid-template-columns: 50pt minmax(0, 1fr);
+  gap: 6pt;
+}
+
+.cv-document .cv-detail-label {
+  color: #555;
+  font-size: 9.25pt;
+}
+
+.cv-document .cv-honor-organization {
+  color: #444;
+  font-size: 10pt;
+  font-weight: 400;
+}
+
+.cv-document .cv-honor-description {
+  margin-top: 3pt;
+  color: #333;
+  font-size: 9.75pt;
+}
+
+.cv-document .cv-section-heading {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 8pt;
+  margin-bottom: 7pt;
+  padding-bottom: 3pt;
+  border-bottom: 0.5pt solid #888;
+  break-after: avoid;
+}
+
+.cv-document h2 {
+  font-size: 13pt;
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+.cv-document .cv-section-description {
+  color: #333;
+  font-size: 8.5pt;
+}
+
+.cv-document .cv-section-content > * + * {
+  margin-top: 8pt;
+}
+
+/* Keep individual records together, not entire multi-page sections. */
+.cv-document .cv-publication,
+.cv-document .cv-record,
+.cv-document .cv-talk {
+  break-inside: avoid;
+}
+
+.cv-document .cv-entry-period {
+  color: #444;
+  font-size: 9.5pt;
+  text-align: right;
+}
+
+.cv-document .cv-subheading {
+  margin-bottom: 5pt;
+  font-size: 11pt;
+  font-weight: 600;
+  break-after: avoid;
+}
+
+.cv-document .cv-publication-category + .cv-publication-category {
+  margin-top: 11pt;
+}
+
+.cv-document .cv-publications {
+  list-style: none;
+}
+
+.cv-document .cv-publication {
+  display: grid;
+  grid-template-columns: 26pt minmax(0, 1fr);
+  gap: 5pt;
+}
+
+.cv-document .cv-publication + .cv-publication {
+  margin-top: 5.5pt;
+}
+
+.cv-document .cv-publication-reference {
+  padding-top: 1pt;
+  color: #444;
+  font-size: 9pt;
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+
+.cv-document .cv-publication-title {
+  font-size: 10.5pt;
+  font-weight: 600;
+}
+
+.cv-document .cv-authors,
+.cv-document .cv-citation {
+  margin-top: 1pt;
+  font-size: 10pt;
+}
+
+.cv-document .cv-citation {
+  color: #333;
+}
+
+.cv-document .cv-records,
+.cv-document .cv-talks {
+  list-style: none;
+  font-size: 10pt;
+}
+
+.cv-document .cv-record,
+.cv-document .cv-talk {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 8pt;
+}
+
+.cv-document .cv-record + .cv-record,
+.cv-document .cv-talk + .cv-talk {
+  margin-top: 2pt;
+}
+
+.cv-document .cv-talk-location,
+.cv-document .cv-teaching-details {
+  color: #444;
+  font-size: 9.5pt;
+}
+
+@media screen {
+  .cv-document a {
+    color: #1d4ed8;
+  }
+
+  .cv-document a:hover,
+  .cv-document a:focus-visible,
+  .blog-title-link:hover,
+  .blog-title-link:focus-visible {
+    text-decoration: underline;
+    text-underline-offset: 2px;
+  }
+}
+
+@media screen and (max-width: 640px) {
+  .cv-document .cv-career-heading {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 4pt;
+  }
+
+  .cv-document .cv-identity-heading,
+  .cv-document .cv-profile-meta {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 4pt;
+  }
+
+  .cv-document .cv-contact-line {
+    flex-direction: column;
+    gap: 3pt;
+  }
+
+  .cv-document .cv-career-period {
+    max-width: none;
+    text-align: left;
+  }
+
+  .cv-document .cv-section-heading {
+    flex-direction: column;
+    gap: 3pt;
+  }
+
+  .cv-document .cv-publication {
+    grid-template-columns: 23pt minmax(0, 1fr);
+    gap: 4pt;
+  }
+}
+
+@page cv {
+  size: auto;
+  margin: 14mm 16mm 16mm;
+
+  /* Progressive enhancement: unsupported browsers simply omit the footer. */
+  @bottom-left {
+    content: 'Curriculum Vitae';
+    font:
+      8pt Arial,
+      Helvetica,
+      sans-serif;
+    color: #555;
+  }
+
+  @bottom-right {
+    content: counter(page) ' / ' counter(pages);
+    font:
+      8pt Arial,
+      Helvetica,
+      sans-serif;
+    color: #555;
+  }
+}
+
+@page about {
+  size: auto;
+  margin: 14mm 16mm;
+}
+
+@media print {
+  .cv-page {
+    page: cv;
+    min-height: auto;
+    background: white;
+  }
+
+  .cv-page .cv-screen-only {
+    display: none;
+  }
+
+  .cv-page .cv-container {
+    width: 100%;
+    max-width: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  .cv-document {
+    max-width: none;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    border-radius: 0;
+    box-shadow: none;
+  }
+
+  /* Compact sections stay together; long publication lists still flow freely. */
+  .cv-document .cv-print-together {
+    break-inside: avoid;
+  }
+
+  /* Print only the two About cards, including the photo and introduction. */
+  .about-page {
+    page: about;
+    min-height: auto;
+  }
+
+  .about-page .about-container {
+    width: 100%;
+    max-width: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  .about-page [data-slot='card'] {
+    break-inside: avoid;
+    box-shadow: none;
+  }
+
+  .about-page .about-profile-layout {
+    flex-direction: row;
+  }
+
+  .about-page .about-profile-image [data-slot='avatar'] {
+    width: 96px;
+    height: 96px;
+  }
+
+  .about-page h1 {
+    font-size: 28px;
+  }
 }

@@ -5,35 +5,40 @@ import { usePathname } from 'next/navigation'
 import { cn } from '@/lib/utils'
 
 export function NavTabs() {
-    const pathname = usePathname()
+  const pathname = usePathname()
 
-    const tabs = [
-        { name: 'CV', href: '/' },
-        { name: 'Reading', href: '/reading' },
-        { name: 'Blog', href: '/blog' },
-    ]
+  const tabs = [
+    { name: 'ABOUT', href: '/' },
+    { name: 'BLOG', href: '/blog' },
+    { name: 'CV', href: '/cv' },
+  ]
 
-    return (
-        <div className="flex border-b border-gray-200 dark:border-gray-800 mb-6">
-            {tabs.map((tab) => {
-                const isActive = tab.href === '/'
-                    ? pathname === '/'
-                    : (pathname === tab.href || pathname.startsWith(`${tab.href}/`))
-                return (
-                    <Link
-                        key={tab.href}
-                        href={tab.href}
-                        className={cn(
-                            "px-6 py-3 text-sm font-medium transition-colors hover:text-foreground",
-                            isActive
-                                ? "border-b-2 border-primary text-foreground"
-                                : "text-muted-foreground border-b-2 border-transparent"
-                        )}
-                    >
-                        {tab.name}
-                    </Link>
-                )
-            })}
-        </div>
-    )
+  return (
+    <nav
+      aria-label="Main navigation"
+      className="flex border-b border-gray-200 dark:border-gray-800 mb-6 print:hidden"
+    >
+      {tabs.map((tab) => {
+        const isActive =
+          tab.href === '/'
+            ? pathname === '/'
+            : pathname === tab.href || pathname.startsWith(`${tab.href}/`)
+        return (
+          <Link
+            key={tab.href}
+            href={tab.href}
+            aria-current={isActive ? 'page' : undefined}
+            className={cn(
+              'px-6 py-3 text-sm font-medium transition-colors hover:text-foreground',
+              isActive
+                ? 'border-b-2 border-primary text-foreground'
+                : 'text-muted-foreground border-b-2 border-transparent',
+            )}
+          >
+            {tab.name}
+          </Link>
+        )
+      })}
+    </nav>
+  )
 }

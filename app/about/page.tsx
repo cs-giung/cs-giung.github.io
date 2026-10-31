@@ -1,20 +1,12 @@
-'use client';
+import type { Metadata } from 'next'
+import { MovedPage } from '@/components/blog/moved-page'
 
-import { useEffect } from 'react';
-import { useRouter } from 'next/navigation';
+export const metadata: Metadata = {
+  title: 'About',
+  alternates: { canonical: '/' },
+  robots: { index: false, follow: true },
+}
 
 export default function AboutPage() {
-  const router = useRouter();
-
-  useEffect(() => {
-    // Redirect to home page immediately
-    router.replace('/');
-  }, [router]);
-
-  // Optional: Show a loading message while redirecting
-  return (
-    <div className="flex items-center justify-center min-h-screen">
-      <p>Redirecting to home page...</p>
-    </div>
-  );
+  return <MovedPage href="/" label="the home page" />
 }

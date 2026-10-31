@@ -3,6 +3,7 @@ title: "Notes on diffusion models"
 date: "2026-03-20"
 author: "Giung Nam"
 category: "Notes & Scribbles"
+type: "note"
 description: ""
 ---
 

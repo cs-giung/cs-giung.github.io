@@ -1,0 +1,512 @@
+/* Article-only reading layout; About, CV and the Blog index are unaffected. */
+@font-face {
+  font-family: 'Departure Mono';
+  src: url('/fonts/departure-mono/DepartureMono-Regular.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+.post-reading-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 1.5rem;
+  max-width: 56rem;
+  margin-inline: auto;
+  padding-inline: 1rem;
+}
+
+.post-letter {
+  min-width: 0;
+  padding: var(--card-padding);
+}
+.post-letter-header {
+  margin: 0 0 1.5rem;
+  padding-bottom: 1.25rem;
+  border-bottom: 1px solid var(--border);
+}
+.post-envelope {
+  display: grid;
+  grid-template-columns: max-content minmax(0, 1fr);
+  align-items: baseline;
+  gap: 0 1ch;
+  font-family: 'Departure Mono', 'Blog CJK', var(--font-geist-mono), monospace;
+  font-size: 0.875rem;
+  line-height: 1.55;
+}
+.post-envelope dt {
+  color: var(--muted-foreground);
+}
+.post-envelope dd {
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+.post-envelope h1 {
+  font: inherit;
+}
+
+.post-letter-body {
+  min-width: 0;
+  font-family:
+    'Source Serif 4', 'Blog CJK', Georgia, 'Noto Sans KR', 'Apple SD Gothic Neo', 'Malgun Gothic',
+    serif;
+  font-size: 0.9375rem;
+  line-height: 1.7;
+  font-optical-sizing: auto;
+  overflow-wrap: break-word;
+}
+.post-letter-body > :first-child {
+  margin-top: 0;
+}
+.post-letter-body p {
+  margin-block: 1.25em;
+}
+.post-letter-body h2,
+.post-letter-body h3,
+.post-letter-body h4 {
+  font-family: inherit;
+  font-weight: 600;
+  line-height: 1.4;
+  letter-spacing: -0.02em;
+  scroll-margin-top: 2rem;
+}
+.post-letter-body h2 {
+  margin: 2.4em 0 0.8em;
+  font-size: 1.35em;
+}
+.post-letter-body h3 {
+  margin: 2em 0 0.65em;
+  font-size: 1.1em;
+}
+.post-letter-body h4 {
+  margin: 1.5em 0 0.5em;
+}
+.post-letter-body a,
+.post-footnotes a {
+  color: #2563eb;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+.post-letter-body a:hover,
+.post-footnotes a:hover {
+  text-decoration-thickness: 2px;
+}
+.dark .post-letter-body a,
+.dark .post-footnotes a {
+  color: #93c5fd;
+}
+.post-letter-body ul {
+  list-style: disc;
+}
+.post-letter-body ol {
+  list-style: decimal;
+}
+.post-letter-body ul,
+.post-letter-body ol {
+  padding-left: 1.5em;
+  margin-block: 1.25em;
+}
+.post-letter-body li + li {
+  margin-top: 0.35em;
+}
+.post-letter-body li > ul,
+.post-letter-body li > ol {
+  margin-block: 0.35em;
+}
+.post-letter-body blockquote {
+  border-left: 2px solid var(--border);
+  margin-block: 1.5em;
+  padding-left: 1.25em;
+  color: var(--muted-foreground);
+  font-style: italic;
+}
+.post-letter-body hr {
+  margin-block: 2rem;
+  border: 0;
+  border-top: 1px solid var(--border);
+}
+.post-letter-body img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+  margin: 1.5em auto;
+  border-radius: 0.5rem;
+}
+.post-letter-body pre {
+  max-width: 100%;
+  overflow-x: auto;
+  margin-block: 1.5em;
+  padding: var(--card-padding);
+  border: 1px solid var(--border);
+  border-radius: 0.75rem;
+  background: var(--muted);
+  line-height: 1.7;
+}
+.post-letter-body code {
+  font-family: var(--font-geist-mono), monospace;
+  font-size: clamp(0.75rem, 1.2vw, 0.875rem);
+}
+.post-letter-body :not(pre) > code {
+  padding: 0.15em 0.35em;
+  border-radius: 0.25rem;
+  background: var(--muted);
+}
+.post-letter-body pre code {
+  overflow-wrap: normal;
+}
+.post-letter-body .post-table-scroll {
+  max-width: 100%;
+  overflow-x: auto;
+  margin-block: 1.5em;
+}
+.post-letter-body table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.9em;
+}
+.post-letter-body th,
+.post-letter-body td {
+  padding: 0.6em 0.8em;
+  border: 1px solid var(--border);
+  text-align: left;
+}
+.post-letter-body th {
+  background: var(--muted);
+  font-weight: 600;
+}
+.post-letter-body .katex {
+  font-size: 1.05em;
+}
+.post-letter-body .katex-display {
+  max-width: 100%;
+  overflow-x: auto;
+  overflow-y: hidden;
+  padding-block: 0.25rem;
+  margin: 1.5em 0 !important;
+}
+.post-letter-body .post-footnote-ref {
+  scroll-margin-top: 5rem;
+}
+/* Keep the no-JS horizontal-pan fallback; fitted formulas never need a scrollbar. */
+.post-letter-body .katex-display[data-math-fitted] {
+  overflow: visible;
+}
+.post-letter-body .katex-display[data-math-fitted] > .katex {
+  width: calc(100% - 4px);
+  margin-inline: auto;
+}
+.post-math-expand {
+  display: block;
+  margin: 4px 0 0 auto;
+  padding: 2px 6px;
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  background: var(--card);
+  color: var(--muted-foreground);
+  font:
+    11px/1.4 var(--font-geist-sans),
+    sans-serif;
+  cursor: zoom-in;
+}
+.post-math-expand:hover {
+  color: var(--foreground);
+}
+.post-math-expand:focus-visible {
+  outline: 2px solid var(--ring);
+  outline-offset: 2px;
+}
+.post-equation-dialog {
+  width: min(92vw, 72rem);
+  max-width: none;
+  max-height: 85vh;
+  padding: var(--card-padding);
+  border: 1px solid var(--border);
+  border-radius: calc(var(--radius) + 4px);
+  background: var(--card);
+  color: var(--foreground);
+}
+.post-equation-dialog::backdrop {
+  background: rgb(0 0 0 / 45%);
+}
+.post-equation-dialog-toolbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1rem;
+  color: var(--muted-foreground);
+  font-size: 13px;
+}
+.post-equation-dialog-toolbar button {
+  padding: 3px 8px;
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  cursor: pointer;
+}
+.post-equation-dialog-toolbar button:focus-visible {
+  outline: 2px solid var(--ring);
+  outline-offset: 2px;
+}
+.post-equation-dialog-content {
+  max-height: calc(80vh - 5rem);
+  overflow: auto;
+  overscroll-behavior: contain;
+}
+.post-equation-dialog-content .katex-display {
+  max-width: none;
+  margin: 0 !important;
+  overflow: visible;
+}
+
+.post-toc {
+  min-width: 0;
+  color: var(--muted-foreground);
+  font-size: 0.8125rem;
+  line-height: 1.6;
+}
+.post-toc summary,
+.post-footnote-heading {
+  font-family: var(--font-geist-sans), sans-serif;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--foreground);
+}
+.post-toc summary {
+  cursor: pointer;
+  padding-block: 0.5rem;
+}
+.post-toc details[open] > summary {
+  margin-bottom: 0.5rem;
+}
+.post-toc ol {
+  list-style: none;
+}
+.post-toc li + li {
+  margin-top: 0.35rem;
+}
+.post-toc .post-toc-nested {
+  padding-left: 0.75rem;
+  font-size: 0.75rem;
+}
+.post-toc a {
+  display: block;
+  border-left: 2px solid transparent;
+  padding: 0.15rem 0 0.15rem 0.65rem;
+  overflow-wrap: anywhere;
+}
+.post-toc a:hover,
+.post-toc a[aria-current] {
+  color: #2563eb;
+  border-left-color: #2563eb;
+}
+.dark .post-toc a:hover,
+.dark .post-toc a[aria-current] {
+  color: #93c5fd;
+  border-left-color: #93c5fd;
+}
+.post-toc a:focus-visible {
+  outline: 2px solid var(--ring);
+  outline-offset: 2px;
+}
+
+.post-footnotes {
+  min-width: 0;
+  border-top: 1px solid var(--border);
+  padding-top: 1rem;
+  color: var(--muted-foreground);
+  font-family:
+    'Source Serif 4', 'Blog CJK', Georgia, 'Noto Sans KR', 'Apple SD Gothic Neo', 'Malgun Gothic',
+    serif;
+  font-size: 0.8125rem;
+  line-height: 1.65;
+  overflow-wrap: anywhere;
+}
+.post-footnote-heading {
+  margin-bottom: 0.75rem;
+}
+.post-footnotes ol {
+  list-style: decimal;
+  padding-left: 1.25rem;
+}
+.post-footnotes li + li {
+  margin-top: 1rem;
+}
+.post-footnotes li {
+  scroll-margin-top: 2rem;
+}
+.post-footnotes li:target {
+  background: var(--muted);
+  outline: 0.4rem solid var(--muted);
+  border-radius: 0.125rem;
+}
+.post-footnotes p {
+  margin-block: 0.5em;
+}
+.post-footnotes ul {
+  list-style: disc;
+  padding-left: 1rem;
+}
+
+@media screen {
+  /* Typography spacing must not add another inset at the card edges. */
+  .post-letter-body > :first-child {
+    margin-top: 0 !important;
+  }
+  .post-letter-body > :last-child {
+    margin-bottom: 0 !important;
+  }
+}
+
+@media screen and (min-width: 80rem) {
+  .post-reading-layout {
+    max-width: 88rem;
+    grid-template-columns: 13rem minmax(0, 52rem) 13rem;
+    justify-content: center;
+    align-items: start;
+  }
+  .post-letter {
+    grid-column: 2;
+    grid-row: 1;
+  }
+  .post-toc {
+    grid-column: 1;
+    grid-row: 1;
+  }
+  .post-footnotes {
+    grid-column: 3;
+    grid-row: 1;
+    border-top: 0;
+    padding-top: 0.5rem;
+  }
+  .post-toc,
+  .post-footnotes {
+    position: sticky;
+    top: 1.5rem;
+    max-height: calc(100vh - 3rem);
+    overflow-y: auto;
+    overscroll-behavior: contain;
+    scrollbar-width: thin;
+    padding-right: 0.5rem;
+  }
+}
+
+@page blog {
+  size: auto;
+  margin: 16mm;
+  @bottom-left {
+    content: 'cs-giung.github.io';
+    font:
+      8pt Arial,
+      sans-serif;
+    color: #555;
+  }
+  @bottom-right {
+    content: counter(page) ' / ' counter(pages);
+    font:
+      8pt Arial,
+      sans-serif;
+    color: #555;
+  }
+}
+
+@media print {
+  .post-page {
+    page: blog;
+    min-height: auto;
+    background: white;
+    color: #111;
+  }
+  .post-screen-only,
+  .post-toc {
+    display: none;
+  }
+  .post-equation-dialog::backdrop {
+    display: none;
+  }
+  .post-reading-layout {
+    display: block;
+    max-width: none;
+    margin: 0;
+    padding: 0;
+  }
+  .post-letter {
+    padding: 0;
+    border: 0;
+    border-radius: 0;
+    box-shadow: none;
+    background: transparent;
+  }
+  .post-letter-header {
+    max-width: none;
+    break-inside: avoid;
+    border-color: #aaa;
+    padding-bottom: 5mm;
+    margin-bottom: 7mm;
+  }
+  .post-envelope {
+    font-size: 9pt;
+  }
+  .post-envelope dt {
+    color: #555;
+  }
+  .post-letter-body {
+    max-width: none;
+    font-size: 11pt;
+    line-height: 1.55;
+    color: #111;
+  }
+  .post-letter-body p {
+    orphans: 3;
+    widows: 3;
+    margin-block: 1em;
+  }
+  .post-letter-body h2,
+  .post-letter-body h3,
+  .post-letter-body h4,
+  .post-footnote-heading {
+    break-after: avoid;
+  }
+  .post-letter-body img {
+    break-inside: avoid;
+  }
+  .post-letter-body a,
+  .post-footnotes a {
+    color: inherit;
+  }
+  .post-letter-body blockquote {
+    color: #333;
+  }
+  .post-letter-body pre {
+    white-space: pre-wrap;
+    overflow: visible;
+  }
+  .post-letter-body pre code {
+    white-space: inherit;
+    overflow-wrap: anywhere;
+  }
+  .post-letter-body .post-table-scroll {
+    overflow: visible;
+  }
+  .post-letter-body th,
+  .post-letter-body td {
+    overflow-wrap: anywhere;
+  }
+  .post-letter-body .katex-display {
+    overflow: visible;
+    break-inside: avoid;
+  }
+  .post-footnotes {
+    position: static;
+    max-height: none;
+    overflow: visible;
+    margin-top: 8mm;
+    padding-top: 4mm;
+    font-size: 9pt;
+    color: #333;
+  }
+  .post-footnotes li {
+    break-inside: avoid;
+  }
+}

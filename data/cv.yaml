@@ -1,10 +1,15 @@
+# Document metadata is separate from the public About profile.
+# Update this date when CV content changes, not on every build.
+document:
+  updated: "2026-10-30"
+  affiliation: "Information & Electronics Research Institute"
+
 personal:
   profile_image: "/profile.jpg"
   name: "Giung Nam"
   title: "Postdoctoral Researcher @ KAIST AI"
   location: "Seoul, South Korea"
-  email: "{first_name} [at] kaist [dot] ac [dot] kr"
-  cv_url: "/CV.pdf"
+  email: "giung@kaist.ac.kr"
   github: "cs-giung"
   huggingface: "cs-giung"
   linkedin: "giung-nam-3443562ab"
@@ -15,55 +20,134 @@ personal:
     - "I am a Postdoctoral Researcher and Technical Research Personnel at the [Statistical Inference and Machine Learning (SIML)](https://siml.kaist.ac.kr/) laboratory in KAIST AI. Having earned my Ph.D. in the same lab advised by [Juho Lee](https://scholar.google.com/citations?user=Py4URJUAAAAJ), my research continues to be grounded in the philosophy that [_today's posterior is tomorrow's prior_](https://doi.org/10.1137/1.9781611970654), where __*the current model serves as the foundational prior for the next generation of models.*__"
     - "The rapid evolution of deep learning has established pre-trained [foundation models](https://en.wikipedia.org/wiki/Foundation_model) as the bedrock of modern AI systems. As this landscape continues to evolve, I focus on investigating how to effectively transfer, adapt, and compress their knowledge to catalyze the development of future models that are stronger in capability and lighter in cost. My research covers [transfer learning](https://en.wikipedia.org/wiki/Transfer_learning), [knowledge distillation](https://en.wikipedia.org/wiki/Knowledge_distillation), and [model compression](https://en.wikipedia.org/wiki/Model_compression), with a recent interest in [weak-to-strong generalization](https://openai.com/index/weak-to-strong-generalization/) and [self-play](https://en.wikipedia.org/wiki/Self-play) mechanisms."
 
+honors:
+  - title: "Kim Younghan Global Leader Fellowship"
+    organization: "KAIST"
+    period: "2023"
+    description: "For outstanding academic excellence, research capabilities, and leadership qualities."
+  - title: "Director General's Award"
+    organization: "NIMS"
+    period: "2021"
+    description: "For contributions to an AI-based emulator for physics processes in numerical models."
+
+service:
+  leadership:
+    - title: "ICLR"
+      period: "2027"
+    - title: "ICML"
+      period: "2027"
+  reviewing:
+    - title: "AAAI"
+      period: "2025, 2027"
+    - title: "AISTATS"
+      period: "2025, 2026, 2027"
+    - title: "TMLR"
+      period: "2025, 2026"
+    - title: "ICLR"
+      period: "2024, 2025, 2026"
+    - title: "IJCAI"
+      period: "2024"
+    - title: "ICML"
+      period: "2022, 2023, 2024, 2025, 2026"
+    - title: "NeurIPS"
+      period: "2022, 2023, 2024, 2025, 2026"
+  recognition:
+    - title: "Gold Reviewer, ICML"
+      period: "2026"
+    - title: "Top Reviewer, NeurIPS"
+      period: "2022, 2023, 2024"
+
+teaching:
+  - course: "Bayesian Machine Learning"
+    institution: "KAIST AI"
+    instructor: "[Juho Lee](https://scholar.google.com/citations?user=Py4URJUAAAAJ)"
+    role: "Teaching Assistant"
+    period: "2021"
+  - course: "Machine Learning for AI"
+    institution: "KAIST AI"
+    instructor: "[Juho Lee](https://scholar.google.com/citations?user=Py4URJUAAAAJ)"
+    role: "Teaching Assistant"
+    period: "2021"
+  - course: "Deep Learning"
+    institution: "KAIST AI"
+    instructor: "[Jaesik Choi](https://scholar.google.com/citations?user=RqMLVzUAAAAJ)"
+    role: "Teaching Assistant"
+    period: "2020"
+
+talks:
+  - event: "Institute of Statistics at Korea University"
+    location: "Seoul, South Korea"
+    period: "2026"
+  - event: "2026 Global AI Frontier Lab Workshop"
+    location: "Seoul, South Korea"
+    period: "2026"
+  - event: "2026 Global AI Frontier Lab Workshop at KAIST"
+    location: "Seoul, South Korea"
+    period: "2026"
+  - event: "AI SEOUL 2024"
+    location: "Seoul, South Korea"
+    period: "2024"
+  - event: "Samsung Electronics DS Division"
+    location: "Hwaseong, South Korea"
+    period: "2023"
+  - event: "KAIST AI Workshop 21/22"
+    location: "Daejeon, South Korea"
+    period: "2022"
+
 education:
-  - title: "KAIST"
-    subtitle: "Ph.D., Kim Jaechul Graduate School of AI"
-    period: "Sep 2022 - Feb 2026"
+  - title: "Ph.D., Kim Jaechul Graduate School of AI"
+    subtitle: "KAIST"
+    gpa: "4.24/4.30"
+    period: "Sep 2022 – Feb 2026"
     location: "Seoul, South Korea"
     details:
       - "Thesis: [Exploiting prior knowledge in pre-trained models](http://hdl.handle.net/10203/342931)"
       - "Committee: [Juho Lee](https://scholar.google.com/citations?user=Py4URJUAAAAJ) (Advisor), [Eunho Yang](https://scholar.google.com/citations?user=UWO1mloAAAAJ), [Jong Chul Ye](https://scholar.google.com/citations?hl=ko&user=HNMjoNEAAAAJ), [Sehoon Kim](https://scholar.google.com/citations?hl=ko&user=zQABr7QAAAAJ), [Se-Young Yun](https://scholar.google.com/citations?hl=ko&user=X_IAjb8AAAAJ)"
 
-  - title: "KAIST"
-    subtitle: "M.S., Kim Jaechul Graduate School of AI"
-    period: "Sep 2020 - Aug 2022"
+  - title: "M.S., Kim Jaechul Graduate School of AI"
+    subtitle: "KAIST"
+    gpa: "4.20/4.30"
+    period: "Sep 2020 – Aug 2022"
     location: "Daejeon, South Korea"
     details:
       - "Thesis: [Diversity matters when learning from ensembles](http://hdl.handle.net/10203/308199)"
       - "Committee: [Juho Lee](https://scholar.google.com/citations?user=Py4URJUAAAAJ) (Advisor), [Eunho Yang](https://scholar.google.com/citations?user=UWO1mloAAAAJ), [Sung Ju Hwang](https://scholar.google.com/citations?user=RP4Qx3QAAAAJ)"
 
-  - title: "Korea University"
-    subtitle: "B.S., Department of Computer Science and Engineering"
-    period: "Mar 2017 - Aug 2020"
+  - title: "B.S., Department of Computer Science and Engineering"
+    subtitle: "Korea University"
+    gpa: "4.32/4.50"
+    period: "Mar 2017 – Aug 2020"
     location: "Seoul, South Korea"
 
 position:
-  - title: "KAIST"
-    subtitle: "Postdoctoral Researcher, Information & Electronics Research Institute"
-    period: "Mar 2026 - Feb 2027 (expected)"
+  - title: "Postdoctoral Researcher"
+    subtitle: "Information & Electronics Research Institute, KAIST"
+    period: "Mar 2026 – Feb 2027 (expected)"
     location: "Seoul, South Korea"
+    collaborators: "[Juho Lee](https://scholar.google.com/citations?user=Py4URJUAAAAJ)"
     details:
-      - "Fulfilling mandatory military service through a specialized research position."
-      - "Ph.D. (Mar 2024 - Feb 2026), Postdoc (Mar 2026 - Feb 2027)"
+      - "Fulfilling mandatory military service; mentoring graduate students in research."
 
-  - title: "ETRI"
-    subtitle: "Research Intern, Visual Intelligence Laboratory"
-    period: "Jul - Aug 2019; Jan - Feb, Jul - Aug 2020 (Intermittent)"
+  - title: "Research Intern"
+    subtitle: "Visual Intelligence Laboratory, ETRI"
+    period: "Summer 2019; Winter & Summer 2020"
     location: "Daejeon, South Korea"
+    mentors: "[Hyung-Il Kim](https://scholar.google.com/citations?user=3belJDEAAAAJ) and [Youngwan Lee](https://scholar.google.com/citations?user=EqemKYsAAAAJ)"
     details:
       - "Developed AI-based software for detection, segmentation, and face recognition."
-      - "Advisor: [Hyung-Il Kim](https://scholar.google.com/citations?user=3belJDEAAAAJ), [Youngwan Lee](https://scholar.google.com/citations?user=EqemKYsAAAAJ)"
 
-  - title: "VisualCamp"
-    subtitle: "Research Intern, Research and Engineering Team"
-    period: "Mar 2019 - Jun 2019"
+  - title: "Research Intern"
+    subtitle: "Research and Engineering Team, VisualCamp"
+    period: "Spring 2019"
     location: "Seongnam, South Korea"
+    facilitators: "[Seung Jun Baek](https://scholar.google.com/citations?user=F6NzxRIAAAAJ)"
     details:
       - "Developed AI-based software for eye tracking."
 
 publication:
 
   - title: "Rationale distribution distillation via flow matching for distributional continuous latent reasoning"
+    kind: "preprint"
     authors: "Mingyeong Kim, Gyusang Cho, Juho Lee, **Giung Nam**"
     venue: "arXiv"
     status: "preprint"
@@ -72,6 +156,7 @@ publication:
     note: "arXiv:2610.19871, Oct 2026."
 
   - title: "Harness-aware distillation for small language model agents"
+    kind: "preprint"
     authors: "Moonseok Choi, Taehong Moon, **Giung Nam†**, Juho Lee†"
     venue: "arXiv"
     status: "preprint"
@@ -80,6 +165,7 @@ publication:
     note: "arXiv:2610.02858, Oct 2026."
 
   - title: "Proper scoring rule-based diffusion for probabilistic weather forecasting"
+    kind: "preprint"
     authors: "Joonhyeong Park, **Giung Nam**, Hyungi Lee, Kyunghyun Cho, Byoungwoo Park†, Juho Lee†"
     venue: "arXiv"
     status: "preprint"
@@ -88,24 +174,28 @@ publication:
     note: "arXiv:2609.38632, Sep 2026."
 
   - title: "SKIM: pruning large language model agents via selective knowledge informed masking"
+    kind: "conference"
     authors: "Moonseok Choi, Jongwon Jeong, Minki Kang, **Giung Nam†**, Juho Lee†"
     venue: "NeurIPS"
     year: 2026
     note: "Conference on Neural Information Processing Systems, Dec 2026 (To appear)."
 
   - title: "SAVE: sparsity-aware influence estimation for vocabulary-expanded LLMs"
+    kind: "conference"
     authors: "Seungyoo Lee, **Giung Nam**, Seanie Lee, Hyungi Lee†, Juho Lee†"
     venue: "NeurIPS"
     year: 2026
     note: "Conference on Neural Information Processing Systems, Dec 2026 (To appear)."
 
   - title: "Example-based spatial guidance for training-free concept erasure in diffusion models"
+    kind: "conference"
     authors: "Younghwan Kil, **Giung Nam**, Joonhyeong Park, Jinwoo Shin, Juho Lee"
     venue: "NeurIPS"
     year: 2026
     note: "Conference on Neural Information Processing Systems, Dec 2026 (To appear)."
 
   - title: "OCNR: stabilizing self-play by mitigating iteration-collapse with one-class novelty rewards"
+    kind: "conference"
     authors: "Seungyoo Lee, **Giung Nam**, Hyungi Lee†, Juho Lee†"
     venue: "ICML"
     year: 2026
@@ -113,6 +203,7 @@ publication:
     note: "International Conference on Machine Learning, Jul 2026."
 
   - title: "ASCG: adaptive spatial classifier guidance for surgical concept suppression in diffusion models"
+    kind: "workshop"
     authors: "Younghwan Kil, Joonhyeong Park, **Giung Nam**, Juho Lee"
     venue: "SAFE@CVPR"
     year: 2026
@@ -120,6 +211,7 @@ publication:
     note: "Second Edition of Workshop on Synthetic & Adversarial ForEnsics, June 2026."
 
   - title: "Improving constrained language generation via self-distilled twisted sequential Monte Carlo"
+    kind: "workshop"
     authors: "Sooyeon Kim, **Giung Nam**, Byoungwoo Park, Juho Lee"
     venue: "FPI@NeurIPS"
     year: 2025
@@ -127,6 +219,7 @@ publication:
     note: "Second Edition of Frontiers in Probabilistic Inference: Learning meets Sampling, Dec 2025."
 
   - title: "PANGEA: projection-based augmentation with non-relevant general data for enhanced domain adaptation in LLMs"
+    kind: "conference"
     authors: "Seungyoo Lee, **Giung Nam**, Moonseok Choi, Hyungi Lee†, Juho Lee†"
     venue: "NeurIPS"
     year: 2025
@@ -134,6 +227,7 @@ publication:
     note: "Conference on Neural Information Processing Systems, Dec 2025."
 
   - title: "Ensemble distribution distillation via flow matching"
+    kind: "conference"
     authors: "Jonggeon Park*, **Giung Nam***, Hyunsu Kim, Jongmin Yoon, Juho Lee"
     venue: "ICML"
     year: 2025
@@ -141,6 +235,7 @@ publication:
     note: "International Conference on Machine Learning, Jul 2025."
 
   - title: "Parameter expanded stochastic gradient Markov chain Monte Carlo"
+    kind: "conference"
     authors: "Hyunsu Kim, **Giung Nam**, Chulhee Yun, Hongseok Yang, Juho Lee"
     venue: "ICLR"
     year: 2025
@@ -148,6 +243,7 @@ publication:
     note: "International Conference on Learning Representations, Apr 2025."
 
   - title: "Ex uno pluria: insights on ensembling in low precision number systems"
+    kind: "conference"
     authors: "**Giung Nam**, Juho Lee"
     venue: "NeurIPS"
     year: 2024
@@ -155,6 +251,7 @@ publication:
     note: "Conference on Neural Information Processing Systems, Dec 2024."
 
   - title: "Sparse weight averaging with multiple particles for iterative magnitude pruning"
+    kind: "conference"
     authors: "Moonseok Choi*, Hyungi Lee*, **Giung Nam***, Juho Lee"
     venue: "ICLR"
     year: 2024
@@ -162,6 +259,7 @@ publication:
     note: "International Conference on Learning Representations, May 2024."
 
   - title: "Enhancing transfer learning with flexible nonparametric posterior sampling"
+    kind: "conference"
     authors: "Hyungi Lee*, **Giung Nam***, Edwin Fong, Juho Lee"
     venue: "ICLR"
     year: 2024
@@ -169,6 +267,7 @@ publication:
     note: "International Conference on Learning Representations, May 2024."
 
   - title: "Lipsum-FT: robust fine-tuning of zero-shot models using random text guidance"
+    kind: "conference"
     authors: "**Giung Nam**, Byeongho Heo, Juho Lee"
     venue: "ICLR"
     year: 2024
@@ -176,6 +275,7 @@ publication:
     note: "International Conference on Learning Representations, May 2024."
 
   - title: "Traversing between modes in function space for fast ensembling"
+    kind: "conference"
     authors: "Eunggu Yun*, Hyungi Lee*, **Giung Nam***, Juho Lee"
     venue: "ICML"
     year: 2023
@@ -183,6 +283,7 @@ publication:
     note: "International Conference on Machine Learning, Jul 2023."
 
   - title: "Martingale posterior neural processes"
+    kind: "conference"
     authors: "Hyungi Lee, Eunggu Yun, **Giung Nam**, Edwin Fong, Juho Lee"
     venue: "ICLR"
     year: 2023
@@ -190,6 +291,7 @@ publication:
     note: "International Conference on Learning Representations, May 2023."
 
   - title: "Decoupled training for long-tailed classification with stochastic representations"
+    kind: "conference"
     authors: "**Giung Nam***, Sunguk Jang*, Juho Lee"
     venue: "ICLR"
     year: 2023
@@ -197,6 +299,7 @@ publication:
     note: "International Conference on Learning Representations, May 2023."
 
   - title: "Benefits of stochastic weight averaging in developing neural network radiation scheme for numerical weather prediction"
+    kind: "journal"
     authors: "Hwan-Jin Song, Soonyoung Roh, Juho Lee, **Giung Nam**, Eunggu Yun, Jongmin Yoon, Park Sa Kim"
     venue: "JAMES"
     year: 2022
@@ -204,6 +307,7 @@ publication:
     note: "Journal of Advances in Modeling Earth Systems, Oct 2022."
 
   - title: "Improving ensemble distillation with weight averaging and diversifying perturbation"
+    kind: "conference"
     authors: "**Giung Nam**, Hyungi Lee, Byeongho Heo, Juho Lee"
     venue: "ICML"
     year: 2022
@@ -211,6 +315,7 @@ publication:
     note: "International Conference on Machine Learning, Jul 2022."
 
   - title: "Diversity matters when learning from ensembles"
+    kind: "conference"
     authors: "**Giung Nam***, Jongmin Yoon*, Yoonho Lee, Juho Lee"
     venue: "NeurIPS"
     year: 2021

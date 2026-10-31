@@ -4,6 +4,7 @@ title: "Notes on Schrodinger bridges"
 date: "2026-03-30"
 author: "Giung Nam"
 category: "Notes & Scribbles"
+type: "note"
 description: ""
 ---
 

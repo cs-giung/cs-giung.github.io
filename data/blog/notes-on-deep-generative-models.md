@@ -3,6 +3,7 @@ title: "Notes on deep generative models"
 date: "2026-03-16"
 author: "Giung Nam"
 category: "Notes & Scribbles"
+type: "note"
 description: ""
 ---
 

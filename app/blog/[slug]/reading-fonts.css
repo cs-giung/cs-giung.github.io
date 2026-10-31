@@ -1,0 +1,32 @@
+/* Self-hosted reading fonts. Licenses are shipped beside each font. */
+@font-face {
+  font-family: 'Source Serif 4';
+  src: url('/fonts/source-serif-4/SourceSerif4-Latin.woff2') format('woff2');
+  font-style: normal;
+  font-weight: 400 700;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Source Serif 4';
+  src: url('/fonts/source-serif-4/SourceSerif4-Latin-Italic.woff2') format('woff2');
+  font-style: italic;
+  font-weight: 400 700;
+  font-display: swap;
+}
+
+/* Upright Han glyphs are intentional in italic quotations too. An explicit
+   face avoids synthetic CJK italics disappearing in Chromium PDF output. */
+@font-face {
+  font-family: 'Blog CJK';
+  src: url('/fonts/noto-serif-tc/NotoSerifTC-Blog.woff2') format('woff2');
+  font-style: normal;
+  font-weight: 400 600;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Blog CJK';
+  src: url('/fonts/noto-serif-tc/NotoSerifTC-Blog.woff2') format('woff2');
+  font-style: italic;
+  font-weight: 400 600;
+  font-display: swap;
+}

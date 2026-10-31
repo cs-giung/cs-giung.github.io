@@ -1,49 +1,51 @@
-import type { Metadata } from "next";
-import { Geist, Geist_Mono, Noto_Sans_KR } from "next/font/google";
-import "./globals.css";
+import type { Metadata } from 'next'
+import type { ReactNode } from 'react'
+import localFont from 'next/font/local'
+import './globals.css'
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
+const geistSans = localFont({
+  src: '../assets/fonts/geist/Geist-Latin.woff2',
+  variable: '--font-geist-sans',
+  weight: '100 900',
+  display: 'swap',
+  fallback: ['Arial', 'Helvetica', 'sans-serif'],
+})
 
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-});
-
-const notoSansKR = Noto_Sans_KR({
-  variable: "--font-noto-sans-kr",
-  subsets: ["latin"], // Noto_Sans_KR automatically includes Korean
-  weight: ["300", "400", "500", "600"],
-});
+const geistMono = localFont({
+  src: '../assets/fonts/geist/GeistMono-Latin.woff2',
+  variable: '--font-geist-mono',
+  weight: '100 900',
+  display: 'swap',
+  adjustFontFallback: false,
+  fallback: ['ui-monospace', 'SFMono-Regular', 'Menlo', 'monospace'],
+})
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://cs-giung.github.io"),
+  metadataBase: new URL('https://cs-giung.github.io'),
   title: {
-    default: "Giung Nam",
-    template: "%s | Giung Nam",
+    default: 'Giung Nam',
+    template: '%s | Giung Nam',
   },
-  description: "Portfolio and CV of Giung Nam, AI Researcher at KAIST.",
+  description: 'Portfolio and CV of Giung Nam, AI Researcher at KAIST.',
   keywords: [
-    "Giung Nam",
-    "Nam Giung",
-    "AI Researcher",
-    "KAIST",
-    "Artificial Intelligence",
-    "Machine Learning",
-    "Deep Learning",
-    "Computer Science",
+    'Giung Nam',
+    'Nam Giung',
+    'AI Researcher',
+    'KAIST',
+    'Artificial Intelligence',
+    'Machine Learning',
+    'Deep Learning',
+    'Computer Science',
   ],
-  authors: [{ name: "Giung Nam", url: "https://cs-giung.github.io" }],
-  creator: "Giung Nam",
+  authors: [{ name: 'Giung Nam', url: 'https://cs-giung.github.io' }],
+  creator: 'Giung Nam',
   openGraph: {
-    title: "Giung Nam",
-    description: "Portfolio and CV of Giung Nam, AI Researcher at KAIST.",
-    url: "https://cs-giung.github.io",
-    siteName: "Giung Nam",
-    locale: "en_US",
-    type: "website",
+    title: 'Giung Nam',
+    description: 'Portfolio and CV of Giung Nam, AI Researcher at KAIST.',
+    url: 'https://cs-giung.github.io',
+    siteName: 'Giung Nam',
+    locale: 'en_US',
+    type: 'website',
   },
   robots: {
     index: true,
@@ -51,25 +53,21 @@ export const metadata: Metadata = {
     googleBot: {
       index: true,
       follow: true,
-      "max-video-preview": -1,
-      "max-image-preview": "large",
-      "max-snippet": -1,
+      'max-video-preview': -1,
+      'max-image-preview': 'large',
+      'max-snippet': -1,
     },
   },
-};
+}
 
 export default function RootLayout({
   children,
 }: Readonly<{
-  children: React.ReactNode;
+  children: ReactNode
 }>) {
   return (
     <html lang="en">
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} ${notoSansKR.variable} antialiased`}
-      >
-        {children}
-      </body>
+      <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>{children}</body>
     </html>
-  );
+  )
 }

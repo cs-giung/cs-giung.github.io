@@ -1,7 +1,8 @@
-import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar'
+import Image from 'next/image'
 import { Card, CardContent } from '@/components/ui/card'
-import { MapPin, Mail, User, GraduationCap, FileText } from 'lucide-react'
-import { PersonalInfo } from '@/lib/cv-data'
+import { EmailContact } from '@/components/contact/email-contact'
+import { Mail, User, GraduationCap } from 'lucide-react'
+import type { PersonalInfo } from '@/lib/cv-data'
 
 interface ProfileHeaderProps {
   personal: PersonalInfo
@@ -9,17 +10,22 @@ interface ProfileHeaderProps {
 
 export function ProfileHeader({ personal }: ProfileHeaderProps) {
   return (
-    <Card className="w-full">
-      <CardContent className="pt-6">
-        <div className="flex flex-col md:flex-row gap-6 items-start">
+    <Card className="about-profile w-full">
+      <CardContent>
+        <div className="about-profile-layout flex flex-col md:flex-row gap-6 items-center">
           {/* Profile Image */}
-          <div className="flex-shrink-0">
-            <Avatar className="w-32 h-32 md:w-40 md:h-40">
-              <AvatarImage src={personal.profile_image} alt={personal.name} />
-              <AvatarFallback className="text-2xl">
-                {personal.name.split(' ').map(n => n[0]).join('')}
-              </AvatarFallback>
-            </Avatar>
+          <div className="about-profile-image flex-shrink-0">
+            <Image
+              data-slot="avatar"
+              src={personal.profile_image}
+              alt={personal.name}
+              width={256}
+              height={256}
+              unoptimized
+              loading="eager"
+              fetchPriority="high"
+              className="h-32 w-32 rounded-full object-cover md:h-40 md:w-40"
+            />
           </div>
 
           {/* Profile Info */}
@@ -29,27 +35,9 @@ export function ProfileHeader({ personal }: ProfileHeaderProps) {
 
             {/* Contact Information */}
             <div className="grid grid-cols-1 gap-2 text-sm">
-
-              <div className="flex items-center gap-2">
-                <MapPin className="w-4 h-4 text-muted-foreground" />
-                {personal.location}
-              </div>
-
               <div className="flex items-center gap-2">
                 <Mail className="w-4 h-4 text-muted-foreground" />
-                {personal.email}
-              </div>
-
-              <div className="flex items-center gap-2">
-                <FileText className="w-4 h-4 text-muted-foreground" />
-                <a
-                  href={personal.cv_url}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-blue-600 hover:underline"
-                >
-                  CV.pdf
-                </a>
+                <EmailContact address={personal.email} className="text-blue-600 hover:underline" />
               </div>
 
               <div className="flex items-center gap-2">
@@ -61,7 +49,8 @@ export function ProfileHeader({ personal }: ProfileHeaderProps) {
                   className="text-blue-600 hover:underline"
                 >
                   GitHub
-                </a>|
+                </a>
+                |
                 <a
                   href={`https://huggingface.co/${personal.huggingface}`}
                   target="_blank"
@@ -69,7 +58,8 @@ export function ProfileHeader({ personal }: ProfileHeaderProps) {
                   className="text-blue-600 hover:underline"
                 >
                   HuggingFace
-                </a>|
+                </a>
+                |
                 <a
                   href={`https://www.linkedin.com/in/${personal.linkedin}`}
                   target="_blank"
@@ -89,7 +79,8 @@ export function ProfileHeader({ personal }: ProfileHeaderProps) {
                   className="text-blue-600 hover:underline"
                 >
                   Google Scholar
-                </a>|
+                </a>
+                |
                 <a
                   href={`https://www.semanticscholar.org/author/${personal.semantic_scholar}`}
                   target="_blank"
@@ -97,7 +88,8 @@ export function ProfileHeader({ personal }: ProfileHeaderProps) {
                   className="text-blue-600 hover:underline"
                 >
                   Semantic Scholar
-                </a>|
+                </a>
+                |
                 <a
                   href={`https://dblp.org/pid/${personal.dblp}`}
                   target="_blank"
