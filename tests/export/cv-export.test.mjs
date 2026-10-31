@@ -3,6 +3,29 @@ import fs from 'node:fs'
 import test from 'node:test'
 import { getCVData } from '../../lib/cv-data.ts'
 
+test('CV header omits redundant profile links while About retains them', () => {
+  const html = fs.readFileSync('out/cv/index.html', 'utf8')
+  const header = html.match(/<header\b[^>]*class="cv-profile"[^>]*>([\s\S]*?)<\/header>/)?.[1]
+  assert(header)
+  assert(!header.includes('cv-profile-links'))
+  assert(header.includes('cs-giung.github.io</a>'))
+  assert(header.includes('aria-label="Contact information"'))
+  assert(header.includes(`<time dateTime="${getCVData().document.updated}">`))
+
+  const about = fs.readFileSync('out/index.html', 'utf8')
+  for (const label of [
+    'Google Scholar',
+    'DBLP',
+    'Semantic Scholar',
+    'GitHub',
+    'HuggingFace',
+    'LinkedIn',
+  ]) {
+    assert(!header.includes(label), label)
+    assert(about.includes(`>${label}</a>`), label)
+  }
+})
+
 test('Teaching instructors link their names to Scholar while preserving course metadata', () => {
   const html = fs.readFileSync('out/cv/index.html', 'utf8')
   const teaching = html.match(

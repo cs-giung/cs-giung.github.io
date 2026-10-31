@@ -149,6 +149,11 @@
   margin-bottom: 6pt;
 }
 
+.cv-document .cv-document-meta {
+  flex-shrink: 0;
+  text-align: right;
+}
+
 .cv-document .cv-document-label {
   color: #555;
   font-size: 8.5pt;
@@ -181,18 +186,23 @@
   font-size: 9.5pt;
 }
 
-.cv-document .cv-profile-meta {
+.cv-document .cv-contact-line li {
   display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  align-items: baseline;
-  gap: 4pt 12pt;
-  margin-top: 6pt;
+  align-items: center;
+  gap: 4pt;
+}
+
+.cv-document .cv-contact-icon {
+  width: 10pt;
+  height: 10pt;
+  flex-shrink: 0;
   color: #555;
-  font-size: 8.5pt;
 }
 
 .cv-document .cv-updated {
+  margin-top: 3pt;
+  color: #555;
+  font-size: 8pt;
   white-space: nowrap;
 }
 
@@ -224,7 +234,7 @@
 }
 
 .cv-document .cv-career-period {
-  max-width: 44mm;
+  white-space: nowrap;
   color: #444;
   font-size: 9.5pt;
   text-align: right;
@@ -416,10 +426,9 @@
     gap: 4pt;
   }
 
-  .cv-document .cv-identity-heading,
-  .cv-document .cv-profile-meta {
+  .cv-document .cv-identity-heading {
     flex-direction: column;
-    align-items: flex-start;
+    align-items: stretch;
     gap: 4pt;
   }
 
@@ -429,7 +438,7 @@
   }
 
   .cv-document .cv-career-period {
-    max-width: none;
+    white-space: normal;
     text-align: left;
   }
 
