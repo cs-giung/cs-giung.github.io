@@ -120,17 +120,25 @@ test('formulas fit without clipping, expand accessibly, and resize for print', a
     for (const width of [320, 768, 1440]) {
       await page.setViewportSize({ width, height: 1000 })
       await expect
-        .poll(async () =>
-          page
-            .locator('[data-post-body] .katex-display')
-            .evaluateAll((nodes) =>
-              nodes.every(
-                (node) =>
-                  node.hasAttribute('data-math-fitted') && node.scrollWidth <= node.clientWidth + 1,
+        .poll(
+          () =>
+            page.locator('[data-post-body] .katex-display').evaluateAll((nodes) =>
+              nodes.flatMap((node, index) =>
+                node.hasAttribute('data-math-fitted') && node.scrollWidth <= node.clientWidth + 1
+                  ? []
+                  : [
+                      {
+                        index,
+                        fitted: node.hasAttribute('data-math-fitted'),
+                        width: node.clientWidth,
+                        scrollWidth: node.scrollWidth,
+                      },
+                    ],
               ),
             ),
+          { message: `${slug}: formulas must fit at ${width}px` },
         )
-        .toBe(true)
+        .toEqual([])
       expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(
         true,
       )

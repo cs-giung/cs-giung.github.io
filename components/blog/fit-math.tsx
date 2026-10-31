@@ -13,7 +13,7 @@ function dimensions(formula: HTMLElement) {
   const html = formula.querySelector<HTMLElement>('.katex-html')
   if (!html) return null
   const parts = Array.from(html.children)
-    .filter((child) => !child.classList.contains('tag'))
+    .filter((child) => !child.matches('.katex-tag, .tag'))
     .map((child) => child.getBoundingClientRect())
     .filter((rect) => rect.width > 0)
   const expression = parts.length
@@ -21,7 +21,7 @@ function dimensions(formula: HTMLElement) {
     : 0
   const tag = Math.max(
     0,
-    ...Array.from(html.querySelectorAll('.tag')).map(
+    ...Array.from(html.querySelectorAll('.katex-tag, .tag')).map(
       (child) => child.getBoundingClientRect().width,
     ),
   )
@@ -74,6 +74,7 @@ export function FitMath({ postSlug }: { postSlug: string }) {
       frame = 0
       for (const entry of formulas) {
         const { display, formula, button } = entry
+        display.dataset.mathFitted = 'true'
         formula.style.fontSize = entry.originalSize
         const size = parseFloat(getComputedStyle(formula).fontSize)
         const measurement = dimensions(formula)
@@ -95,9 +96,19 @@ export function FitMath({ postSlug }: { postSlug: string }) {
           scale *= correction.scale
           formula.style.fontSize = `${size * scale}px`
         }
+        // Layout boxes can omit glyph/strut overhang. Check real scrollable
+        // bounds on screen, preserving the separate paper-width print target.
+        if (!printing) {
+          for (let pass = 0; pass < 4; pass++) {
+            const overflow = display.scrollWidth - display.clientWidth
+            if (overflow <= 0) break
+            const correction = mathFit(available, available + overflow * 2)
+            scale *= correction.scale
+            formula.style.fontSize = `${size * scale}px`
+          }
+        }
         entry.width = initial.width
         entry.fontSize = size
-        display.dataset.mathFitted = 'true'
         button.hidden = printing || scale >= 0.8
       }
     }
