@@ -298,6 +298,16 @@ export const drawerImages: readonly DrawerImage[] = [
       'https://commons.wikimedia.org/wiki/File:Paul_Allen_and_Bill_Gates_at_Lakeside_School_in_1970.jpg',
   },
   {
+    year: 1976,
+    title: 'Steve Jobs and Steve Wozniak with an Apple-1 computer.',
+    alt: 'Steve Jobs and Steve Wozniak with an exposed Apple-1 circuit board, a keyboard, and a monitor.',
+    src: '/drawer/1976-e329cc2e.webp',
+    width: 339,
+    height: 512,
+    credit: 'Joe Melena · © Apple Computer, Inc. · CHM',
+    source: 'https://www.computerhistory.org/revolution/personal-computers/17/300/1052',
+  },
+  {
     year: 1979,
     title: "Jean-Pierre Luminet's simulated black hole.",
     alt: "Two pages of Luminet's paper with contour diagrams and a simulated black hole.",
@@ -306,6 +316,16 @@ export const drawerImages: readonly DrawerImage[] = [
     height: 512,
     credit: '© European Southern Observatory · NASA ADS',
     source: 'https://ui.adsabs.harvard.edu/abs/1979A%26A....75..228L/abstract',
+  },
+  {
+    year: 1981,
+    title: 'Paul Allen and Bill Gates in a computer room, 1981.',
+    alt: 'Paul Allen and Bill Gates in a room with large computer cabinets, shelves of reels, and a terminal.',
+    src: '/drawer/1981-0968a313.webp',
+    width: 762,
+    height: 512,
+    credit: 'Via The Oregonian/OregonLive · photographer unidentified',
+    source: 'https://www.oregonlive.com/business/2018/10/paul_allen_was_the_idea_man_wh.html',
   },
   {
     year: 1985,
@@ -386,6 +406,17 @@ export const drawerImages: readonly DrawerImage[] = [
     height: 512,
     credit: 'Game Over: Kasparov and the Machine (2003)',
     source: 'https://www.youtube.com/watch?v=gDe-uHsEMn8',
+  },
+  {
+    year: 1999,
+    title: 'Google’s early team outside its Palo Alto office.',
+    alt: 'Google team members posing outside an office under a Google! banner, wearing company shirts.',
+    src: '/drawer/1999-2f2bf259.webp',
+    width: 780,
+    height: 512,
+    credit: 'Google LLC Handout · EPA · via The Guardian',
+    source:
+      'https://www.theguardian.com/technology/2018/sep/24/google-at-20-larry-page-sergey-brin-internet',
   },
   {
     year: 2007,

@@ -153,6 +153,34 @@ test('the Lakeside photograph uses 1970 rather than the later Microsoft founding
   )
 })
 
+test('the Apple-1 photograph retains the museum year and photographer credit', () => {
+  const entry = image('e329cc2e')
+  assert.equal(entry.year, 1976)
+  assert.equal(entry.src, '/drawer/1976-e329cc2e.webp')
+  assert.equal(entry.width, 339)
+  assert.equal(entry.height, 512)
+  assert.equal(entry.credit, 'Joe Melena · © Apple Computer, Inc. · CHM')
+  assert.equal(
+    entry.source,
+    'https://www.computerhistory.org/revolution/personal-computers/17/300/1052',
+  )
+  assert.match(entry.title, /Steve Jobs.*Steve Wozniak.*Apple-1/)
+})
+
+test('the Allen and Gates photograph retains its requested year and qualified source credit', () => {
+  const entry = image('0968a313')
+  assert.equal(entry.year, 1981)
+  assert.equal(entry.src, '/drawer/1981-0968a313.webp')
+  assert.equal(entry.width, 762)
+  assert.equal(entry.height, 512)
+  assert.equal(entry.credit, 'Via The Oregonian/OregonLive · photographer unidentified')
+  assert.equal(
+    entry.source,
+    'https://www.oregonlive.com/business/2018/10/paul_allen_was_the_idea_man_wh.html',
+  )
+  assert.match(entry.title, /Paul Allen.*Bill Gates/)
+})
+
 test('the Linux announcement uses its 1991 message date rather than the rendering date', () => {
   const entry = image('ed14b0c9')
   assert.equal(entry.year, 1991)
@@ -160,6 +188,20 @@ test('the Linux announcement uses its 1991 message date rather than the renderin
   assert.match(entry.alt, /25 August 1991 comp\.os\.minix/)
   assert.equal(entry.credit, 'Janiara1 (image) · Linus Torvalds (text) · CC BY-SA 4.0')
   assert.equal(entry.source, 'https://commons.wikimedia.org/wiki/File:Linus_eka_email.png')
+})
+
+test('the Google team photograph retains its agreed 1999 year and source attribution', () => {
+  const entry = image('2f2bf259')
+  assert.equal(entry.year, 1999)
+  assert.equal(entry.src, '/drawer/1999-2f2bf259.webp')
+  assert.equal(entry.width, 780)
+  assert.equal(entry.height, 512)
+  assert.match(entry.title, /Google.*Palo Alto/)
+  assert.equal(entry.credit, 'Google LLC Handout · EPA · via The Guardian')
+  assert.equal(
+    entry.source,
+    'https://www.theguardian.com/technology/2018/sep/24/google-at-20-larry-page-sergey-brin-internet',
+  )
 })
 
 test('the Nobel ceremony frame retains its 2024 event year and official source credit', () => {

@@ -191,12 +191,34 @@ the same initial group and browser-native lazy loading remain functional.
   applying `PD-US-no notice`. Publication formalities and worldwide status are
   unverified; the registration-required yearbook service was not accessed.
   [Source](https://commons.wikimedia.org/wiki/File:Paul_Allen_and_Bill_Gates_at_Lakeside_School_in_1970.jpg).
+- `1976-e329cc2e.webp`: Steve Jobs and Steve Wozniak with an Apple-1 computer,
+  CHM object 102665181. The museum dates the photograph to April 1976, names
+  Joe Melena as photographer, gives “Courtesy of Joe Melena,” and identifies
+  © Apple Computer, Inc. as copyright owner. The supplied `102665181-03-01.jpg`
+  is byte-identical to the museum's 600px image. Permission for this website's
+  reproduction has not been established; the museum credit is not a reuse grant.
+  Resized from 600 × 907 to 339 × 512 with the encoding settings above, without
+  cropping, recoloring, or restoration.
+  [Source and catalogue](https://www.computerhistory.org/revolution/personal-computers/17/300/1052).
+  [Museum image](https://images.computerhistory.org/revonline/images/102665181-03-01.jpg?w=600).
 - `1979-fee80443.webp`: Luminet, _Image of a Spherical Black Hole with Thin
   Accretion Disk_, A&A 75, 228–235. PDF pages 7–8 (printed 234–235) are joined
   horizontally. Credit: © European Southern Observatory, via NASA ADS.
   Redistribution permission unverified.
   [Source](https://ui.adsabs.harvard.edu/abs/1979A%26A....75..228L/abstract).
   [Scan](https://articles.adsabs.harvard.edu/pdf/1979A%26A....75..228L).
+- `1981-0968a313.webp`: supplied photograph
+  `paul-allen-bill-gates-454c1edb1f861f89.jpg`, associated with the OregonLive
+  article about Paul Allen. The gallery retains the requested historical year,
+  1981, not the article URL's 2018 publication year. Both the article and its
+  public AMP URL returned HTTP 403 during review, so its caption, photographer
+  attribution, and reuse conditions were not independently read. The gallery
+  therefore credits the supplied source while explicitly leaving the photographer
+  unidentified; Microsoft authorship, a photo-agency credit, and public-domain
+  status are not assumed. Exact capture month and republication permission remain
+  unverified. Enlarged from 600 × 403 to 762 × 512 with the encoding settings
+  above, without cropping, recoloring, or restoration; enlargement adds no detail.
+  [Supplied source](https://www.oregonlive.com/business/2018/10/paul_allen_was_the_idea_man_wh.html).
 - `1985-7bc2a7a6.webp`: Erdős and Tao at the University of Adelaide. Attribution:
   Billy or Grace Tao; the photographer is not narrowed to one parent. Commons
   records VRT permission. This enlarged WebP reproduction remains under
@@ -240,6 +262,19 @@ the same initial group and browser-native lazy loading remain functional.
   is assigned to this frame. Film redistribution permission unverified.
   [Source](https://www.youtube.com/watch?v=gDe-uHsEMn8).
   [Event history](https://www.ibm.com/history/deep-blue).
+- `1999-2f2bf259.webp`: Google's early team outside its Palo Alto office,
+  supplied as `1340.avif`. The Guardian captions the same scene as the growing
+  Google team in Palo Alto before the move to Mountain View, crediting
+  Google LLC Handout / EPA. Its article places the Palo Alto office move in
+  March 1999. The agreed gallery year is 1999 on that contextual basis, not
+  Google's 1998 incorporation or the article's 24 September 2018 publication;
+  the caption does not separately establish an exact exposure date, and March
+  is not asserted as the capture month. Handout distribution and newspaper
+  publication do not establish permission for this website's republication;
+  reuse permission remains unverified. Resized from the supplied 1760 × 1156
+  AVIF to 780 × 512 with the encoding settings above, without additional
+  cropping, recoloring, or restoration.
+  [Source and image credit](https://www.theguardian.com/technology/2018/sep/24/google-at-20-larry-page-sergey-brin-internet).
 - `2007-cba3bccf.webp`: Jobs introduces the iPhone at Macworld, 9 January 2007,
   not the June retail launch. Protectstar Inc.'s upload is not identified as an
   official Apple publication. Frame reuse unverified.
