@@ -171,8 +171,7 @@ test('essays precede notes, then excerpts precede external links with each list 
   }
 })
 
-test('canonical PDFs and old case-sensitive aliases retain identical content', () => {
-  const html = read('blog/index.html')
+test('canonical PDFs retain their reviewed content and kebab-case filenames', () => {
   const canonical = new Set([
     '/you-and-your-research.pdf',
     '/advice-to-a-young-mathematician.pdf',
@@ -180,18 +179,9 @@ test('canonical PDFs and old case-sensitive aliases retain identical content', (
   ])
   for (const url of canonical) {
     assert.match(url, /^\/[a-z0-9]+(?:-[a-z0-9]+)*\.pdf$/)
+    assert(fs.lstatSync(`public${url}`).isFile(), url)
     assert.equal(fs.readFileSync(`out${url}`).subarray(0, 5).toString(), '%PDF-')
     assert(fs.readFileSync(`out${url}`).equals(fs.readFileSync(`public${url}`)))
-  }
-  const aliases = fs
-    .readdirSync('public', { withFileTypes: true })
-    .filter((entry) => entry.isSymbolicLink() && entry.name.endsWith('.pdf'))
-  assert.equal(aliases.length, 3)
-  for (const alias of aliases) {
-    const target = fs.readlinkSync(`public/${alias.name}`)
-    assert(canonical.has(`/${target}`))
-    assert(fs.readFileSync(`out/${alias.name}`).equals(fs.readFileSync(`out/${target}`)))
-    assert(!html.includes(`href="/${alias.name}"`))
   }
 })
 

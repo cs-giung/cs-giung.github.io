@@ -39,7 +39,12 @@ export default function Blog() {
         <h1 className="sr-only">Blog</h1>
         <div className="space-y-4">
           {hasOwn && (
-            <section data-blog-panel="own" aria-label="Original writing" className={panelClassName}>
+            <section
+              data-blog-panel="own"
+              data-reveal=""
+              aria-label="Original writing"
+              className={panelClassName}
+            >
               {articles.length > 0 && (
                 <ul
                   data-blog-list=""
@@ -70,7 +75,12 @@ export default function Blog() {
             </section>
           )}
           {hasReading && (
-            <section data-blog-panel="reading" aria-label="Reading" className={panelClassName}>
+            <section
+              data-blog-panel="reading"
+              data-reveal=""
+              aria-label="Reading"
+              className={panelClassName}
+            >
               {reading.length > 0 && (
                 <ul
                   data-blog-list=""

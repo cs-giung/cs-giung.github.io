@@ -25,7 +25,7 @@ export default function CVPage() {
     <main className="cv-page min-h-screen bg-background">
       <div className="cv-container container mx-auto px-4 py-8 max-w-4xl">
         <NavTabs />
-        <article className="cv-document rounded-xl border shadow-sm">
+        <article data-reveal="" className="cv-document rounded-xl border shadow-sm">
           <div className="cv-screen-only mb-6 flex justify-center">
             <PrintButton />
           </div>

@@ -11,6 +11,7 @@ export default defineConfig({
     baseURL: 'http://127.0.0.1:4173',
     viewport: { width: 1440, height: 1000 },
     headless: true,
+    reducedMotion: 'reduce',
     trace: 'retain-on-failure',
     screenshot: 'only-on-failure',
   },
@@ -26,7 +27,12 @@ export default defineConfig({
     },
     {
       name: 'mobile-webkit',
-      testMatch: ['**/profile.spec.ts', '**/print.spec.ts'],
+      testMatch: [
+        '**/profile.spec.ts',
+        '**/print.spec.ts',
+        '**/drawer.spec.ts',
+        '**/page-reveal.spec.ts',
+      ],
       use: { ...devices['iPhone 13'], browserName: 'webkit' },
     },
   ],

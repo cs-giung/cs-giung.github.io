@@ -1,0 +1,134 @@
+.drawer-gallery {
+  --drawer-default-height: clamp(144px, 25vw, 192px);
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  justify-content: flex-start;
+  gap: 1rem;
+  list-style: none;
+}
+
+.drawer-gallery > li {
+  --drawer-tile-height: var(--drawer-render-height, var(--drawer-default-height));
+  flex: 0 0 auto;
+  width: var(--drawer-render-width, calc(var(--drawer-tile-height) * var(--drawer-aspect)));
+}
+
+.drawer-item {
+  position: relative;
+  overflow: hidden;
+  border-radius: var(--radius);
+  isolation: isolate;
+  container-type: inline-size;
+}
+
+.drawer-image {
+  display: block;
+  width: 100%;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  cursor: pointer;
+}
+
+.drawer-image img {
+  display: block;
+  width: 100%;
+  height: var(--drawer-tile-height);
+}
+
+.drawer-image:focus-visible {
+  outline: 3px solid #2563eb;
+  outline-offset: -3px;
+}
+
+.drawer-caption {
+  position: absolute;
+  inset: auto 0 0;
+  padding: 0.625rem;
+  font-size: 13px;
+  line-height: 1.5;
+  color: white;
+  background: linear-gradient(to top, rgb(0 0 0 / 90%), rgb(0 0 0 / 65%));
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transform: translateY(0.25rem);
+  transition:
+    opacity 150ms ease,
+    transform 150ms ease,
+    visibility 150ms;
+}
+
+.drawer-item:hover .drawer-caption,
+.drawer-item:focus-within .drawer-caption,
+.drawer-item[data-caption-open] .drawer-caption {
+  opacity: 1;
+  visibility: visible;
+  transform: none;
+}
+
+.drawer-item[data-caption-dismissed] .drawer-caption {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+
+.drawer-year {
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.drawer-source {
+  pointer-events: auto;
+  white-space: nowrap;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+@container (max-width: 140px) {
+  .drawer-caption {
+    padding: 0.5rem;
+    font-size: 12px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .drawer-caption {
+    transition: none;
+  }
+}
+
+@media print {
+  .drawer-page {
+    min-height: auto;
+  }
+
+  .drawer-container {
+    width: 100%;
+    max-width: none;
+    padding: 0;
+  }
+
+  .drawer-gallery > li {
+    --drawer-tile-height: 160px;
+    width: calc(var(--drawer-tile-height) * var(--drawer-aspect));
+  }
+
+  .drawer-item {
+    break-inside: avoid;
+    border-radius: 0;
+  }
+
+  .drawer-page .drawer-item .drawer-caption {
+    position: static;
+    padding: 0.5rem 0 0;
+    color: #111;
+    background: transparent;
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+    transform: none;
+    transition: none;
+  }
+}

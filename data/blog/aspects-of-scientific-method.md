@@ -16,7 +16,7 @@ A heritage of thought about the process of scientific learning comes to us from 
 
 One important idea is that science is a means whereby learning is achieved, not by mere theoretical speculation on the one hand, nor by the undirected accumulation of practical facts on the other, but rather by a motivated iteration between theory and practice such as is illustrated in Figure A(1).
 
-![Theory–practice iteration and its feedback loop](/Box1976_Figure1.png)
+![Theory–practice iteration and its feedback loop](/aspects-of-scientific-method-figure-1.png)
 
 Matters of fact can lead to a tentative theory. Deductions from this tentative theory may be found to be discrepant with certain known or specially acquired facts. These discrepancies can then induce a modified, or in some cases a different, theory. Deductions made from the modified theory now may or may not be in conflict with fact, and so on. In reality this main iteration is accompanied by many simultaneous subiterations.
 

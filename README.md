@@ -1,6 +1,6 @@
 # Giung Nam's personal website
 
-A statically exported ABOUT, BLOG, and CV website built with Next.js, React,
+A statically exported ABOUT, BLOG, CV, and DRAWER website built with Next.js, React,
 TypeScript, and Tailwind CSS. GitHub Pages serves the generated `out/` directory.
 
 ## Development
@@ -23,7 +23,12 @@ blanket origin wildcards.
 - `data/blog/`: published articles, notes, and attributed excerpts.
 - `data/blog-links.yaml`: curated reading links.
 - `data/blog-redirects.json`: compatibility aliases for existing article URLs.
+- `lib/drawer-data.ts`: image captions, source links, and dimensions for DRAWER.
+- `public/drawer/`: collected WebP images and their source/rights notes.
 - `public/`: reviewed assets; every file here is deployed, even if no page links to it.
+
+Public assets use canonical filenames; retired case-sensitive PDF and figure
+aliases are not exported.
 
 `npm run new-post` saves drafts under ignored `.local/drafts/blog/` by default.
 Publish only after reviewing the content, setting `draft: false`, and moving the
@@ -70,4 +75,5 @@ Normal builds do not contact an external font API. Optional refresh commands are
 Forked from [yuneg11/yuneg11.github.io](https://github.com/yuneg11/yuneg11.github.io)
 under the MIT License. Original attribution is retained in `LICENSE`. Third-party
 fonts retain their licenses; attributed article excerpts and linked works retain
-their original authorship.
+their original authorship. Collected images retain third-party rights; see
+[image sources and rights](public/drawer/README.md).

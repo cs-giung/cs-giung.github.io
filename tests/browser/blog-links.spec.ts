@@ -1,5 +1,49 @@
 import { test, expect } from '@playwright/test'
 
+test('Dijkstra appears among excerpts with the requested plain gray description', async ({
+  page,
+}) => {
+  const description =
+    'The question of whether Machines Can Think, a question of which we now know that it is about as relevant as the question of whether Submarines Can Swim.'
+  for (const width of [320, 1440]) {
+    await page.setViewportSize({ width, height: 1000 })
+    await page.goto('/blog/')
+    const title = page.getByRole('link', { name: 'The threats to computing science', exact: true })
+    const row = page.locator('[data-blog-group="reading"] [data-blog-entry]').filter({ has: title })
+    await expect(row).toHaveCount(1)
+    await expect(row.locator('[data-post-author]')).toHaveText('Edsger W. Dijkstra')
+    await expect(row.locator('time')).toHaveText('1984')
+    const note = row.locator(':scope > p')
+    await expect(note).toHaveText(description)
+    await expect(note).toHaveClass(/text-muted-foreground/)
+    await expect(note.locator('a')).toHaveCount(0)
+    expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true)
+  }
+  await page.getByRole('link', { name: 'The threats to computing science', exact: true }).click()
+  await expect(page).toHaveURL('/blog/the-threats-to-computing-science/')
+  await expect(
+    page.getByRole('heading', { name: 'The threats to computing science', exact: true, level: 1 }),
+  ).toBeVisible()
+  const sources = page.locator('[data-post-source]')
+  await expect(sources).toHaveCount(1)
+  await expect(sources.getByRole('link')).toHaveAttribute(
+    'href',
+    'https://www.cs.utexas.edu/~EWD/transcriptions/EWD08xx/EWD898.html',
+  )
+  const excerpts = (await page.locator('[data-post-body] p').allTextContents())
+    .map((text) => text.trim())
+    .filter((text) => text !== '[…]' && !text.startsWith('Selected excerpts'))
+  const starts = [
+    'The Fathers of the field had been pretty confusing:',
+    'I called this focus on hardware a distortion',
+    'Since the Romans have taught us',
+    'The major attraction of the modern elixirs',
+    'As I said earlier, the programmable computer',
+  ]
+  expect(excerpts).toHaveLength(starts.length)
+  starts.forEach((start, index) => expect(excerpts[index].startsWith(start), start).toBe(true))
+})
+
 for (const hasTouch of [false, true]) {
   test.describe(hasTouch ? 'Touch devices with a mouse' : 'Mouse devices', () => {
     test.use({ hasTouch })

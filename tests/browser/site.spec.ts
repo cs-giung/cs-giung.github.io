@@ -17,6 +17,7 @@ test('main pages retain aligned cards, stable gutters, and shared insets', async
     for (const [route, selector] of [
       ['/', '.about-profile'],
       ['/blog/', '[data-blog-panel="own"]'],
+      ['/drawer/', '.drawer-gallery'],
       ['/cv/', '.cv-document'],
     ]) {
       await page.goto(route)
@@ -32,7 +33,7 @@ test('main pages retain aligned cards, stable gutters, and shared insets', async
         await page.locator('html').evaluate((element) => getComputedStyle(element).scrollbarGutter),
       ).toBe('stable')
     }
-    expect(positions).toEqual([positions[0], positions[0], positions[0]])
+    expect(positions).toEqual([positions[0], positions[0], positions[0], positions[0]])
     await expect(page.locator('.cv-document')).toHaveCSS('padding-left', '24px')
     const button = page.getByRole('button', { name: 'Print / Save as PDF' })
     await expect(button).toBeVisible()

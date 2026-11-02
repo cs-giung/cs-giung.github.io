@@ -6,9 +6,12 @@ test('CV header aligns its update and decorates contact details', async ({ page 
   await page.goto('/cv/')
   await page.evaluate(() => document.fonts.ready)
   const header = page.locator('.cv-profile')
-  const metadata = header.locator('.cv-identity-heading .cv-document-meta')
-  await expect(metadata.locator('.cv-document-label')).toHaveText('Curriculum Vitae')
-  await expect(metadata.locator('.cv-updated time')).toBeVisible()
+  const metadata = header.locator('.cv-identity-heading .cv-document-label')
+  await expect(metadata).toHaveText('Curriculum Vitae')
+  const contactRow = header.locator('.cv-contact-row')
+  const updated = contactRow.locator('.cv-updated')
+  await expect(updated.locator('time')).toBeVisible()
+  await expect(header.locator('.cv-identity-heading .cv-updated')).toHaveCount(0)
 
   const contacts = header.locator('.cv-contact-line li')
   await expect(contacts).toHaveCount(3)
@@ -22,15 +25,21 @@ test('CV header aligns its update and decorates contact details', async ({ page 
 
   for (const media of ['screen', 'print'] as const) {
     await page.emulateMedia({ media })
-    for (const width of media === 'screen' ? [320, 768, 1280] : [768, 1280]) {
+    for (const width of media === 'screen' ? [320, 390, 640, 768, 1280] : [768, 1280]) {
       await page.setViewportSize({ width, height: 900 })
       const headingBox = await header.locator('.cv-identity-heading').boundingBox()
       const metadataBox = await metadata.boundingBox()
-      const labelBox = await metadata.locator('.cv-document-label').boundingBox()
-      const updatedBox = await metadata.locator('.cv-updated').boundingBox()
-      expect(headingBox && metadataBox && labelBox && updatedBox).toBeTruthy()
-      expect(updatedBox!.y).toBeGreaterThanOrEqual(labelBox!.y + labelBox!.height)
+      const rowBox = await contactRow.boundingBox()
+      const contactsBox = await header.locator('.cv-contact-line').boundingBox()
+      const updatedBox = await updated.boundingBox()
+      expect(headingBox && metadataBox && rowBox && contactsBox && updatedBox).toBeTruthy()
       expect(metadataBox!.x + metadataBox!.width).toBeCloseTo(headingBox!.x + headingBox!.width, 0)
+      expect(updatedBox!.x + updatedBox!.width).toBeCloseTo(rowBox!.x + rowBox!.width, 0)
+      if (media === 'print' || width >= 768) {
+        expect(Math.abs(updatedBox!.y - contactsBox!.y)).toBeLessThan(6)
+        expect(contactsBox!.x + contactsBox!.width).toBeLessThan(updatedBox!.x)
+        expect(contactsBox!.height).toBeLessThan(25)
+      }
       expect(
         await page.evaluate(() => document.documentElement.scrollWidth <= window.innerWidth),
       ).toBe(true)

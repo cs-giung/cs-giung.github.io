@@ -4,14 +4,14 @@ import path from 'node:path'
 import test from 'node:test'
 
 test('Search Console verification files retain their exact contents in the export', () => {
-  for (const file of ['google08a4171fdeccc94c.html', 'google91bdf56f9a36698d.html']) {
+  for (const file of ['google91bdf56f9a36698d.html']) {
     const source = fs.readFileSync(path.join('public', file))
     assert.equal(source.toString('utf8').trim(), `google-site-verification: ${file}`)
     assert.deepEqual(fs.readFileSync(path.join('out', file)), source)
   }
 })
 
-test('the deployed export excludes local records, diagnostics, drafts, and retired private assets', () => {
+test('the export excludes local records, drafts, and retired assets', () => {
   for (const file of [
     'AGENTS.md',
     'docs',
@@ -23,6 +23,12 @@ test('the deployed export excludes local records, diagnostics, drafts, and retir
     '261020.pdf',
     'avatar_scholar_256.png',
     'dev-diagnostics.html',
+    'google08a4171fdeccc94c.html',
+    'AdviceToAYoungMathematician.pdf',
+    'TheHardwareLottery.pdf',
+    'YouAndYourResearch.pdf',
+    'Box1976_Figure1.png',
+    'Swift1726_Figure1.jpg',
     'blog/testing-blog-post',
   ])
     assert(!fs.existsSync(path.join('out', file)), file)

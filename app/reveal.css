@@ -1,0 +1,6 @@
+/* Content stays visible without JavaScript; only the enhancement applies transforms. */
+@media print, (prefers-reduced-motion: reduce) {
+  [data-reveal] {
+    transform: none !important;
+  }
+}

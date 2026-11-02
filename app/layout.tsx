@@ -1,7 +1,9 @@
 import type { Metadata } from 'next'
 import type { ReactNode } from 'react'
 import localFont from 'next/font/local'
+import { PageReveal } from '@/components/ui/page-reveal'
 import './globals.css'
+import './reveal.css'
 
 const geistSans = localFont({
   src: '../assets/fonts/geist/Geist-Latin.woff2',
@@ -67,7 +69,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>{children}</body>
+      <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
+        {children}
+        <PageReveal />
+      </body>
     </html>
   )
 }

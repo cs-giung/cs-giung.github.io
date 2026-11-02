@@ -11,6 +11,7 @@ export function NavTabs() {
     { name: 'ABOUT', href: '/' },
     { name: 'BLOG', href: '/blog' },
     { name: 'CV', href: '/cv' },
+    { name: 'DRAWER', href: '/drawer' },
   ]
 
   return (
@@ -29,7 +30,7 @@ export function NavTabs() {
             href={tab.href}
             aria-current={isActive ? 'page' : undefined}
             className={cn(
-              'px-6 py-3 text-sm font-medium transition-colors hover:text-foreground',
+              'px-3 py-3 text-sm font-medium whitespace-nowrap transition-colors hover:text-foreground sm:px-6',
               isActive
                 ? 'border-b-2 border-primary text-foreground'
                 : 'text-muted-foreground border-b-2 border-transparent',

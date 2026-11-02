@@ -56,6 +56,7 @@ function markdownComponents(post: BlogPostData): Components {
       node?.properties.dataPostMain ? (
         <article
           data-post-letter=""
+          data-reveal=""
           data-post-slug={post.slug}
           aria-labelledby="post-subject"
           className="post-letter rounded-2xl border border-border bg-card text-card-foreground shadow-sm"

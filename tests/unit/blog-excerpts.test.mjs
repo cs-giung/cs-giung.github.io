@@ -9,6 +9,52 @@ const blocks = (slug) =>
 const selections = (slug) =>
   blocks(slug).filter((block) => block !== '[…]' && !block.startsWith('*Selected excerpts'))
 
+test('Dijkstra preserves the requested description and five complete paragraphs in source order', () => {
+  const post = getBlogPostData('the-threats-to-computing-science')
+  const description =
+    'The question of whether Machines Can Think, a question of which we now know that it is about as relevant as the question of whether Submarines Can Swim.'
+  assert.equal(post.title, 'The threats to computing science')
+  assert.equal(post.author, 'Edsger W. Dijkstra')
+  assert.equal(post.date, '1984')
+  assert.equal(post.type, 'excerpt')
+  assert.equal(post.description, description)
+  assert.deepEqual(post.sources, [
+    {
+      title: 'EWD898: The threats to computing science (transcribed by Michael Lugo)',
+      url: 'https://www.cs.utexas.edu/~EWD/transcriptions/EWD08xx/EWD898.html',
+    },
+  ])
+  const paragraphs = selections(post.slug)
+  const sourceQuote = description.replace(/^The /, 'the ')
+  const boundaries = [
+    ['The Fathers of the field had been pretty confusing:', sourceQuote, 67],
+    [
+      'I called this focus on hardware a distortion',
+      'the key challenge computing science has to meet.',
+      108,
+    ],
+    [
+      'Since the Romans have taught us',
+      'the bugs he should not have introduced in the first place.',
+      200,
+    ],
+    ['The major attraction of the modern elixirs', 'they create an illusion of power.', 41],
+    [
+      'As I said earlier, the programmable computer',
+      'this challenge is exciting and we are ready for it.',
+      65,
+    ],
+  ]
+  assert.equal(paragraphs.length, boundaries.length)
+  paragraphs.forEach((paragraph, index) => {
+    const [start, end, words] = boundaries[index]
+    assert(paragraph.startsWith(start), start)
+    assert(paragraph.endsWith(end), end)
+    assert.equal(paragraph.split(/\s+/).length, words, start)
+  })
+  assert.equal((post.content.match(/^\[…\]$/gm) ?? []).length, 5)
+})
+
 test('Vygotsky retains four source paragraph selections and marks omitted passages', () => {
   const paragraphs = selections('a-cloud-shedding-a-shower-of-words')
   assert.equal(paragraphs.length, 4)
@@ -141,7 +187,7 @@ test('Orwell and Swift retain their existing source paragraph structure', () => 
   assert(paragraphs[1].startsWith('The first professor I saw'))
   assert(paragraphs[1].includes('The superficies was composed'))
   assert(paragraphs[1].includes('The pupils, at his command'))
-  assert(swift.includes('![Image](/Swift1726_Figure1.jpg)'))
+  assert(swift.includes('![Image](/the-machine-of-speculative-knowledge-figure-1.jpg)'))
 })
 
 test('Box retains its five sections, ten prose paragraphs, and explanatory figure', () => {
@@ -162,7 +208,7 @@ test('Box retains its five sections, ten prose paragraphs, and explanatory figur
   assert.equal(paragraphs.length, 10)
   assert(post.content.includes('Figure A(1)'))
   assert(post.content.includes('Figure A(2)'))
-  assert(post.content.includes('](/Box1976_Figure1.png)'))
+  assert(post.content.includes('](/aspects-of-scientific-method-figure-1.png)'))
   assert(post.content.includes('Pure mathematics is concerned with propositions'))
   assert(post.content.includes('in nature there never was a normal distribution'))
 })

@@ -10,7 +10,17 @@ test('CV header omits redundant profile links while About retains them', () => {
   assert(!header.includes('cv-profile-links'))
   assert(header.includes('cs-giung.github.io</a>'))
   assert(header.includes('aria-label="Contact information"'))
+  assert(
+    header.includes(
+      '<a href="https://www.seoulaihub.kr/" target="_blank" rel="noopener noreferrer">Seoul AI Hub</a>',
+    ),
+  )
+  assert(!header.includes('Seoul, South Korea'))
   assert(header.includes(`<time dateTime="${getCVData().document.updated}">`))
+  assert.match(
+    header,
+    /class="cv-contact-row"[\s\S]*class="cv-contact-line"[\s\S]*<\/ul><p class="cv-updated">/,
+  )
 
   const about = fs.readFileSync('out/index.html', 'utf8')
   for (const label of [
