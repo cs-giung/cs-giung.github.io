@@ -11,8 +11,8 @@ interface LayoutOptions {
   maxItemsPerRow?: number
 }
 
-// Preserve source order and aspect ratios. Completed rows fill the container;
-// the last row may be shorter, but never grows beyond the target height.
+// Preserve source order and aspect ratios. Single-column layouts fill every row;
+// multi-column layouts cap a sparse final row at the target height.
 export function justifiedLayout(
   aspects: readonly number[],
   width: number,
@@ -58,8 +58,9 @@ export function justifiedLayout(
     const imageSpace = available - gap * (end - start - 1)
     const fittedHeight = imageSpace / sum
     const finalRow = end === aspects.length
-    const height = finalRow ? Math.min(targetHeight, fittedHeight) : fittedHeight
-    const justified = !finalRow || fittedHeight <= targetHeight
+    const capped = finalRow && maxItemsPerRow !== 1 && fittedHeight > targetHeight
+    const height = capped ? targetHeight : fittedHeight
+    const justified = !capped
     let used = 0
     for (let index = start; index < end; index++) {
       const tileWidth =

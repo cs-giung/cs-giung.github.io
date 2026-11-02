@@ -187,6 +187,31 @@ test('Drawer justifies completed rows and left-aligns a capped final row', async
   }
 })
 
+test('Drawer fills the final mobile row without shrinking or cropping its image', async ({
+  page,
+}) => {
+  for (const width of [320, 375, 390, 511]) {
+    await page.setViewportSize({ width, height: 844 })
+    await page.goto('/drawer/', { waitUntil: 'networkidle' })
+    const gallery = page.locator('.drawer-gallery')
+    await expect(gallery).toHaveAttribute('data-layout-ready', 'true')
+    const last = gallery.locator(':scope > li').last()
+    await expect(last).toHaveAttribute('data-row', String(orderedImages.length - 1))
+    await expect(last).toHaveAttribute('data-justified', 'true')
+    const image = last.locator('img')
+    await image.scrollIntoViewIfNeeded()
+    const box = await gallery.boundingBox()
+    const dimensions = await image.evaluate((element: HTMLImageElement) => ({
+      width: element.getBoundingClientRect().width,
+      height: element.getBoundingClientRect().height,
+      aspect: Number(element.getAttribute('width')) / Number(element.getAttribute('height')),
+    }))
+    expect(dimensions.width).toBeCloseTo(box!.width, 0)
+    expect(dimensions.width / dimensions.height).toBeCloseTo(dimensions.aspect, 2)
+    expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true)
+  }
+})
+
 test('Drawer keeps a narrow portrait caption and its source inside the image', async ({ page }) => {
   await page.goto('/drawer/', { waitUntil: 'networkidle' })
   await expect(page.locator('.drawer-gallery')).toHaveAttribute('data-layout-ready', 'true')

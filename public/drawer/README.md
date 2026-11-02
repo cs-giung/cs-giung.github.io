@@ -20,6 +20,9 @@ not worldwide clearance. Unverified permissions must be reviewed before release.
   A representative year does not establish an exact exposure date.
 - Gallery metadata is in `lib/drawer-data.ts`. Newest years come first; source-array
   order breaks ties within a year.
+- Below 480px of gallery width, every image fills its own row, including the last
+  image; height follows the original aspect ratio. Wider layouts keep a sparse
+  final row capped at the target height rather than stretching its few images.
 
 ## Image loading
 
@@ -34,6 +37,21 @@ No image preloads or blanket high fetch priorities are added. Without JavaScript
 the same initial group and browser-native lazy loading remain functional.
 
 ## Sources and rights
+
+- `1812-48470d9c.webp`: _The Leader of the Luddites_, a colored print by an
+  unidentified artist, published by Messrs. Walker and Knight, Sweetings Alley,
+  Royal Exchange. Both the visible imprint and Commons date publication to
+  May 1812; the gallery uses the print's publication year, not a verified date
+  of a depicted event or a photograph of an identified leader. The scan's title,
+  publisher imprint, and paper margins are retained. Commons cites the Working
+  Class Movement Library catalogue and British Museum record 1990,1109.86 and
+  marks the file public domain (`PD-old` / `PD-1996`); those are source claims,
+  not a separate worldwide rights determination. The British Museum record
+  returned HTTP 403 during review, so its contents were not independently read.
+  Resized from the 3021 × 3988 JPEG to 388 × 512 with the encoding settings
+  above, without additional cropping, recoloring, or restoration.
+  [Source and rights record](https://commons.wikimedia.org/wiki/File:Luddite.jpg).
+  [Cited museum record](https://www.britishmuseum.org/collection/object/P_1990-1109-86).
 
 - `1837-92ed0aed.webp`: Darwin's “I think” tree sketch, Notebook B, DAR 121,
   page 36. The notebook spans 1837–1838; no exact sketch date is assigned.
@@ -240,6 +258,21 @@ the same initial group and browser-native lazy loading remain functional.
   13 March 2016 in Korea. The broadcast's 12 March U.S. date is a time-zone
   difference, not a different game. Official Google DeepMind footage; reuse unverified.
   [Source](https://www.youtube.com/watch?v=yCALyQRN3hw).
+- `2018-dcea580d.webp`: supplied frame `videoframe_20634.png` from
+  _Machine-Assisted Proofs – ICM2018_, IMU Discussion Panels, Panel 2, uploaded
+  by Rio ICM2018. The gallery dates the ICM 2018 event, not the video's upload
+  on 12 November 2018; no exact panel date is assigned. The description names
+  James Davenport as moderator and Luís Cruz-Filipe, Harald Helfgott, James
+  Maynard, Bjorn Poonen, and Pham Huu Tiep as panelists; individual positions in
+  the frame are not assigned from appearance. Credit: © ICM 2018 / IMPA.
+  The description explicitly states that rights belong to the Instituto de
+  Matemática Pura e Aplicada and that reuse of all or part requires prior written
+  authorization, except where current law provides otherwise. Permission to
+  republish this frame has not been established; official hosting and attribution
+  do not satisfy that condition. Resized from the supplied 1920 × 1080 PNG to
+  910 × 512 with the encoding settings above, without cropping, recoloring, or
+  removing any existing marks. The website code's MIT license does not apply.
+  [Source and stated reuse conditions](https://www.youtube.com/watch?v=T9ZqbQh-t9E).
 - `2022-445100c4.webp`: the exhibition photograph of _Théâtre D’opéra Spatial_
   with its “FIRST PLACE” ribbon and label, via VICE's contemporary reporting.
   The underlying work is by Jason M. Allen using Midjourney. The photograph's
@@ -253,3 +286,14 @@ the same initial group and browser-native lazy loading remain functional.
   Reuse permission and the linked livestream terms remain unverified.
   [Source](https://www.youtube.com/watch?v=6-A4dUowT4Q).
   [Livestream terms](https://www.nobelprize.org/ceremony/streams-terms-of-use/).
+- `2026-7634ba0a.webp`: supplied frame `videoframe_35250.png` from Terence Tao's
+  public lecture _Mathematics in the age of AI_ at ICM 2026. The projected title
+  slide and the first page of Tao's linked slides both give 24 July 2026;
+  the gallery dates the lecture, not the upload on 27 July. The linked video
+  consists of clips uploaded by Alvaro Lozano-Robledo, not an identified official
+  ICM recording. Credit: Terence Tao (lecture), video via Alvaro Lozano-Robledo;
+  individual camera authorship and permission to republish the frame remain
+  unverified. Resized from the supplied 1920 × 1080 PNG to 910 × 512, using the
+  encoding settings above, without cropping, recoloring, or removing any marks.
+  [Source](https://www.youtube.com/watch?v=sxAe4HJceFQ).
+  [Author's slides](https://teorth.github.io/tao-web/slides/age-of-ai-icm-2026.pdf).

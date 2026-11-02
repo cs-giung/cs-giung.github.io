@@ -12,6 +12,16 @@ export interface DrawerImage {
 
 export const drawerImages: readonly DrawerImage[] = [
   {
+    year: 1812,
+    title: '“The Leader of the Luddites,” published in May 1812.',
+    alt: 'A colored print of a sword-carrying figure in a dress, with armed figures and burning buildings behind.',
+    src: '/drawer/1812-48470d9c.webp',
+    width: 388,
+    height: 512,
+    credit: 'Unknown artist · Walker and Knight (publishers)',
+    source: 'https://commons.wikimedia.org/wiki/File:Luddite.jpg',
+  },
+  {
     year: 1837,
     title: 'Darwin’s “I think” tree of life sketch.',
     alt: 'A page from Darwin’s Notebook B with “I think” above a branching diagram of species.',
@@ -418,6 +428,16 @@ export const drawerImages: readonly DrawerImage[] = [
     source: 'https://www.youtube.com/watch?v=yCALyQRN3hw',
   },
   {
+    year: 2018,
+    title: 'The “Machine-Assisted Proofs” panel at ICM 2018.',
+    alt: 'Five seated panelists and a moderator beneath “Machine-Assisted Proofs” slides at ICM 2018.',
+    src: '/drawer/2018-dcea580d.webp',
+    width: 910,
+    height: 512,
+    credit: '© ICM 2018 · IMPA',
+    source: 'https://www.youtube.com/watch?v=T9ZqbQh-t9E',
+  },
+  {
     year: 2022,
     title: 'Théâtre D’opéra Spatial with its first-place ribbon.',
     alt: 'A photograph of the AI-generated artwork Théâtre D’opéra Spatial exhibited beside a FIRST PLACE ribbon at the Colorado State Fair.',
@@ -437,5 +457,15 @@ export const drawerImages: readonly DrawerImage[] = [
     height: 512,
     credit: '© Nobel Prize Outreach',
     source: 'https://www.youtube.com/watch?v=6-A4dUowT4Q',
+  },
+  {
+    year: 2026,
+    title: 'Terence Tao presents “Mathematics in the age of AI” at ICM 2026.',
+    alt: 'Terence Tao onstage beneath his lecture’s title slide, dated July 24, 2026, at ICM 2026.',
+    src: '/drawer/2026-7634ba0a.webp',
+    width: 910,
+    height: 512,
+    credit: 'Terence Tao · video via Alvaro Lozano-Robledo',
+    source: 'https://www.youtube.com/watch?v=sxAe4HJceFQ',
   },
 ]

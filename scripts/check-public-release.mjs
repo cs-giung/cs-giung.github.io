@@ -46,6 +46,7 @@ const reviewedAssets = new Set([
   'public/google91bdf56f9a36698d.html',
   'public/sitemap_index.xml',
   'public/fonts/README.md',
+  'public/drawer/1812-48470d9c.webp',
   'public/drawer/1837-92ed0aed.webp',
   'public/drawer/1878-13c1acd5.webp',
   'public/drawer/1888-3d605253.webp',
@@ -86,8 +87,10 @@ const reviewedAssets = new Set([
   'public/drawer/2010-5cadc5e3.webp',
   'public/drawer/2011-ac4c6eae.webp',
   'public/drawer/2016-f8900464.webp',
+  'public/drawer/2018-dcea580d.webp',
   'public/drawer/2022-445100c4.webp',
   'public/drawer/2024-c539b3fe.webp',
+  'public/drawer/2026-7634ba0a.webp',
   'public/drawer/README.md',
 ])
 const fontAsset =

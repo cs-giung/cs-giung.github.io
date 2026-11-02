@@ -8,6 +8,18 @@ function image(hash) {
   return entry
 }
 
+test('the Luddite print uses its 1812 publication year and distinguishes artist from publishers', () => {
+  const entry = image('48470d9c')
+  assert.equal(entry.year, 1812)
+  assert.equal(entry.src, '/drawer/1812-48470d9c.webp')
+  assert.equal(entry.width, 388)
+  assert.equal(entry.height, 512)
+  assert.match(entry.title, /The Leader of the Luddites.*May 1812/)
+  assert.match(entry.alt, /colored print/)
+  assert.equal(entry.credit, 'Unknown artist · Walker and Knight (publishers)')
+  assert.equal(entry.source, 'https://commons.wikimedia.org/wiki/File:Luddite.jpg')
+})
+
 test('Edison uses the requested 1878 display year while retaining approximate source dating', () => {
   const entry = image('13c1acd5')
   assert.equal(entry.year, 1878)
@@ -159,6 +171,29 @@ test('the Nobel ceremony frame retains its 2024 event year and official source c
   assert.equal(entry.credit, '© Nobel Prize Outreach')
   assert.equal(entry.source, 'https://www.youtube.com/watch?v=6-A4dUowT4Q')
   assert.match(entry.title, /2024 Nobel Prize award ceremony in Stockholm/)
+})
+
+test('the machine-assisted proofs panel retains its 2018 event year and rights credit', () => {
+  const entry = image('dcea580d')
+  assert.equal(entry.year, 2018)
+  assert.equal(entry.src, '/drawer/2018-dcea580d.webp')
+  assert.equal(entry.width, 910)
+  assert.equal(entry.height, 512)
+  assert.match(entry.title, /Machine-Assisted Proofs.*ICM 2018/)
+  assert.equal(entry.credit, '© ICM 2018 · IMPA')
+  assert.equal(entry.source, 'https://www.youtube.com/watch?v=T9ZqbQh-t9E')
+})
+
+test('the ICM lecture frame retains its 2026 event date and supplied video source', () => {
+  const entry = image('7634ba0a')
+  assert.equal(entry.year, 2026)
+  assert.equal(entry.src, '/drawer/2026-7634ba0a.webp')
+  assert.equal(entry.width, 910)
+  assert.equal(entry.height, 512)
+  assert.match(entry.title, /Terence Tao.*Mathematics in the age of AI.*ICM 2026/)
+  assert.match(entry.alt, /July 24, 2026/)
+  assert.equal(entry.credit, 'Terence Tao · video via Alvaro Lozano-Robledo')
+  assert.equal(entry.source, 'https://www.youtube.com/watch?v=sxAe4HJceFQ')
 })
 
 test('1969 images retain their requested editorial order within newest-first years', () => {

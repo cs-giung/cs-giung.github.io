@@ -43,11 +43,25 @@ test('a sparse last row is not inflated to fill the container', () => {
   assert.equal(justifiedLayout([1], 1000)[0].width, 192)
 })
 
-test('narrow layouts fit single-photo rows and invalid measurements are safe', () => {
-  const tiles = justifiedLayout(aspects, 273, { targetHeight: 160, maxItemsPerRow: 1 })
-  assert.equal(rowsOf(tiles).length, aspects.length)
-  assert(tiles.slice(0, -1).every((tile) => tile.width === 273))
-  assert(tiles.at(-1).height <= 160)
+test('single-column layouts fill every row, including the final portrait', () => {
+  for (const width of [273, 288.375, 358, 479]) {
+    const tiles = justifiedLayout(aspects, width, { targetHeight: 160, maxItemsPerRow: 1 })
+    assert.equal(rowsOf(tiles).length, aspects.length)
+    tiles.forEach((tile, index) => {
+      assert.equal(tile.width, width)
+      assert(tile.justified)
+      assert(Math.abs(tile.height * aspects[index] - width) < 1e-9)
+    })
+  }
+  for (const aspect of [0.5, 1, 2.5]) {
+    const [tile] = justifiedLayout([aspect], 358, { targetHeight: 160, maxItemsPerRow: 1 })
+    assert.equal(tile.width, 358)
+    assert.equal(tile.height, 358 / aspect)
+    assert(tile.justified)
+  }
+})
+
+test('invalid layout measurements are safe', () => {
   for (const width of [0, -1, Infinity, NaN]) assert.deepEqual(justifiedLayout(aspects, width), [])
   for (const ratio of [0, -1, Infinity, NaN]) assert.deepEqual(justifiedLayout([ratio], 800), [])
   assert.deepEqual(justifiedLayout([], 800), [])
