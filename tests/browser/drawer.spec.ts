@@ -73,11 +73,22 @@ test('Drawer measures loading on client navigation and without ResizeObserver', 
   await page.getByRole('link', { name: 'DRAWER', exact: true }).click()
   await expect(page.locator('.drawer-gallery')).toHaveAttribute('data-layout-ready', 'true')
   await expectInitialViewportLoading(page)
-  await page.setViewportSize({ width: 390, height: 844 })
-  await expect
-    .poll(() => page.locator('.drawer-gallery').getAttribute('data-gallery-width'))
-    .toBe('358')
-  await expectInitialViewportLoading(page)
+  for (const width of [390, 375]) {
+    await page.setViewportSize({ width, height: 844 })
+    await expect
+      .poll(() =>
+        page
+          .locator('.drawer-gallery')
+          .evaluate((gallery) =>
+            Math.abs(
+              Number(gallery.getAttribute('data-gallery-width')) -
+                gallery.getBoundingClientRect().width,
+            ),
+          ),
+      )
+      .toBeLessThan(1)
+    await expectInitialViewportLoading(page)
+  }
 })
 
 test('Drawer shows uncropped images and hover captions without horizontal overflow', async ({
