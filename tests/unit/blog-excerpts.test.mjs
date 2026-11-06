@@ -175,6 +175,45 @@ test('Advice preserves five contributors, source paragraphs, and Roman-numbered 
   assert.equal((post.content.match(/^\[…\]$/gm) || []).length, 7)
 })
 
+test('Monadology preserves ten complete sections, original numbering, and translation attribution', () => {
+  const post = getBlogPostData('monadology')
+  assert.equal(post.title, 'Monadology')
+  assert.equal(post.author, 'Gottfried Wilhelm Leibniz')
+  assert.equal(post.date, '1714')
+  assert.equal(post.type, 'excerpt')
+  assert.deepEqual(post.sources, [
+    {
+      title: 'Monadology, translated by Robert Latta (1898)',
+      url: 'https://en.wikisource.org/wiki/Monadology_%28Leibniz%2C_tr._Latta%29',
+    },
+  ])
+  assert(post.content.includes('translated by Robert Latta (1898)'))
+  const paragraphs = selections(post.slug)
+  assert.equal(paragraphs.length, 10)
+  assert.deepEqual(
+    paragraphs.map((paragraph) => Number(paragraph.match(/^(\d+)\\\./)?.[1])),
+    [17, 26, 27, 28, 29, 31, 32, 33, 34, 35],
+  )
+  const endings = [
+    '(Theodicy, Préf. [E. 474; G. vi. 37].)',
+    '(Theodicy "Discours de la Conformité", &c., § 65.)',
+    'as many and oft-repeated ordinary perceptions.',
+    'It is only the astronomer who thinks it on rational grounds.',
+    'the rational soul or mind [esprit].',
+    '(Theodicy 44, 169.)',
+    '(Theodicy 44, 196.)',
+    '(Theodicy 170, 174, 189, 280-282, 367. Abrégé, Object. 3.)',
+    'Definitions, Axioms and Postulates.',
+    '(Theodicy 36, 37, 44, 45, 49, 52, 121-122, 337, 340-344.)',
+  ]
+  paragraphs.forEach((paragraph, index) => assert(paragraph.endsWith(endings[index])))
+  assert(paragraphs[0].includes('Thus it is in a simple substance, and not in a compound'))
+  assert(paragraphs[1].includes('which resembles [imite] reason'))
+  assert(paragraphs[4].includes('the knowledge of ourselves and of God'))
+  assert.equal((post.content.match(/^\[…\]$/gm) ?? []).length, 2)
+  assert(!/^#{1,6}\s/m.test(post.content))
+})
+
 test('Orwell and Swift retain their existing source paragraph structure', () => {
   const orwell = blocks('the-function-of-the-machine')
   assert.equal(orwell.length, 1)
