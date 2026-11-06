@@ -10,12 +10,7 @@ const inlineMarkdownComponents: Components = {
   strong: ({ children }) => <strong className="font-semibold">{children}</strong>,
   em: ({ children }) => <em className="italic">{children}</em>,
   a: ({ children, href }) => (
-    <a
-      href={href}
-      className="text-blue-600 hover:underline"
-      target="_blank"
-      rel="noopener noreferrer"
-    >
+    <a href={href} className="text-link hover:underline" target="_blank" rel="noopener noreferrer">
       {children}
     </a>
   ),

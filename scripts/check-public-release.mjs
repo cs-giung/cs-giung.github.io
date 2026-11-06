@@ -7,6 +7,7 @@ import { parseFrontmatter } from '../lib/content-data.ts'
 const rootFiles = new Set([
   '.gitignore',
   '.node-version',
+  '.nvmrc',
   '.prettierignore',
   'LICENSE',
   'README.md',

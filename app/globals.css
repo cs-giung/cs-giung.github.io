@@ -5,6 +5,7 @@
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
+  --color-link: var(--link);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
   --color-ring: var(--ring);
@@ -32,11 +33,12 @@
 :root {
   --radius: 0.625rem;
   --card-padding: 1.5rem;
-  --background: oklch(1 0 0);
+  --background: #faf9f6;
+  --link: #2563eb;
   --foreground: oklch(0.141 0.005 285.823);
-  --card: oklch(1 0 0);
+  --card: #fefdfc;
   --card-foreground: oklch(0.141 0.005 285.823);
-  --popover: oklch(1 0 0);
+  --popover: #fefdfc;
   --popover-foreground: oklch(0.141 0.005 285.823);
   --primary: oklch(0.21 0.006 285.885);
   --primary-foreground: oklch(0.985 0 0);
@@ -101,7 +103,7 @@
   max-width: none;
   margin-inline: auto;
   padding: var(--card-padding);
-  background: white;
+  background: #fefdfc;
   color: #111;
   font-family: Arial, Helvetica, sans-serif;
   font-size: 10.5pt;
@@ -413,7 +415,7 @@
 
 @media screen {
   .cv-document a {
-    color: #1d4ed8;
+    color: var(--link);
   }
 
   .cv-document a:hover,
@@ -488,6 +490,12 @@
 }
 
 @media print {
+  :root {
+    --background: white;
+    --card: white;
+    --popover: white;
+  }
+
   .cv-page {
     page: cv;
     min-height: auto;
@@ -512,6 +520,7 @@
     border: 0;
     border-radius: 0;
     box-shadow: none;
+    background: white;
   }
 
   /* Compact sections stay together; long publication lists still flow freely. */

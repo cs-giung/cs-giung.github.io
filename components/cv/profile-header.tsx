@@ -37,7 +37,7 @@ export function ProfileHeader({ personal }: ProfileHeaderProps) {
             <div className="grid grid-cols-1 gap-2 text-sm">
               <div className="flex items-center gap-2">
                 <Mail className="w-4 h-4 text-muted-foreground" />
-                <EmailContact address={personal.email} className="text-blue-600 hover:underline" />
+                <EmailContact address={personal.email} className="text-link hover:underline" />
               </div>
 
               <div className="flex items-center gap-2">
@@ -46,7 +46,7 @@ export function ProfileHeader({ personal }: ProfileHeaderProps) {
                   href={`https://github.com/${personal.github}`}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-blue-600 hover:underline"
+                  className="text-link hover:underline"
                 >
                   GitHub
                 </a>
@@ -55,7 +55,7 @@ export function ProfileHeader({ personal }: ProfileHeaderProps) {
                   href={`https://huggingface.co/${personal.huggingface}`}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-blue-600 hover:underline"
+                  className="text-link hover:underline"
                 >
                   HuggingFace
                 </a>
@@ -64,7 +64,7 @@ export function ProfileHeader({ personal }: ProfileHeaderProps) {
                   href={`https://www.linkedin.com/in/${personal.linkedin}`}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-blue-600 hover:underline"
+                  className="text-link hover:underline"
                 >
                   LinkedIn
                 </a>
@@ -76,7 +76,7 @@ export function ProfileHeader({ personal }: ProfileHeaderProps) {
                   href={`https://scholar.google.com/citations?user=${personal.google_scholar}`}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-blue-600 hover:underline"
+                  className="text-link hover:underline"
                 >
                   Google Scholar
                 </a>
@@ -85,7 +85,7 @@ export function ProfileHeader({ personal }: ProfileHeaderProps) {
                   href={`https://www.semanticscholar.org/author/${personal.semantic_scholar}`}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-blue-600 hover:underline"
+                  className="text-link hover:underline"
                 >
                   Semantic Scholar
                 </a>
@@ -94,7 +94,7 @@ export function ProfileHeader({ personal }: ProfileHeaderProps) {
                   href={`https://dblp.org/pid/${personal.dblp}`}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-blue-600 hover:underline"
+                  className="text-link hover:underline"
                 >
                   DBLP
                 </a>

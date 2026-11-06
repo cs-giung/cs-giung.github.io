@@ -15,7 +15,7 @@ export function PostListItem({ title, authors, date, href, description }: PostLi
   const kind = isExternal ? 'external' : isPdf ? 'pdf' : 'internal'
   const opensNewTab = isExternal || isPdf
   const className =
-    'blog-title-link text-blue-600 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring dark:text-blue-300'
+    'blog-title-link text-link focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring dark:text-blue-300'
   const linkText = (
     <>
       {title}

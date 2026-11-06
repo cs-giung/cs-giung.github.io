@@ -8,7 +8,7 @@ export function MovedPage({ href, label = 'Blog' }: { href: string; label?: stri
       <meta httpEquiv="refresh" content={`0;url=${href}`} />
       <p>
         This page has moved to{' '}
-        <Link href={href} className="text-blue-600 hover:underline">
+        <Link href={href} className="text-link hover:underline">
           {label}
         </Link>
         .

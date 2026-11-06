@@ -26,7 +26,7 @@
     "check:blog-export": "node --test tests/export/blog-export.test.mjs",
     "check:email-export": "node scripts/check-email-export.mjs",
     "check:public": "node scripts/check-public-release.mjs",
-    "check": "npm run check:public && npm run lint && npm run format:check && npm run typecheck && npm test",
+    "check": "node scripts/check.mjs",
     "verify": "npm run check && npm run build && npm run test:export",
     "new-post": "node scripts/new-post.js",
     "fonts:blog-cjk": "node scripts/update-blog-cjk-font.mjs",

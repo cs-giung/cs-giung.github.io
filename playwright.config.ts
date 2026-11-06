@@ -1,9 +1,10 @@
+import { availableParallelism } from 'node:os'
 import { defineConfig, devices } from '@playwright/test'
 
 export default defineConfig({
   testDir: './tests/browser',
-  fullyParallel: false,
-  workers: 1,
+  fullyParallel: true,
+  workers: Math.min(process.env.CI ? 2 : 4, availableParallelism()),
   timeout: 90_000,
   retries: process.env.CI ? 1 : 0,
   reporter: [['list'], ['html', { open: 'never' }]],

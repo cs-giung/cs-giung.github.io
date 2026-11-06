@@ -5,7 +5,7 @@ TypeScript, and Tailwind CSS. GitHub Pages serves the generated `out/` directory
 
 ## Development
 
-Use Node.js 24.2+ and npm 11+.
+Use Node.js 24.2+ and npm 11+. Both `.nvmrc` and `.node-version` select Node.js 24.
 
 ```sh
 npm ci
@@ -48,8 +48,24 @@ npx playwright install chromium webkit
 npm run test:browser
 ```
 
-The checks cover publication boundaries, lint, formatting, types, content contracts,
-static exports, contact obfuscation, responsive layout, and interactive controls.
+`npm run check` runs publication, lint, formatting, type, and unit checks in parallel,
+reports each result, and fails if any check fails. Keep the production build after
+these checks: type generation and the build both write to `.next/`. Export and
+browser tests must use the completed build.
+
+Browser tests run independently across up to four local workers (two in CI). To
+adjust concurrency or iterate on only the affected tests against the built export:
+
+```sh
+npm run test:browser -- --workers=6
+npm run test:browser -- tests/browser/print.spec.ts --project=chromium
+npm run test:browser -- --grep 'Blog titles' --project=chromium
+```
+
+Use focused tests while iterating, then run the full verification and browser suite
+before shipping. The checks cover publication boundaries, lint, formatting, types,
+content contracts, static exports, contact obfuscation, responsive layout, and
+interactive controls.
 Configure an explicit Git commit email, preferably the noreply address shown in
 GitHub's email settings. Do not rely on an automatically detected local-machine
 identity. After staging changes, check the actual index before committing:

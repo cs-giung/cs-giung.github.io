@@ -2,6 +2,75 @@ import { test, expect } from '@playwright/test'
 
 test.use({ hasTouch: true })
 
+test('cards are lighter than the page on screen and surfaces stay white in print', async ({
+  page,
+}) => {
+  for (const [route, surface] of [
+    ['/', '[data-slot="card"]'],
+    ['/blog/', '[data-blog-panel]'],
+    ['/blog/blue-from-indigo/', '[data-post-letter]'],
+    ['/drawer/', null],
+    ['/cv/', '.cv-document'],
+  ] as const) {
+    await page.emulateMedia({ media: 'screen' })
+    await page.goto(route)
+    for (const media of ['screen', 'print'] as const) {
+      await page.emulateMedia({ media })
+      const background = media === 'screen' ? 'rgb(250, 249, 246)' : 'rgb(255, 255, 255)'
+      await expect(page.locator('body')).toHaveCSS('background-color', background)
+      await expect(page.locator('main')).toHaveCSS('background-color', background)
+      if (surface) {
+        const cards = page.locator(surface)
+        expect(await cards.count()).toBeGreaterThan(0)
+        const cardBackground = media === 'screen' ? 'rgb(254, 253, 252)' : 'rgb(255, 255, 255)'
+        for (const element of await cards.all()) {
+          await expect(element).toHaveCSS(
+            'background-color',
+            media === 'print' && surface === '[data-post-letter]'
+              ? 'rgba(0, 0, 0, 0)'
+              : cardBackground,
+          )
+        }
+      }
+    }
+  }
+})
+
+test('reading and profile links use the shared blue without changing print colors', async ({
+  page,
+}) => {
+  const blue = 'rgb(37, 99, 235)'
+  for (const [route, selector] of [
+    ['/', '.about-page .text-link'],
+    ['/blog/', '[data-blog-entry] h2 a'],
+    ['/cv/', '.cv-document a'],
+    ['/blog/blue-from-indigo/', '.post-letter-body a'],
+    ['/blog/blue-from-indigo/', '.post-footnotes a'],
+  ]) {
+    await page.goto(route)
+    const links = page.locator(selector)
+    expect(await links.count()).toBeGreaterThan(0)
+    for (const link of await links.all()) {
+      await expect(link).toHaveCSS('color', blue)
+    }
+  }
+
+  await page.emulateMedia({ media: 'print' })
+  for (const [route, selector] of [
+    ['/blog/blue-from-indigo/', '.post-letter-body a'],
+    ['/blog/blue-from-indigo/', '.post-footnotes a'],
+    ['/cv/', '.cv-document a'],
+  ]) {
+    await page.goto(route)
+    const link = page.locator(selector).first()
+    const inheritedColor = await link.evaluate(
+      (element) => getComputedStyle(element.parentElement!).color,
+    )
+    await expect(link).toHaveCSS('color', inheritedColor)
+    expect(inheritedColor).not.toBe(blue)
+  }
+})
+
 test('CV header aligns its update and decorates contact details', async ({ page }) => {
   await page.goto('/cv/')
   await page.evaluate(() => document.fonts.ready)

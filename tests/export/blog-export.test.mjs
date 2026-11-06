@@ -116,7 +116,7 @@ test('only blue titles link to articles, preserving native link behavior', () =>
     assert(!row.includes('<svg'))
     const heading = row.match(/<h2\b[^>]*>([\s\S]*?)<\/h2>/)?.[1]
     assert(heading?.includes('<a'))
-    assert(heading.includes('text-blue-600'))
+    assert(heading.includes('text-link'))
     assert(heading.includes('blog-title-link'))
     assert(row.indexOf('</a>') < row.indexOf('post-list-meta'))
     const description = row.match(/<p\b[^>]*>([\s\S]*?)<\/p>/)?.[1]

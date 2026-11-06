@@ -43,6 +43,15 @@ test('publication policy rejects local records, diagnostics, drafts, and unrevie
   assert.deepEqual(inspect('README.md', 'Open http://localhost:3000 with a published profile.'), [])
 })
 
+test('Node version files are public configuration and stay in sync', () => {
+  const nodeVersion = fs.readFileSync(new URL('../../.node-version', import.meta.url), 'utf8')
+  const nvmVersion = fs.readFileSync(new URL('../../.nvmrc', import.meta.url), 'utf8')
+  assert.equal(nodeVersion.trim(), '24')
+  assert.equal(nvmVersion.trim(), nodeVersion.trim())
+  assert.deepEqual(inspect('.node-version', nodeVersion), [])
+  assert.deepEqual(inspect('.nvmrc', nvmVersion), [])
+})
+
 test('commit metadata must not expose automatically detected local machine addresses', () => {
   assert(inspectCommitIdentity('Example <dev@workstation.local> 0 +0000').length > 0)
   assert.deepEqual(

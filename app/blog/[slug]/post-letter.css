@@ -83,7 +83,7 @@
 }
 .post-letter-body a,
 .post-footnotes a {
-  color: #2563eb;
+  color: var(--link);
   text-decoration: underline;
   text-underline-offset: 3px;
 }
@@ -298,8 +298,8 @@
 }
 .post-toc a:hover,
 .post-toc a[aria-current] {
-  color: #2563eb;
-  border-left-color: #2563eb;
+  color: var(--link);
+  border-left-color: var(--link);
 }
 .dark .post-toc a:hover,
 .dark .post-toc a[aria-current] {

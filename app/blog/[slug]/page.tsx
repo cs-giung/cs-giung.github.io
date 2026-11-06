@@ -149,7 +149,7 @@ export default async function BlogPost({ params }: Props) {
                     <ArrowLeft aria-hidden="true" className="h-3 w-3" />
                     Older
                   </span>
-                  <span className="block text-sm font-medium leading-6 group-hover:text-blue-600">
+                  <span className="block text-sm font-medium leading-6 group-hover:text-link">
                     {previous.title}
                   </span>
                 </Link>
@@ -162,7 +162,7 @@ export default async function BlogPost({ params }: Props) {
                     Newer
                     <ArrowRight aria-hidden="true" className="h-3 w-3" />
                   </span>
-                  <span className="block text-sm font-medium leading-6 group-hover:text-blue-600">
+                  <span className="block text-sm font-medium leading-6 group-hover:text-link">
                     {next.title}
                   </span>
                 </Link>
