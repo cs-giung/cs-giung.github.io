@@ -321,6 +321,17 @@ the same initial group and browser-native lazy loading remain functional.
   Reuse permission and the linked livestream terms remain unverified.
   [Source](https://www.youtube.com/watch?v=6-A4dUowT4Q).
   [Livestream terms](https://www.nobelprize.org/ceremony/streams-terms-of-use/).
+- `2025-2e1ddd98.webp`: supplied image
+  `time-magazine-person-of-the-year-ai-2025-001.webp`, depicting TIME's
+  _Person of the Year: The Architects of AI_ cover dated 29 December 2025.
+  The gallery dates the cover's publication year, not an actual gathering of
+  the depicted people. Credit: TIME; the individual illustrator's attribution
+  and republication permission remain unverified. The linked article could not
+  be retrieved during review; no reuse license is inferred from attribution
+  or public availability. The supplied file contains a 3840 × 4802 JPEG despite
+  its WebP extension. Resized to a 409 × 512 WebP with the encoding settings
+  above, without cropping, recoloring, or removing existing marks.
+  [Source](https://time.com/7339685/person-of-the-year-2025-ai-architects/).
 - `2026-7634ba0a.webp`: supplied frame `videoframe_35250.png` from Terence Tao's
   public lecture _Mathematics in the age of AI_ at ICM 2026. The projected title
   slide and the first page of Tao's linked slides both give 24 July 2026;

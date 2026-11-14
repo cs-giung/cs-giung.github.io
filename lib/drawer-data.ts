@@ -490,6 +490,16 @@ export const drawerImages: readonly DrawerImage[] = [
     source: 'https://www.youtube.com/watch?v=6-A4dUowT4Q',
   },
   {
+    year: 2025,
+    title: 'TIME names “The Architects of AI” its 2025 Person of the Year.',
+    alt: 'TIME’s December 29, 2025 cover showing eight AI leaders seated on a steel beam above a city beneath “Person of the Year: The Architects of AI”.',
+    src: '/drawer/2025-2e1ddd98.webp',
+    width: 409,
+    height: 512,
+    credit: 'TIME · cover illustration',
+    source: 'https://time.com/7339685/person-of-the-year-2025-ai-architects/',
+  },
+  {
     year: 2026,
     title: 'Terence Tao presents “Mathematics in the age of AI” at ICM 2026.',
     alt: 'Terence Tao onstage beneath his lecture’s title slide, dated July 24, 2026, at ICM 2026.',

@@ -94,6 +94,7 @@ const reviewedAssets = new Set([
   'public/drawer/2018-dcea580d.webp',
   'public/drawer/2022-445100c4.webp',
   'public/drawer/2024-c539b3fe.webp',
+  'public/drawer/2025-2e1ddd98.webp',
   'public/drawer/2026-7634ba0a.webp',
   'public/drawer/README.md',
 ])
