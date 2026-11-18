@@ -17,6 +17,23 @@ Open <http://localhost:3000>. Development and production builds use separate
 `NEXT_DEV_ALLOWED_ORIGINS` in an ignored `.env.development.local` file. Do not use
 blanket origin wildcards.
 
+### Dependency updates
+
+Keep `next` and `eslint-config-next` on matching releases and commit
+`package-lock.json` with dependency changes. After updating, reinstall with
+`npm ci`, run the full verification and browser suite below, and smoke-test
+`npm run dev` separately from the production export.
+
+Keep `@types/node` on the Node.js 24 runtime line. ESLint 10 and TypeScript 7
+are deferred until the lint stack supports them: `eslint-plugin-react` currently
+requires ESLint 9 or earlier, and `typescript-eslint` requires TypeScript below
+6.1. Do not bypass these peer requirements with `--force` or `--legacy-peer-deps`.
+
+Check both `npm audit` and `npm audit --omit=dev`. The current development-only
+`picomatch` ReDoS advisory (GHSA-fc5q-39xc-vjpf) has no patched release available;
+revisit it when updating the lint stack. Do not use `npm audit fix --force` to
+downgrade Next.js's lint configuration to an incompatible major version.
+
 ## Content
 
 - `data/cv.yaml`: intentionally public profile, contact, and academic CV information.

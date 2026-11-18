@@ -289,6 +289,17 @@ the same initial group and browser-native lazy loading remain functional.
   2013 upload. Official IBM Research footage; frame reuse unverified.
   [Source](https://www.youtube.com/watch?v=P18EdAKuC1U).
   [Event history](https://www.ibm.com/history/watson-jeopardy).
+- `2013-54bc54e1.webp`: supplied image `13-03-12-Google-Hinton_0.avif`,
+  showing Ilya Sutskever, Alex Krizhevsky, and Geoffrey Hinton beside a whiteboard.
+  The University of Toronto's article, published 12 March 2013, reports Google's
+  acquisition of their company DNNresearch and credits the photograph to
+  John Guatto. The gallery dates the acquisition announcement, not a verified
+  exposure date. Republication permission remains unverified; the university's
+  publication and photographer credit do not establish a reuse license.
+  Enlarged from the supplied 600 × 400 AVIF to 768 × 512 with the encoding
+  settings above, without cropping, recoloring, or removing existing marks;
+  enlargement adds no detail.
+  [Source and photo credit](https://www.utoronto.ca/news/google-acquires-u-t-neural-networks-company).
 - `2016-f8900464.webp`: “AlphaGo resigns” in match 4 against Lee Sedol,
   13 March 2016 in Korea. The broadcast's 12 March U.S. date is a time-zone
   difference, not a different game. Official Google DeepMind footage; reuse unverified.
@@ -315,6 +326,14 @@ the same initial group and browser-native lazy loading remain functional.
   does not establish rights to this photograph.
   [Source](https://www.vice.com/en/article/an-ai-generated-artwork-won-first-place-at-a-state-fair-fine-arts-competition-and-artists-are-pissed/).
   [Photograph](https://www.vice.com/wp-content/uploads/sites/2/2022/08/1661956681982-screen-shot-2022-08-30-at-102800-pm.png).
+- `2022-85ca427b.webp`: screenshot of Sam Altman's ChatGPT launch tweet,
+  dated 30 November 2022, extracted directly from the embedded image on the
+  second slide of Christian Spannagel's presentation hosted by PH Salzburg.
+  The gallery dates the tweet, not the 2023 slide deck. Credit: Sam Altman
+  (tweet), screenshot via Christian Spannagel. Republication permission is
+  unverified. Resized from 1176 × 584 to 1031 × 512 with the encoding settings
+  above, without cropping or recoloring.
+  [Source (slide 2)](https://phsalzburg.at/wp-content/uploads/2023/03/folien-vortrag-spannagel.pdf#page=2).
 - `2024-c539b3fe.webp`: Nobel Prize ceremony at Stockholm Concert Hall,
   10 December 2024; © Nobel Prize Outreach. The broadcast's existing watermarks
   are retained. Official footage does not itself license extracted frames.

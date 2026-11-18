@@ -449,6 +449,16 @@ export const drawerImages: readonly DrawerImage[] = [
     source: 'https://www.youtube.com/watch?v=P18EdAKuC1U',
   },
   {
+    year: 2013,
+    title: 'Google acquires DNNresearch, founded by Geoffrey Hinton and two of his students.',
+    alt: 'Ilya Sutskever, Alex Krizhevsky, and Geoffrey Hinton standing beside a whiteboard at the University of Toronto.',
+    src: '/drawer/2013-54bc54e1.webp',
+    width: 768,
+    height: 512,
+    credit: 'John Guatto · University of Toronto',
+    source: 'https://www.utoronto.ca/news/google-acquires-u-t-neural-networks-company',
+  },
+  {
     year: 2016,
     title: 'AlphaGo resigns in its fourth game against Lee Sedol.',
     alt: 'A Go board on a monitor with an “AlphaGo resigns” dialog.',
@@ -478,6 +488,16 @@ export const drawerImages: readonly DrawerImage[] = [
     credit: 'Jason M. Allen (artwork) · exhibition photo via VICE',
     source:
       'https://www.vice.com/en/article/an-ai-generated-artwork-won-first-place-at-a-state-fair-fine-arts-competition-and-artists-are-pissed/',
+  },
+  {
+    year: 2022,
+    title: 'Sam Altman announces the launch of ChatGPT on Twitter.',
+    alt: 'Sam Altman’s November 30, 2022 tweet reads: “today we launched ChatGPT. try talking with it here:” followed by chat.openai.com.',
+    src: '/drawer/2022-85ca427b.webp',
+    width: 1031,
+    height: 512,
+    credit: 'Sam Altman (tweet) · screenshot via Christian Spannagel',
+    source: 'https://phsalzburg.at/wp-content/uploads/2023/03/folien-vortrag-spannagel.pdf#page=2',
   },
   {
     year: 2024,
