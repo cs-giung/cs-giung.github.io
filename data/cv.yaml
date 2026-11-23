@@ -1,7 +1,7 @@
 # Document metadata is separate from the public About profile.
 # Update this date when CV content changes, not on every build.
 document:
-  updated: "2026-10-30"
+  updated: "2026-11-18"
   affiliation: "Information & Electronics Research Institute"
 
 personal:
@@ -37,6 +37,8 @@ service:
     - title: "ICML"
       period: "2027"
   reviewing:
+    - title: "ARR"
+      period: "2026"
     - title: "AAAI"
       period: "2025, 2027"
     - title: "AISTATS"
