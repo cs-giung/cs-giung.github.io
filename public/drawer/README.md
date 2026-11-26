@@ -304,6 +304,13 @@ the same initial group and browser-native lazy loading remain functional.
   13 March 2016 in Korea. The broadcast's 12 March U.S. date is a time-zone
   difference, not a different game. Official Google DeepMind footage; reuse unverified.
   [Source](https://www.youtube.com/watch?v=yCALyQRN3hw).
+- `2016-3ac428b3.webp`: the signed panel of the first NVIDIA DGX-1, dedicated
+  to Elon and the OpenAI team. The gallery dates the 2016 delivery, not the
+  later X post. The photographer and republication permission are unverified.
+  Extracted the left 599 × 423 panel from the supplied 1200 × 423 PNG, excluding
+  the transparent divider, and resized it to 725 × 512 with the encoding settings
+  above. No further cropping or recoloring.
+  [Source](https://x.com/JensenHuang/status/2086844564674105404).
 - `2018-dcea580d.webp`: supplied frame `videoframe_20634.png` from
   _Machine-Assisted Proofs – ICM2018_, IMU Discussion Panels, Panel 2, uploaded
   by Rio ICM2018. The gallery dates the ICM 2018 event, not the video's upload

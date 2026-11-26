@@ -469,6 +469,16 @@ export const drawerImages: readonly DrawerImage[] = [
     source: 'https://www.youtube.com/watch?v=yCALyQRN3hw',
   },
   {
+    year: 2016,
+    title: 'The first NVIDIA DGX-1, signed for OpenAI.',
+    alt: 'A silver DGX-1 panel covered in signatures, with a handwritten dedication to Elon and the OpenAI team.',
+    src: '/drawer/2016-3ac428b3.webp',
+    width: 725,
+    height: 512,
+    credit: 'Via Jensen Huang',
+    source: 'https://x.com/JensenHuang/status/2086844564674105404',
+  },
+  {
     year: 2018,
     title: 'The “Machine-Assisted Proofs” panel at ICM 2018.',
     alt: 'Five seated panelists and a moderator beneath “Machine-Assisted Proofs” slides at ICM 2018.',
